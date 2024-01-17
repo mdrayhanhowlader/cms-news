@@ -1,13 +1,12 @@
 import 'package:get/get.dart';
 
 class CommonAppbarController extends GetxController {
-  //TODO: Implement CommonAppbarController
-
-  final count = 0.obs;
   @override
   void onInit() {
     super.onInit();
   }
+
+  final count = 0.obs;
 
   @override
   void onReady() {

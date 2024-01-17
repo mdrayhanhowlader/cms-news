@@ -3,7 +3,7 @@ import '../constants/extensions/string_extensions.dart';
 
 class ColorConstant {
   // Light Theme
-  static Color primaryColor = Color(0xFF134fe8);
+  static Color primaryColor = Color(0xFF292929);
   static Color secondaryColor = Color.fromARGB(255, 222, 123, 53);
   static Color primaryDarkColor = Color.fromARGB(255, 31, 34, 43);
   static Color primaryLightColor = Color.fromRGBO(240, 240, 240, 1);
