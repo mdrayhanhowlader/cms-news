@@ -1,0 +1,5 @@
+Setup TypeID
+
+@HiveType(typeId: 0) = schlist;
+@HiveType(typeId: 1) = appcode;
+@HiveType(typeId: 2) = login;
