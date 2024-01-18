@@ -2,6 +2,8 @@ import 'package:get/get.dart';
 
 import '../modules/common_appbar/bindings/common_appbar_binding.dart';
 import '../modules/common_appbar/views/common_appbar_view.dart';
+import '../modules/common_bottombar/bindings/common_bottombar_binding.dart';
+import '../modules/common_bottombar/views/common_bottombar_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/test/bindings/test_binding.dart';
@@ -29,6 +31,11 @@ class AppPages {
       name: _Paths.TEST,
       page: () => const TestView(),
       binding: TestBinding(),
+    ),
+    GetPage(
+      name: _Paths.COMMON_BOTTOMBAR,
+      page: () => const CommonBottombarView(),
+      binding: CommonBottombarBinding(),
     ),
   ];
 }

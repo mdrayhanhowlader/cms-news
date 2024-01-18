@@ -3,6 +3,7 @@ import 'package:cms_maahadtahfizaddin/app/modules/common_appbar/views/widgets/na
 import 'package:cms_maahadtahfizaddin/app/modules/common_appbar/views/widgets/nav_top.dart';
 import 'package:cms_maahadtahfizaddin/app/modules/home/views/home_view.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 
 class CommonAppbarView extends GetView<CommonAppbarController>
@@ -19,14 +20,30 @@ class CommonAppbarView extends GetView<CommonAppbarController>
         Material(
           color: Color(0XFF292929),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Container(width: Get.width * 0.7, child: NavTop()),
+              Container(
+                  margin: EdgeInsets.only(left: 15),
+                  width: Get.width * 0.8,
+                  child: NavTop()),
               Container(
                   width: Get.width * 0.1,
-                  child: const Text(
-                    'data',
-                    style: TextStyle(color: Colors.white),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Icon(
+                        Icons.facebook_sharp,
+                        color: Colors.grey.shade200,
+                      ),
+                      FaIcon(
+                        FontAwesomeIcons.xTwitter,
+                        color: Colors.grey.shade200,
+                      ),
+                      FaIcon(
+                        FontAwesomeIcons.whatsapp,
+                        color: Colors.grey.shade200,
+                      ),
+                    ],
                   )),
             ],
           ),
@@ -60,22 +77,17 @@ class CommonAppbarView extends GetView<CommonAppbarController>
               children: [
                 Container(width: Get.width * 0.7, child: NavBottom()),
                 Container(
-                    width: Get.width * 0.1,
-                    child: const Text(
-                      'data',
-                      style: TextStyle(color: Colors.white),
+                    padding: const EdgeInsets.only(right: 10, left: 10),
+                    alignment: Alignment.centerRight,
+                    width: Get.width * 0.2,
+                    child: const Icon(
+                      Icons.search,
+                      color: Colors.white,
                     )),
               ],
             ),
           ),
         ),
-
-        // // Add the Search Input with animation
-        // Obx(() {
-        //   return controller.isSearchInputVisible.value
-        //       ? _buildSearchInput()
-        //       : Container();
-        // }),
       ],
     );
   }
