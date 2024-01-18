@@ -25,6 +25,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.13.0"
+  anim_search_bar:
+    dependency: "direct main"
+    description:
+      name: anim_search_bar
+      sha256: f44954e19fbccdc6d87705c069bdd6395a994576098ce155faf91c4f0f399e46
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.3"
   animate_do:
     dependency: "direct main"
     description:
@@ -1344,6 +1352,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.8"
+  pluto_menu_bar:
+    dependency: "direct main"
+    description:
+      name: pluto_menu_bar
+      sha256: "154a9907b0758b804fb0f5bcfb0a28f504af4349124bf7d7b5aa815a2dde820a"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.0.1"
   pointer_interceptor:
     dependency: transitive
     description:

@@ -72,6 +72,8 @@ dependencies:
   dots_indicator: ^3.0.0
   smooth_page_indicator: ^1.1.0
   hover: ^0.4.0
+  anim_search_bar: ^2.0.3
+  pluto_menu_bar: ^3.0.1
 
 dev_dependencies: 
   flutter_lints: ^2.0.0
