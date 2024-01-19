@@ -8,23 +8,21 @@ class NavTop extends GetView<CommonAppbarController> {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          PlutoMenuBar(
-            mode: PlutoMenuBarMode.hover,
-            backgroundColor: Color(0XFF292929),
-            itemStyle: const PlutoMenuItemStyle(
-              activatedColor: Colors.white,
-              indicatorColor: Colors.deepOrange,
-              textStyle: TextStyle(color: Colors.white),
-              iconColor: Colors.white,
-              moreIconColor: Colors.white,
-            ),
-            menus: controller.orangeHoverMenus,
+    return Column(
+      children: [
+        PlutoMenuBar(
+          mode: PlutoMenuBarMode.hover,
+          backgroundColor: Color(0XFF292929),
+          itemStyle: const PlutoMenuItemStyle(
+            activatedColor: Colors.white,
+            indicatorColor: Colors.deepOrange,
+            textStyle: TextStyle(color: Colors.white),
+            iconColor: Colors.white,
+            moreIconColor: Colors.white,
           ),
-        ],
-      ),
+          menus: controller.orangeHoverMenus,
+        ),
+      ],
     );
   }
 }

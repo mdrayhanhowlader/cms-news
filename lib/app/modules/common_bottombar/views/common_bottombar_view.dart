@@ -10,8 +10,7 @@ import '../controllers/common_bottombar_controller.dart';
 class CommonBottombarView extends GetView<CommonBottombarController> {
   const CommonBottombarView({Key? key}) : super(key: key);
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-        child: Container(
+    return Container(
       child: Column(
         children: [
           Container(
@@ -256,6 +255,6 @@ class CommonBottombarView extends GetView<CommonBottombarController> {
           )
         ],
       ),
-    ));
+    );
   }
 }

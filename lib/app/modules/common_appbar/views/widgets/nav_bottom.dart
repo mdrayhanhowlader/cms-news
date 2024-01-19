@@ -8,27 +8,25 @@ class NavBottom extends GetView<CommonAppbarController> {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          // Left side: PlutoMenuBar
-          PlutoMenuBar(
-            mode: PlutoMenuBarMode.hover,
-            backgroundColor: Color(0XFF292929),
-            itemStyle: const PlutoMenuItemStyle(
-              activatedColor: Colors.red,
-              indicatorColor: Colors.deepOrange,
-              textStyle: TextStyle(color: Colors.white),
-              iconColor: Colors.white,
-              moreIconColor: Colors.white,
-            ),
-            menus: controller.whiteHoverMenus,
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        // Left side: PlutoMenuBar
+        PlutoMenuBar(
+          mode: PlutoMenuBarMode.hover,
+          backgroundColor: Color(0XFF292929),
+          itemStyle: const PlutoMenuItemStyle(
+            activatedColor: Colors.red,
+            indicatorColor: Colors.deepOrange,
+            textStyle: TextStyle(color: Colors.white),
+            iconColor: Colors.white,
+            moreIconColor: Colors.white,
           ),
+          menus: controller.whiteHoverMenus,
+        ),
 
-          // Right side: Search icon
-        ],
-      ),
+        // Right side: Search icon
+      ],
     );
   }
 
