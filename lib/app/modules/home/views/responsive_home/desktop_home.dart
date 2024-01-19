@@ -18,7 +18,7 @@ class DesktopHome extends GetView<HomeController> {
         child: Column(
           children: [
             SizedBox(
-              height: 100,
+              height: 400,
             ),
             CommonBottombarView()
           ],
