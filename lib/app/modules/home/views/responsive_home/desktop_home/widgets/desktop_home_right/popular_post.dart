@@ -2,8 +2,8 @@ import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/des
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class HomeNewsTop extends GetView<DesktopHomeController> {
-  const HomeNewsTop({super.key});
+class PopularPost extends GetView<DesktopHomeController> {
+  const PopularPost({super.key});
 
   @override
   Widget build(BuildContext context) {

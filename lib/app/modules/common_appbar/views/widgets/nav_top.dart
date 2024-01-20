@@ -14,7 +14,7 @@ class NavTop extends GetView<CommonAppbarController> {
           mode: PlutoMenuBarMode.hover,
           backgroundColor: Color(0XFF292929),
           itemStyle: const PlutoMenuItemStyle(
-            activatedColor: Colors.white,
+            activatedColor: Colors.deepOrange,
             indicatorColor: Colors.deepOrange,
             textStyle: TextStyle(color: Colors.white),
             iconColor: Colors.white,

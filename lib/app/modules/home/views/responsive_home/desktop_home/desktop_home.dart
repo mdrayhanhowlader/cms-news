@@ -1,7 +1,7 @@
 import 'package:cms_maahadtahfizaddin/app/modules/common_appbar/views/common_appbar_view.dart';
 import 'package:cms_maahadtahfizaddin/app/modules/common_bottombar/views/common_bottombar_view.dart';
 import 'package:cms_maahadtahfizaddin/app/modules/home/controllers/home_controller.dart';
-import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/desktop_home/widgets/breaking_news.dart';
+import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/desktop_home/widgets/desktop_home_left/breaking_news.dart';
 import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/desktop_home/widgets/desktop_home_main.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

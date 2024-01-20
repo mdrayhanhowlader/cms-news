@@ -2,8 +2,8 @@ import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/des
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class HomeMostViews extends GetView<DesktopHomeController> {
-  const HomeMostViews({super.key});
+class FollowSocialMedia extends GetView<DesktopHomeController> {
+  const FollowSocialMedia({super.key});
 
   @override
   Widget build(BuildContext context) {

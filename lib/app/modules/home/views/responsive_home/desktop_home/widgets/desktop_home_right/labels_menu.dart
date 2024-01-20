@@ -2,8 +2,8 @@ import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/des
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class HomeVideos extends GetView<DesktopHomeController> {
-  const HomeVideos({super.key});
+class LabelsMenu extends GetView<DesktopHomeController> {
+  const LabelsMenu({super.key});
 
   @override
   Widget build(BuildContext context) {
