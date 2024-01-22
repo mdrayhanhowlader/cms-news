@@ -11,24 +11,39 @@ class BreakingNews extends GetView<DesktopHomeController> {
 
   final sliderController = CarouselController();
   final urlImages = [
+    'assets/images/breaking-news-slider/slide4.png',
     'assets/images/breaking-news-slider/slide1.png',
     'assets/images/breaking-news-slider/slide2.png',
+    'assets/images/breaking-news-slider/slide1.png',
+    'assets/images/breaking-news-slider/slide3.png',
+    'assets/images/breaking-news-slider/slide2.png',
+    'assets/images/breaking-news-slider/slide4.png',
     'assets/images/breaking-news-slider/slide3.png',
     'assets/images/breaking-news-slider/slide4.png',
-    'assets/images/breaking-news-slider/slide4.png',
-    'assets/images/breaking-news-slider/slide4.png',
+  ];
+
+  final List<String> slideTexts = [
+    'Breaking News 1',
+    'Breaking News 2',
+    'Breaking News 3',
+    'Breaking News 4',
+    'Breaking News 5',
+    'Breaking News 6',
+    'Breaking News 7',
+    'Breaking News 8',
+    'Breaking News 9',
   ];
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: Get.width * 0.9,
-      padding: const EdgeInsets.only(top: 30, bottom: 200),
+      padding: const EdgeInsets.only(top: 30, bottom: 50),
       decoration: const BoxDecoration(
-          border: Border(
-        top: BorderSide(width: 1, color: Colors.black),
-        // bottom: BorderSide(width: 1, color: Colors.black)
-      )),
+        border: Border(
+          top: BorderSide(width: 1, color: Colors.black),
+        ),
+      ),
       child: Column(
         children: [
           Row(
@@ -46,65 +61,109 @@ class BreakingNews extends GetView<DesktopHomeController> {
               Container(
                 width: Get.width * 0.55,
                 decoration: const BoxDecoration(
-                    border:
-                        Border(top: BorderSide(width: 1, color: Colors.black))),
+                  border:
+                      Border(top: BorderSide(width: 1, color: Colors.black)),
+                ),
               ),
               Container(
                 width: Get.width * 0.05,
-                child: const Row(
+                child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Icon(Icons.arrow_back),
-                    Icon(Icons.arrow_forward),
+                    InkWell(
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.amber,
+                      mouseCursor: SystemMouseCursors.click,
+                      onHover: (value) {},
+                      onTap: previous,
+                      child: Icon(Icons.arrow_back),
+                    ),
+                    InkWell(
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.amber,
+                      mouseCursor: SystemMouseCursors.click,
+                      onHover: (value) {},
+                      onTap: next,
+                      child: Icon(Icons.arrow_forward),
+                    ),
                   ],
                 ),
               ),
               Container(
                 width: Get.width * 0.1,
                 decoration: const BoxDecoration(
-                    border:
-                        Border(top: BorderSide(width: 1, color: Colors.black))),
-              )
+                  border:
+                      Border(top: BorderSide(width: 1, color: Colors.black)),
+                ),
+              ),
             ],
           ),
           Stack(
             children: [
               CarouselSlider.builder(
-                  itemCount: urlImages.length,
-                  itemBuilder: (context, index, realindex) {
-                    final urlImage = urlImages[index];
-                    return buildImage(urlImage, index);
-                  },
-                  options: CarouselOptions(
-                    initialPage: 3,
-                    height: 400,
-                    viewportFraction: 0.3,
-                    scrollDirection: Axis.horizontal,
-                    enlargeCenterPage: false,
-                    enlargeStrategy: CenterPageEnlargeStrategy.zoom,
-                    autoPlay: true,
-                    enableInfiniteScroll: false,
-                    pageSnapping: false,
-                    reverse: false,
-                    autoPlayInterval: const Duration(seconds: 3),
-                    onPageChanged: (index, reason) =>
-                        controller.activeIndex.value = index,
-                  ))
+                carouselController: sliderController,
+                itemCount: urlImages.length,
+                itemBuilder: (context, index, realindex) {
+                  final urlImage = urlImages[index];
+                  final slideText = slideTexts[index];
+                  return buildImage(
+                    urlImage,
+                    slideText,
+                    index,
+                  );
+                },
+                options: CarouselOptions(
+                  initialPage: 2,
+                  height: 400,
+                  viewportFraction: 0.3,
+                  scrollDirection: Axis.horizontal,
+                  enlargeCenterPage: false,
+                  enlargeStrategy: CenterPageEnlargeStrategy.zoom,
+                  autoPlay: true,
+                  enableInfiniteScroll: false,
+                  animateToClosest: true,
+                  pageSnapping: false,
+                  reverse: false,
+                  autoPlayInterval: const Duration(seconds: 3),
+                  onPageChanged: (index, reason) =>
+                      controller.activeIndex.value = index,
+                ),
+              ),
             ],
-          )
+          ),
         ],
       ),
     );
   }
+
+  void next() =>
+      sliderController.nextPage(duration: const Duration(milliseconds: 500));
+
+  void previous() => sliderController.previousPage(
+      duration: const Duration(milliseconds: 500));
+
+  Widget buildImage(String urlImage, String slideText, int index) => Container(
+        color: Colors.transparent,
+        child: Stack(
+          alignment: Alignment.bottomLeft,
+          children: [
+            Image.asset(
+              urlImage,
+              fit: BoxFit.cover,
+            ),
+            Positioned(
+              bottom: 16.0,
+              left: 16.0,
+              child: Text(
+                slideText,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
 }
-
-Widget buildImage(String urlImae, int index) => Container(
-      // margin: EdgeInsets.symmetric(horizontal: 44),
-      // width: Get.width,
-
-      color: Colors.transparent,
-      child: Image.asset(
-        urlImae,
-        fit: BoxFit.cover,
-      ),
-    );
