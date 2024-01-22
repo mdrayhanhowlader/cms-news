@@ -12,7 +12,7 @@ class DesktopHome extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [

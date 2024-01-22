@@ -74,6 +74,7 @@ dependencies:
   hover: ^0.4.0
   anim_search_bar: ^2.0.3
   pluto_menu_bar: ^3.0.1
+  animated_text_kit: ^4.2.2
 
 dev_dependencies: 
   flutter_lints: ^2.0.0
@@ -88,6 +89,7 @@ flutter:
     - assets/
     - assets/images/
     - assets/images/logo/
+    - assets/images/breaking-news-slider/
 
 
   fonts:
@@ -98,6 +100,7 @@ flutter:
         - asset: assets/fonts/Poppins-Regular.ttf
         - asset: assets/fonts/Poppins-SemiBold.ttf
         - asset: assets/fonts/Poppins-Light.ttf
+      
     - family: Dosis
       fonts:
         - asset: assets/fonts/Dosis-Bold.ttf
