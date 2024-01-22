@@ -12,6 +12,7 @@ class PoppinsText extends StatelessWidget {
   final TextOverflow? overflow;
   final int? maxLines;
   final double? spacing;
+  final TextDecoration? decoration;
 
   PoppinsText({
     Key? key,
@@ -24,6 +25,7 @@ class PoppinsText extends StatelessWidget {
     this.overflow,
     this.maxLines,
     this.spacing,
+    this.decoration,
   }) : super(key: key);
 
   @override
@@ -36,6 +38,8 @@ class PoppinsText extends StatelessWidget {
         weight: weight ?? FontWeight.normal,
         fontStyle: style ?? FontStyle.normal,
         letterSpacing: spacing,
+        decoration: decoration,
+        decorationColor: Colors.white,
       ),
       textAlign: align ?? TextAlign.start,
       overflow: overflow,

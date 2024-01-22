@@ -23,15 +23,26 @@ class BreakingNews extends GetView<DesktopHomeController> {
   ];
 
   final List<String> slideTexts = [
-    'Breaking News 1',
-    'Breaking News 2',
-    'Breaking News 3',
-    'Breaking News 4',
-    'Breaking News 5',
-    'Breaking News 6',
-    'Breaking News 7',
-    'Breaking News 8',
-    'Breaking News 9',
+    'There are many variations of available News 1',
+    'There are many variations of available News 2',
+    'There are many variations of available News 3',
+    'There are many variations of available News 4',
+    'There are many variations of available News 5',
+    'There are many variations of available News 6',
+    'There are many variations of available News 7',
+    'There are many variations of available News 8',
+    'There are many variations of available News 9',
+  ];
+  final List<String> slideCategories = [
+    'Awfatech 1',
+    'Awfatech 2',
+    'Awfatech 3',
+    'Awfatech 4',
+    'Awfatech 5',
+    'Awfatech 6',
+    'Awfatech 7',
+    'Awfatech 8',
+    'Awfatech 9',
   ];
 
   @override
@@ -106,14 +117,20 @@ class BreakingNews extends GetView<DesktopHomeController> {
                 itemBuilder: (context, index, realindex) {
                   final urlImage = urlImages[index];
                   final slideText = slideTexts[index];
-                  return buildImage(
-                    urlImage,
-                    slideText,
-                    index,
+                  final slideCategory = slideCategories[index];
+                  return MouseRegion(
+                    onEnter: (_) => controller.updateHoveredIndex(index),
+                    onExit: (_) => controller.updateHoveredIndex(-1),
+                    child: buildImage(
+                      urlImage,
+                      slideText,
+                      slideCategory,
+                      index,
+                    ),
                   );
                 },
                 options: CarouselOptions(
-                  initialPage: 2,
+                  initialPage: 3,
                   height: 400,
                   viewportFraction: 0.3,
                   scrollDirection: Axis.horizontal,
@@ -142,28 +159,66 @@ class BreakingNews extends GetView<DesktopHomeController> {
   void previous() => sliderController.previousPage(
       duration: const Duration(milliseconds: 500));
 
-  Widget buildImage(String urlImage, String slideText, int index) => Container(
+  Widget buildImage(
+          String urlImage, String slideText, String slideCategory, int index) =>
+      Container(
         color: Colors.transparent,
-        child: Stack(
-          alignment: Alignment.bottomLeft,
-          children: [
-            Image.asset(
-              urlImage,
-              fit: BoxFit.cover,
-            ),
-            Positioned(
-              bottom: 16.0,
-              left: 16.0,
-              child: Text(
-                slideText,
-                style: TextStyle(
+        child: Obx(
+          () => Stack(
+            alignment: Alignment.bottomLeft,
+            children: [
+              Image.asset(
+                urlImage,
+                fit: BoxFit.cover,
+              ),
+              Positioned(
+                bottom: 16.0,
+                left: 16,
+                right: 0,
+                child: PoppinsText(
+                  title: slideText,
                   color: Colors.white,
-                  fontSize: 18.0,
-                  fontWeight: FontWeight.bold,
+                  size: 14,
+                  weight: FontWeight.w500,
+                  decoration: controller.hoveredIndex.value == index
+                      ? TextDecoration.underline
+                      : TextDecoration.none,
                 ),
               ),
-            ),
-          ],
+              Positioned(
+                top: 0,
+                left: 0,
+                right: 0,
+                child: Visibility(
+                  visible: controller.hoveredIndex.value == index,
+                  child: Container(
+                    height: Get.height,
+                    color: Colors.black.withOpacity(0.1),
+                    padding: const EdgeInsets.only(right: 2),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Visibility(
+                          visible: controller.hoveredIndex.value == index,
+                          child: SizedBox(height: 8),
+                        ),
+                        Visibility(
+                          visible: controller.hoveredIndex.value == index,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              // Handle button click
+                              // You can navigate to the news category page or perform any other action.
+                            },
+                            child: PoppinsText(title: slideCategory),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       );
 }

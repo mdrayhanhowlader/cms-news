@@ -1,11 +1,9 @@
 import 'package:get/get.dart';
 
 class DesktopHomeController extends GetxController {
-  //TODO: Implement HomeController
-
   var activeIndex = 0.obs;
+  var hoveredIndex = (-1).obs;
 
-  final count = 0.obs;
   @override
   void onInit() {
     super.onInit();
@@ -21,5 +19,9 @@ class DesktopHomeController extends GetxController {
     super.onClose();
   }
 
-  void increment() => count.value++;
+  void increment() => activeIndex.value++;
+
+  void updateHoveredIndex(int index) {
+    hoveredIndex.value = index;
+  }
 }
