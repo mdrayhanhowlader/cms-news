@@ -25,31 +25,30 @@ class DesktopHomeMain extends GetView<DesktopHomeController> {
         child: Row(
           children: [
             Container(
-              height: Get.height * 0.8,
               decoration: const BoxDecoration(
                   border: Border(
                 right: BorderSide(width: 1, color: Colors.black),
                 // top: BorderSide(width: 1, color: Colors.black)
               )),
               width: Get.width * 0.6,
-              child: const Column(
+              child: Column(
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
-                  HomeTopNews(),
-                  SizedBox(
+                  const HomeTopNews(),
+                  const SizedBox(
                     height: 50,
                   ),
                   HomeMostViews(),
-                  SizedBox(
+                  const SizedBox(
                     height: 50,
                   ),
-                  HomeVideos(),
-                  SizedBox(
+                  const HomeVideos(),
+                  const SizedBox(
                     height: 50,
                   ),
-                  HomeRecentPost(),
+                  const HomeRecentPost(),
                 ],
               ),
             ),
