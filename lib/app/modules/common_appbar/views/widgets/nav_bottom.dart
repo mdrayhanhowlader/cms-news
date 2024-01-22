@@ -12,9 +12,10 @@ class NavBottom extends GetView<CommonAppbarController> {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         // Left side: PlutoMenuBar
+
         PlutoMenuBar(
           mode: PlutoMenuBarMode.hover,
-          backgroundColor: Color(0XFF292929),
+          backgroundColor: const Color(0XFF292929),
           itemStyle: const PlutoMenuItemStyle(
             activatedColor: Colors.red,
             indicatorColor: Colors.deepOrange,

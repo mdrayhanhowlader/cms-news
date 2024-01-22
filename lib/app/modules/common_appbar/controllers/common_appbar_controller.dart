@@ -25,6 +25,7 @@ class CommonAppbarController extends GetxController {
 
   final whiteHoverMenus = <PlutoMenuItem>[].obs;
   final orangeHoverMenus = <PlutoMenuItem>[].obs;
+  RxBool isNavHovered = false.obs;
 
   @override
   void onInit() {
@@ -174,7 +175,6 @@ class CommonAppbarController extends GetxController {
           ),
         ],
       ),
-
       PlutoMenuItem(
         title: 'INFO',
         children: [
@@ -715,20 +715,6 @@ class CommonAppbarController extends GetxController {
           ),
         ],
       ),
-      // PlutoMenuItem(
-      //   title: 'E-ALUMNI',
-      //   children: [
-      //     PlutoMenuItem(
-      //       title: 'Menu 2-1',
-      //       onTap: () => message('Menu 2-1 tap'),
-      //     ),
-      //   ],
-      // ),
-      // PlutoMenuItem(
-      //   title: 'Menu 3',
-      //   icon: Icons.apps_outlined,
-      //   onTap: () => message('Menu 3 tap'),
-      // ),
     ];
   }
 
@@ -737,8 +723,11 @@ class CommonAppbarController extends GetxController {
   List<PlutoMenuItem> _makeBottomMenus() {
     return [
       PlutoMenuItem(
-        title: 'FEATURES',
+        title: '',
         icon: Icons.home,
+      ),
+      PlutoMenuItem(
+        title: 'FEATURES',
         children: [
           PlutoMenuItem(
             title: 'Menu 1-1',
@@ -820,26 +809,7 @@ class CommonAppbarController extends GetxController {
             title: 'Menu 1-1',
             icon: Icons.group,
             onTap: () => message('Menu 1-1 tap'),
-            children: [
-              // PlutoMenuItem(
-              //   // title: 'Menu 1-1-1',
-              //   // onTap: () => message('Menu 1-1-1 tap'),
-              //   // children: [
-              //   //   // PlutoMenuItem(
-              //   //   //   title: 'Menu 1-1-1-1',
-              //   //   //   onTap: () => message('Menu 1-1-1-1 tap'),
-              //   //   // ),
-              //   //   // PlutoMenuItem(
-              //   //   //   title: 'Menu 1-1-1-2',
-              //   //   //   onTap: () => message('Menu 1-1-1-2 tap'),
-              //   //   // ),
-              //   // ],
-              // ),
-              // PlutoMenuItem(
-              //   title: 'Menu 1-1-2',
-              //   onTap: () => message('Menu 1-1-2 tap'),
-              // ),
-            ],
+            children: [],
           ),
           PlutoMenuItem(
             title: 'Menu 1-2',
@@ -858,26 +828,7 @@ class CommonAppbarController extends GetxController {
             title: 'Menu 1-1',
             icon: Icons.group,
             onTap: () => message('Menu 1-1 tap'),
-            children: [
-              // PlutoMenuItem(
-              //   // title: 'Menu 1-1-1',
-              //   // onTap: () => message('Menu 1-1-1 tap'),
-              //   // children: [
-              //   //   // PlutoMenuItem(
-              //   //   //   title: 'Menu 1-1-1-1',
-              //   //   //   onTap: () => message('Menu 1-1-1-1 tap'),
-              //   //   // ),
-              //   //   // PlutoMenuItem(
-              //   //   //   title: 'Menu 1-1-1-2',
-              //   //   //   onTap: () => message('Menu 1-1-1-2 tap'),
-              //   //   // ),
-              //   // ],
-              // ),
-              // PlutoMenuItem(
-              //   title: 'Menu 1-1-2',
-              //   onTap: () => message('Menu 1-1-2 tap'),
-              // ),
-            ],
+            children: [],
           ),
           PlutoMenuItem(
             title: 'Menu 1-2',
@@ -896,26 +847,7 @@ class CommonAppbarController extends GetxController {
             title: 'Menu 1-1',
             icon: Icons.group,
             onTap: () => message('Menu 1-1 tap'),
-            children: [
-              // PlutoMenuItem(
-              //   // title: 'Menu 1-1-1',
-              //   // onTap: () => message('Menu 1-1-1 tap'),
-              //   // children: [
-              //   //   // PlutoMenuItem(
-              //   //   //   title: 'Menu 1-1-1-1',
-              //   //   //   onTap: () => message('Menu 1-1-1-1 tap'),
-              //   //   // ),
-              //   //   // PlutoMenuItem(
-              //   //   //   title: 'Menu 1-1-1-2',
-              //   //   //   onTap: () => message('Menu 1-1-1-2 tap'),
-              //   //   // ),
-              //   // ],
-              // ),
-              // PlutoMenuItem(
-              //   title: 'Menu 1-1-2',
-              //   onTap: () => message('Menu 1-1-2 tap'),
-              // ),
-            ],
+            children: [],
           ),
           PlutoMenuItem(
             title: 'Menu 1-2',
@@ -934,26 +866,7 @@ class CommonAppbarController extends GetxController {
             title: 'Menu 1-1',
             icon: Icons.group,
             onTap: () => message('Menu 1-1 tap'),
-            children: [
-              // PlutoMenuItem(
-              //   // title: 'Menu 1-1-1',
-              //   // onTap: () => message('Menu 1-1-1 tap'),
-              //   // children: [
-              //   //   // PlutoMenuItem(
-              //   //   //   title: 'Menu 1-1-1-1',
-              //   //   //   onTap: () => message('Menu 1-1-1-1 tap'),
-              //   //   // ),
-              //   //   // PlutoMenuItem(
-              //   //   //   title: 'Menu 1-1-1-2',
-              //   //   //   onTap: () => message('Menu 1-1-1-2 tap'),
-              //   //   // ),
-              //   // ],
-              // ),
-              // PlutoMenuItem(
-              //   title: 'Menu 1-1-2',
-              //   onTap: () => message('Menu 1-1-2 tap'),
-              // ),
-            ],
+            children: [],
           ),
           PlutoMenuItem(
             title: 'Menu 1-2',
@@ -965,21 +878,6 @@ class CommonAppbarController extends GetxController {
           ),
         ],
       ),
-      // PlutoMenuItem(
-      //   title: 'Menu 2',
-      //   icon: Icons.add_circle,
-      //   children: [
-      //     PlutoMenuItem(
-      //       title: 'Menu 2-1',
-      //       onTap: () => message('Menu 2-1 tap'),
-      //     ),
-      //   ],
-      // ),
-      // PlutoMenuItem(
-      //   title: 'Menu 3',
-      //   icon: Icons.apps_outlined,
-      //   onTap: () => message('Menu 3 tap'),
-      // ),
     ];
   }
 }

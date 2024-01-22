@@ -3,6 +3,7 @@ import 'package:cms_maahadtahfizaddin/app/modules/common_bottombar/views/common_
 import 'package:cms_maahadtahfizaddin/app/modules/home/controllers/home_controller.dart';
 import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/desktop_home/widgets/desktop_home_left/breaking_news.dart';
 import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/desktop_home/widgets/desktop_home_main.dart';
+import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/desktop_home/widgets/hightlight_news.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -16,6 +17,10 @@ class DesktopHome extends GetView<HomeController> {
         child: Column(
           children: [
             CommonAppbarView(),
+            SizedBox(
+              height: 20,
+            ),
+            HighlightNews(),
             SizedBox(
               height: 100,
             ),
