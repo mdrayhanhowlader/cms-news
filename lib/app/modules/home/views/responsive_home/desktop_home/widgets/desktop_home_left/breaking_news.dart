@@ -19,6 +19,7 @@ class BreakingNews extends GetView<DesktopHomeController> {
     'assets/images/breaking-news-slider/slide2.png',
     'assets/images/breaking-news-slider/slide4.png',
     'assets/images/breaking-news-slider/slide3.png',
+    'assets/images/breaking-news-slider/slide1.png',
     'assets/images/breaking-news-slider/slide4.png',
   ];
 
@@ -31,6 +32,7 @@ class BreakingNews extends GetView<DesktopHomeController> {
     'There are many variations of available News 6',
     'There are many variations of available News 7',
     'There are many variations of available News 8',
+    'There are many variations of available News 1',
     'There are many variations of available News 9',
   ];
   final List<String> slideCategories = [
@@ -42,6 +44,7 @@ class BreakingNews extends GetView<DesktopHomeController> {
     'Awfatech 6',
     'Awfatech 7',
     'Awfatech 8',
+    'Awfatech 1',
     'Awfatech 9',
   ];
 
@@ -49,7 +52,9 @@ class BreakingNews extends GetView<DesktopHomeController> {
   Widget build(BuildContext context) {
     return Container(
       width: Get.width * 0.9,
-      padding: const EdgeInsets.only(top: 30, bottom: 50),
+      padding: const EdgeInsets.only(
+        top: 20,
+      ),
       decoration: const BoxDecoration(
         border: Border(
           top: BorderSide(width: 1, color: Colors.black),
@@ -61,7 +66,7 @@ class BreakingNews extends GetView<DesktopHomeController> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                width: Get.width * 0.15,
+                width: Get.width * 0.14,
                 child: PoppinsText(
                   title: 'BREAKING NEWS',
                   size: 20,
@@ -70,7 +75,7 @@ class BreakingNews extends GetView<DesktopHomeController> {
                 ),
               ),
               Container(
-                width: Get.width * 0.55,
+                width: Get.width * 0.60,
                 decoration: const BoxDecoration(
                   border:
                       Border(top: BorderSide(width: 1, color: Colors.black)),
@@ -87,7 +92,7 @@ class BreakingNews extends GetView<DesktopHomeController> {
                       mouseCursor: SystemMouseCursors.click,
                       onHover: (value) {},
                       onTap: previous,
-                      child: Icon(Icons.arrow_back),
+                      child: const Icon(Icons.arrow_back),
                     ),
                     InkWell(
                       hoverColor: Colors.transparent,
@@ -95,7 +100,7 @@ class BreakingNews extends GetView<DesktopHomeController> {
                       mouseCursor: SystemMouseCursors.click,
                       onHover: (value) {},
                       onTap: next,
-                      child: Icon(Icons.arrow_forward),
+                      child: const Icon(Icons.arrow_forward),
                     ),
                   ],
                 ),
@@ -131,7 +136,7 @@ class BreakingNews extends GetView<DesktopHomeController> {
                 },
                 options: CarouselOptions(
                   initialPage: 3,
-                  height: 400,
+                  height: 300,
                   viewportFraction: 0.3,
                   scrollDirection: Axis.horizontal,
                   enlargeCenterPage: false,
@@ -194,22 +199,30 @@ class BreakingNews extends GetView<DesktopHomeController> {
                   child: Container(
                     height: Get.height,
                     color: Colors.black.withOpacity(0.1),
-                    padding: const EdgeInsets.only(right: 2),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Visibility(
                           visible: controller.hoveredIndex.value == index,
-                          child: SizedBox(height: 8),
-                        ),
-                        Visibility(
-                          visible: controller.hoveredIndex.value == index,
                           child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 5, vertical: 2),
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(1)),
+                                backgroundColor: Colors.deepOrange,
+                                animationDuration: const Duration(seconds: 2),
+                                elevation: 4.0),
                             onPressed: () {
                               // Handle button click
                               // You can navigate to the news category page or perform any other action.
                             },
-                            child: PoppinsText(title: slideCategory),
+                            child: PoppinsText(
+                              title: slideCategory,
+                              color: Colors.white,
+                              size: 10,
+                              weight: FontWeight.w400,
+                            ),
                           ),
                         ),
                       ],

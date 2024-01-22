@@ -16,20 +16,20 @@ class DesktopHome extends GetView<HomeController> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            CommonAppbarView(),
-            SizedBox(
+            const CommonAppbarView(),
+            const SizedBox(
               height: 20,
             ),
-            HighlightNews(),
-            SizedBox(
-              height: 100,
+            const HighlightNews(),
+            const SizedBox(
+              height: 50,
             ),
             BreakingNews(),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
-            DesktopHomeMain(),
-            SizedBox(
+            const DesktopHomeMain(),
+            const SizedBox(
               height: 20,
             ),
             CommonBottombarView()
