@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cms_maahadtahfizaddin/app/core/widgets/poppins_text.dart';
 import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/desktop_home/desktop_home_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 
 class HomeMostViews extends GetView<DesktopHomeController> {
@@ -73,7 +74,7 @@ class HomeMostViews extends GetView<DesktopHomeController> {
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           Container(
@@ -196,17 +197,36 @@ class HomeMostViews extends GetView<DesktopHomeController> {
                 bottom: 16.0,
                 left: 16,
                 right: 0,
-                child: PoppinsText(
-                  title: slideText,
-                  color: controller.mostViewedHoveredIndex.value == index
-                      ? Colors.white
-                      : Colors.white38,
-                  size: 14,
-                  weight: FontWeight.w500,
-                  spacing: 0.5,
-                  decoration: controller.mostViewedHoveredIndex.value == index
-                      ? TextDecoration.underline
-                      : TextDecoration.none,
+                child: Column(
+                  children: [
+                    PoppinsText(
+                      title: slideText,
+                      color: controller.mostViewedHoveredIndex.value == index
+                          ? Colors.white
+                          : Colors.white70,
+                      size: 14,
+                      weight: FontWeight.w500,
+                      spacing: 0.5,
+                      decoration:
+                          controller.mostViewedHoveredIndex.value == index
+                              ? TextDecoration.underline
+                              : TextDecoration.none,
+                    ),
+                    Row(
+                      children: [
+                        const FaIcon(
+                          FontAwesomeIcons.clock,
+                          size: 8,
+                          color: Colors.white60,
+                        ),
+                        PoppinsText(
+                          title: 'April 2023',
+                          size: 8,
+                          color: Colors.white60,
+                        )
+                      ],
+                    )
+                  ],
                 ),
               ),
               Positioned(
@@ -217,7 +237,7 @@ class HomeMostViews extends GetView<DesktopHomeController> {
                   visible: controller.mostViewedHoveredIndex.value == index,
                   child: Container(
                     height: Get.height,
-                    color: Colors.black.withOpacity(0.2),
+                    color: Colors.black.withOpacity(0.1),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [

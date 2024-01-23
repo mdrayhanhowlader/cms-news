@@ -144,8 +144,6 @@ class BreakingNews extends GetView<DesktopHomeController> {
                   autoPlay: true,
                   enableInfiniteScroll: false,
                   animateToClosest: true,
-                  pageSnapping: false,
-                  reverse: false,
                   autoPlayInterval: const Duration(seconds: 3),
                   onPageChanged: (index, reason) =>
                       controller.activeIndex.value = index,
