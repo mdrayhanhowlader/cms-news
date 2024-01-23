@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 class DesktopHomeController extends GetxController {
   var activeIndex = 0.obs;
   var hoveredIndex = (-1).obs;
+  var mostViewedHoveredIndex = (-1).obs;
 
   @override
   void onInit() {
@@ -23,5 +24,9 @@ class DesktopHomeController extends GetxController {
 
   void updateHoveredIndex(int index) {
     hoveredIndex.value = index;
+  }
+
+  void updateMostViewedHoveredIndex(int index) {
+    mostViewedHoveredIndex.value = index;
   }
 }

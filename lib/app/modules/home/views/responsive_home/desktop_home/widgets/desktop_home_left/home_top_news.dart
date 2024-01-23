@@ -40,7 +40,74 @@ class HomeTopNews extends GetView<DesktopHomeController> {
                 ),
               ],
             ),
-          )
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Expanded(
+                child: Card(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Container(
+                        child: Card(
+                          child: Column(
+                            children: [
+                              Image.asset(
+                                'assets/images/breaking-news-slider/slide1.png',
+                                fit: BoxFit.cover,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Container(
+                        child: Column(
+                          children: [
+                            ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.deepOrange,
+                              ),
+                              onPressed: () {},
+                              child: PoppinsText(
+                                title: 'Button',
+                                color: Colors.white,
+                              ),
+                            ),
+                            PoppinsText(
+                              title: 'Main Topic Of The Post',
+                              color: Colors.black,
+                              size: 22,
+                              weight: FontWeight.w700,
+                            ),
+                            Container(
+                              child: PoppinsText(
+                                title:
+                                    'What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typese',
+                                size: 14,
+                                weight: FontWeight.w300,
+                                color: Colors.black38,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(width: 10), // Add spacing between the containers
+              Expanded(
+                child: Card(
+                  child: Column(
+                    children: [
+                      PoppinsText(title: 'title'),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
         ],
       ),
     );

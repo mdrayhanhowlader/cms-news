@@ -39,6 +39,7 @@ class HomeMostViews extends GetView<DesktopHomeController> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: Get.width,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -72,42 +73,107 @@ class HomeMostViews extends GetView<DesktopHomeController> {
               ],
             ),
           ),
-          Stack(
-            children: [
-              CarouselSlider.builder(
-                carouselController: sliderController,
-                itemCount: urlImages.length,
-                itemBuilder: (context, index, realindex) {
-                  final urlImage = urlImages[index];
-                  final slideText = slideTexts[index];
+          SizedBox(
+            height: 10,
+          ),
+          Container(
+            width: Get.width,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(
+                  // width: Get.width * 0.29,
 
-                  return MouseRegion(
-                    onEnter: (_) => controller.updateHoveredIndex(index),
-                    onExit: (_) => controller.updateHoveredIndex(-1),
-                    child: buildImage(
-                      urlImage,
-                      slideText,
-                      index,
-                    ),
-                  );
-                },
-                options: CarouselOptions(
-                  initialPage: 0,
-                  viewportFraction: 0.7,
-                  scrollDirection: Axis.horizontal,
-                  enlargeCenterPage: false,
-                  enlargeStrategy: CenterPageEnlargeStrategy.zoom,
-                  autoPlay: true,
-                  enableInfiniteScroll: false,
-                  animateToClosest: true,
-                  pageSnapping: false,
-                  reverse: false,
-                  autoPlayInterval: const Duration(seconds: 5),
-                  onPageChanged: (index, reason) =>
-                      controller.activeIndex.value = index,
+                  child: Stack(
+                    children: [
+                      CarouselSlider.builder(
+                        carouselController: sliderController,
+                        itemCount: urlImages.length,
+                        itemBuilder: (context, index, realindex) {
+                          final urlImage = urlImages[index];
+                          final slideText = slideTexts[index];
+
+                          return MouseRegion(
+                            onEnter: (_) =>
+                                controller.mostViewedHoveredIndex(index),
+                            onExit: (_) =>
+                                controller.mostViewedHoveredIndex(-1),
+                            child: Container(
+                              // width: Get.width *
+                              //     0.5, // Each slide takes 50% of the viewport width
+                              margin: const EdgeInsets.only(
+                                  right: 2), // Margin between slides
+                              child: buildImage(urlImage, slideText, index),
+                            ),
+                          );
+                        },
+                        options: CarouselOptions(
+                          initialPage: 0,
+                          viewportFraction:
+                              1, // Each slide takes up the entire viewport width
+                          scrollDirection: Axis.horizontal,
+                          enlargeCenterPage: false,
+                          enlargeStrategy: CenterPageEnlargeStrategy.zoom,
+                          autoPlay: true,
+                          enableInfiniteScroll: false,
+                          animateToClosest: true,
+                          pageSnapping: true,
+                          reverse: false,
+                          autoPlayInterval: const Duration(seconds: 5),
+                          onPageChanged: (index, reason) =>
+                              controller.activeIndex.value = index,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            ],
+                Expanded(
+                  // width: Get.width * 0.29,
+                  child: Stack(
+                    children: [
+                      CarouselSlider.builder(
+                        carouselController: sliderController,
+                        itemCount: urlImages.length,
+                        itemBuilder: (context, index, realindex) {
+                          final urlImage = urlImages[index];
+                          final slideText = slideTexts[index];
+
+                          return MouseRegion(
+                            onEnter: (_) =>
+                                controller.mostViewedHoveredIndex(index),
+                            onExit: (_) =>
+                                controller.mostViewedHoveredIndex(-1),
+                            child: Container(
+                              // width: Get.width *
+                              //     0.5, // Each slide takes 50% of the viewport width
+                              margin: const EdgeInsets.only(
+                                  left: 2, right: 4), // Margin between slides
+                              child: buildImage(urlImage, slideText, index),
+                            ),
+                          );
+                        },
+                        options: CarouselOptions(
+                          initialPage: 1,
+                          viewportFraction:
+                              1, // Each slide takes up the entire viewport width
+                          scrollDirection: Axis.horizontal,
+                          enlargeCenterPage: false,
+                          enlargeStrategy: CenterPageEnlargeStrategy.zoom,
+                          autoPlay: true,
+                          enableInfiniteScroll: false,
+                          animateToClosest: true,
+                          pageSnapping: true,
+                          reverse: false,
+                          autoPlayInterval: const Duration(seconds: 5),
+                          onPageChanged: (index, reason) =>
+                              controller.activeIndex.value = index,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ],
       ),
@@ -118,13 +184,13 @@ class HomeMostViews extends GetView<DesktopHomeController> {
         color: Colors.transparent,
         child: Obx(
           () => Stack(
-            alignment: Alignment.bottomLeft,
+            // alignment: Alignment.center,
             children: [
               Image.asset(
                 urlImage,
-                fit: BoxFit.cover,
                 height: 280,
-                width: 450,
+                fit: BoxFit.cover,
+                width: Get.width,
               ),
               Positioned(
                 bottom: 16.0,
@@ -132,10 +198,13 @@ class HomeMostViews extends GetView<DesktopHomeController> {
                 right: 0,
                 child: PoppinsText(
                   title: slideText,
-                  color: Colors.white,
+                  color: controller.mostViewedHoveredIndex.value == index
+                      ? Colors.white
+                      : Colors.white38,
                   size: 14,
                   weight: FontWeight.w500,
-                  decoration: controller.hoveredIndex.value == index
+                  spacing: 0.5,
+                  decoration: controller.mostViewedHoveredIndex.value == index
                       ? TextDecoration.underline
                       : TextDecoration.none,
                 ),
@@ -145,18 +214,18 @@ class HomeMostViews extends GetView<DesktopHomeController> {
                 left: 0,
                 right: 0,
                 child: Visibility(
-                  visible: controller.hoveredIndex.value == index,
+                  visible: controller.mostViewedHoveredIndex.value == index,
                   child: Container(
                     height: Get.height,
-                    color: Colors.black.withOpacity(0.1),
+                    color: Colors.black.withOpacity(0.2),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Visibility(
-                            visible: controller.hoveredIndex.value == index,
-                            child: SizedBox(
-                              width: 2,
-                            )),
+                          visible:
+                              controller.mostViewedHoveredIndex.value == index,
+                          child: const SizedBox(width: 0),
+                        ),
                       ],
                     ),
                   ),
