@@ -23,6 +23,7 @@ class DesktopHomeMain extends GetView<DesktopHomeController> {
                 // right: BorderSide(width: 1, color: Colors.black),
                 top: BorderSide(width: 1, color: Colors.black))),
         child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
               decoration: const BoxDecoration(
@@ -59,7 +60,20 @@ class DesktopHomeMain extends GetView<DesktopHomeController> {
                   ),
               width: Get.width * 0.3,
               child: const Column(
-                children: [FollowSocialMedia(), LabelsMenu(), PopularPost()],
+                children: [
+                  SizedBox(
+                    height: 40,
+                  ),
+                  FollowSocialMedia(),
+                  SizedBox(
+                    height: 40,
+                  ),
+                  LabelsMenu(),
+                  SizedBox(
+                    height: 40,
+                  ),
+                  PopularPost()
+                ],
               ),
             ),
           ],
