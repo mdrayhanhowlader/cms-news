@@ -44,7 +44,7 @@ class DesktopHomeMain extends GetView<DesktopHomeController> {
                   const SizedBox(
                     height: 50,
                   ),
-                  const HomeVideos(),
+                  HomeVideos(),
                   const SizedBox(
                     height: 50,
                   ),

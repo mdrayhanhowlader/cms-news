@@ -54,8 +54,8 @@ class HomeVideos extends GetView<DesktopHomeController> {
               return VideoCard(
                 videoTitle: 'Video Title $index',
                 videoDescription: 'Description for Video $index',
-                videoThumbnailUrl:
-                    'https://www.istockphoto.com/video/raindrops-on-glass-summer-rain-raindrops-running-down-window-rain-outside-window-gm1445395248-483814456?utm_source=pixabay&utm_medium=affiliate&utm_campaign=SRP_video_sponsored&utm_content=https%3A%2F%2Fpixabay.com%2Fvideos%2Fsearch%2Frain%2F&utm_term=rain',
+                videoThumbnailUrl: 'assets/images/video/slide$index.png',
+                isHovered: controller.hoveredIndex == index,
               );
             },
           ),
@@ -69,12 +69,14 @@ class VideoCard extends StatelessWidget {
   final String videoTitle;
   final String videoDescription;
   final String videoThumbnailUrl;
+  final bool isHovered;
 
   const VideoCard({
     Key? key,
     required this.videoTitle,
     required this.videoDescription,
     required this.videoThumbnailUrl,
+    required this.isHovered,
   }) : super(key: key);
 
   @override
@@ -88,11 +90,11 @@ class VideoCard extends StatelessWidget {
               fit: StackFit.expand,
               children: [
                 // Video Thumbnail with Error Handling
-                Image.network(
+                Image.asset(
                   videoThumbnailUrl,
                   fit: BoxFit.cover,
                   errorBuilder: (context, error, stackTrace) {
-                    return Center(
+                    return const Center(
                       child: Icon(
                         Icons.error,
                         size: 50,
@@ -102,12 +104,24 @@ class VideoCard extends StatelessWidget {
                   },
                 ),
                 // Overlay Video Icon
-                Center(
-                  child: Icon(
-                    Icons.play_circle_filled,
-                    size: 50,
-                    color: Colors.white,
+                const Icon(
+                  Icons.play_circle_filled,
+                  size: 50,
+                  color: Colors.white,
+                ),
+
+                Positioned(
+                  child: Visibility(
+                    visible: isHovered,
+                    child: Container(
+                      color: Colors.red.withOpacity(0.5),
+                      child: const Text('Data'),
+                    ),
                   ),
+                  bottom: 0,
+                  left: 0,
+                  right: 0,
+                  height: isHovered ? 50 : 0,
                 ),
               ],
             ),
