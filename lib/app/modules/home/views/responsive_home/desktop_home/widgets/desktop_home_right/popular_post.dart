@@ -37,8 +37,99 @@ class PopularPost extends GetView<DesktopHomeController> {
                 ),
               ],
             ),
+          ),
+          Container(
+            child: Column(
+              children: List.generate(
+                3,
+                (index) => PostItem(
+                  imageUrl: 'assets/images/video/slide$index.png',
+                  text: 'Contrary to popular belief $index',
+                  index: index,
+                ),
+              ),
+            ),
           )
         ],
+      ),
+    );
+  }
+}
+
+class PostItem extends GetView<DesktopHomeController> {
+  final String imageUrl;
+  final String text;
+  final int index;
+
+  PostItem({
+    Key? key,
+    required this.imageUrl,
+    required this.text,
+    required this.index,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () {
+        // Handle post item click here
+        print('Post $index clicked');
+      },
+      onHover: (hovering) {
+        // Call the controller method to update hovered index
+        controller.updateHoveredPostIndex(index, hovering);
+      },
+      child: Container(
+        width: Get.width * 0.28,
+        margin: EdgeInsets.symmetric(vertical: 10),
+        child: Column(
+          children: [
+            Stack(
+              children: [
+                Image.asset(
+                  imageUrl,
+                  width: Get.width, // Adjust the width as needed
+                  height: 120, // Adjust the height as needed
+                  fit: BoxFit.cover,
+                ),
+                Positioned(
+                  top: 50,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  child: PoppinsText(
+                    title: text,
+                    size: 12,
+                    color: Colors.white,
+                    align: TextAlign.center,
+                  ),
+                ),
+                Positioned(
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  child: Visibility(
+                    visible: controller.hoveredPostIndex == index,
+                    child: Container(
+                      height: Get.height,
+                      width: Get.width,
+                      color: Colors.black.withOpacity(0.5),
+                      child: Center(
+                        child: PoppinsText(
+                          title: 'Hover Text',
+                          size: 16,
+                          color: Colors.white,
+                          align: TextAlign.center,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
