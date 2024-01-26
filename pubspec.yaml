@@ -93,6 +93,7 @@ flutter:
     - assets/images/logo/
     - assets/images/breaking-news-slider/
     - assets/images/video/
+    - assets/images/posts/
 
 
   fonts:

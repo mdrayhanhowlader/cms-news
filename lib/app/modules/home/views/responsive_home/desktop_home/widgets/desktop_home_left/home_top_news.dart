@@ -16,15 +16,15 @@ class HomeTopNews extends GetView<DesktopHomeController> {
             width: Get.width * 0.6,
             margin: const EdgeInsets.only(right: 10),
             decoration: const BoxDecoration(
-                border:
-                    Border(bottom: BorderSide(width: 1, color: Colors.red))),
+                border: Border(
+                    bottom: BorderSide(width: 1, color: Color(0XFFFF6000)))),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
                   child: const Icon(
                     Icons.square,
-                    color: Colors.red,
+                    color: Color(0XFFFF6000),
                     size: 12,
                   ),
                 ),
@@ -34,7 +34,7 @@ class HomeTopNews extends GetView<DesktopHomeController> {
                 Container(
                   child: PoppinsText(
                     title: 'TOP NEWS',
-                    color: Colors.red,
+                    color: const Color(0XFF454545),
                     size: 14,
                     weight: FontWeight.w600,
                   ),
@@ -43,7 +43,8 @@ class HomeTopNews extends GetView<DesktopHomeController> {
             ),
           ),
           Container(
-            height: 450,
+            height: 440,
+            width: Get.width,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -51,38 +52,33 @@ class HomeTopNews extends GetView<DesktopHomeController> {
                 Expanded(
                   child: Card(
                     shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(2)),
+                        borderRadius: BorderRadius.circular(5)),
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Container(
-                          width: Get.width * 0.8,
-                          alignment: Alignment.center,
-                          child: Card(
-                            child: Column(
-                              children: [
-                                Image.asset(
-                                  'assets/images/breaking-news-slider/slide1.png',
-                                  fit: BoxFit.cover,
-                                  height: 284,
-                                  width: Get.width,
-                                ),
-                              ],
-                            ),
+                          height: 284,
+                          width: 427,
+                          child: Image.asset(
+                            'assets/images/posts/post1.png',
+                            fit: BoxFit.cover,
+                            height: 284,
+                            width: 427,
                           ),
                         ),
+                        const SizedBox(
+                          height: 10,
+                        ),
                         Container(
+                          padding: EdgeInsets.all(10),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Container(
-                                margin: const EdgeInsets.only(left: 5),
                                 child: ElevatedButton(
                                   style: ElevatedButton.styleFrom(
                                     shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(4)),
+                                        borderRadius: BorderRadius.circular(0)),
                                     backgroundColor: Colors.deepOrange,
                                     padding: const EdgeInsets.symmetric(
                                         horizontal: 8, vertical: 3),
@@ -132,16 +128,13 @@ class HomeTopNews extends GetView<DesktopHomeController> {
                 // right column lists start
                 Expanded(
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Container(
-                        margin: const EdgeInsets.only(
-                          top: 10,
-                        ),
                         width: 426,
                         height: 140,
                         child: Card(
-                          color: Colors.grey.shade300,
+                          color: Color(0XFFE7E5E5),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -155,9 +148,12 @@ class HomeTopNews extends GetView<DesktopHomeController> {
                                       width: Get.width,
                                     )),
                               ),
+                              const SizedBox(
+                                height: 20,
+                              ),
                               Container(
                                   width: 226,
-                                  margin: const EdgeInsets.all(5),
+                                  padding: const EdgeInsets.all(10),
                                   child: Column(
                                     children: [
                                       Row(
@@ -173,52 +169,8 @@ class HomeTopNews extends GetView<DesktopHomeController> {
                                           )
                                         ],
                                       ),
-                                      PoppinsText(
-                                        title:
-                                            'What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and types',
-                                        size: 12,
-                                        weight: FontWeight.w500,
-                                      )
-                                    ],
-                                  ))
-                            ],
-                          ),
-                        ),
-                      ),
-                      Container(
-                        width: 426,
-                        height: 140,
-                        child: Card(
-                          color: Colors.grey.shade300,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Expanded(
-                                child: Container(
-                                    width: 189,
-                                    child: Image.asset(
-                                      'assets/images/breaking-news-slider/slide1.png',
-                                      fit: BoxFit.cover,
-                                      height: Get.height,
-                                      width: Get.width,
-                                    )),
-                              ),
-                              Container(
-                                  width: 226,
-                                  margin: const EdgeInsets.all(5),
-                                  child: Column(
-                                    children: [
-                                      Row(
-                                        children: [
-                                          const FaIcon(
-                                            FontAwesomeIcons.clock,
-                                            size: 8,
-                                          ),
-                                          PoppinsText(
-                                            title: 'April 2023',
-                                            size: 8,
-                                          )
-                                        ],
+                                      const SizedBox(
+                                        height: 20,
                                       ),
                                       PoppinsText(
                                         title:
@@ -236,7 +188,7 @@ class HomeTopNews extends GetView<DesktopHomeController> {
                         width: 426,
                         height: 140,
                         child: Card(
-                          color: Colors.grey.shade300,
+                          color: Color(0XFFE7E5E5),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -250,9 +202,12 @@ class HomeTopNews extends GetView<DesktopHomeController> {
                                       width: Get.width,
                                     )),
                               ),
+                              const SizedBox(
+                                height: 20,
+                              ),
                               Container(
                                   width: 226,
-                                  margin: const EdgeInsets.all(5),
+                                  padding: const EdgeInsets.all(10),
                                   child: Column(
                                     children: [
                                       Row(
@@ -266,6 +221,62 @@ class HomeTopNews extends GetView<DesktopHomeController> {
                                             size: 8,
                                           )
                                         ],
+                                      ),
+                                      const SizedBox(
+                                        height: 20,
+                                      ),
+                                      PoppinsText(
+                                        title:
+                                            'What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and types',
+                                        size: 12,
+                                        weight: FontWeight.w500,
+                                      )
+                                    ],
+                                  ))
+                            ],
+                          ),
+                        ),
+                      ),
+                      Container(
+                        width: 426,
+                        height: 140,
+                        child: Card(
+                          color: Color(0XFFE7E5E5),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Expanded(
+                                child: Container(
+                                    width: 189,
+                                    child: Image.asset(
+                                      'assets/images/breaking-news-slider/slide1.png',
+                                      fit: BoxFit.cover,
+                                      height: Get.height,
+                                      width: Get.width,
+                                    )),
+                              ),
+                              const SizedBox(
+                                height: 20,
+                              ),
+                              Container(
+                                  width: 226,
+                                  padding: const EdgeInsets.all(10),
+                                  child: Column(
+                                    children: [
+                                      Row(
+                                        children: [
+                                          const FaIcon(
+                                            FontAwesomeIcons.clock,
+                                            size: 8,
+                                          ),
+                                          PoppinsText(
+                                            title: 'April 2023',
+                                            size: 8,
+                                          )
+                                        ],
+                                      ),
+                                      const SizedBox(
+                                        height: 20,
                                       ),
                                       PoppinsText(
                                         title:

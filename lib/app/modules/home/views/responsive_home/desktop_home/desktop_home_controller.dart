@@ -6,7 +6,7 @@ class DesktopHomeController extends GetxController {
   var activeIndex = 0.obs;
   var hoveredIndex = (-1).obs;
   var mostViewedHoveredIndex = (-1).obs;
-  var hoveredPostIndex = (-1).obs; // Corrected this line
+  var hoveredPostIndex = (-1).obs;
   var hoveredDemoIndex = (-1).obs;
 
   final CarouselController carouselController = CarouselController();
@@ -19,6 +19,16 @@ class DesktopHomeController extends GetxController {
     'assets/images/video/slide4.png',
     'assets/images/video/slide5.png',
     // Add other image paths as needed
+  ];
+
+  final List<String> slideTitles = [
+    'Lorem Ipsum is simply dummy text of the printing and typesetting industry 0',
+    'Lorem Ipsum is simply dummy text of the printing and typesetting industry 1',
+    'Lorem Ipsum is simply dummy text of the printing and typesetting industry 2',
+    'Lorem Ipsum is simply dummy text of the printing and typesetting industry 3',
+    'Lorem Ipsum is simply dummy text of the printing and typesetting industry 4',
+    'Lorem Ipsum is simply dummy text of the printing and typesetting industry 5',
+    // Add other titles as needed
   ];
 
   void carouselNext() {
@@ -70,7 +80,6 @@ class DesktopHomeController extends GetxController {
     hoveredDemoIndex.value = hovering ? index : -1;
   }
 
-  // Corrected the method name and variable
   void updateHoveredPostIndex(int index, bool hovering) {
     hoveredPostIndex.value = hovering ? index : -1;
   }
