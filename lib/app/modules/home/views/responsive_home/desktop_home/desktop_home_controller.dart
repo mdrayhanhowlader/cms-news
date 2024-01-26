@@ -4,8 +4,8 @@ class DesktopHomeController extends GetxController {
   var activeIndex = 0.obs;
   var hoveredIndex = (-1).obs;
   var mostViewedHoveredIndex = (-1).obs;
-  var hoveredPostIndex = (-1).obs;
-  var hoveredDemoIndex = (-1).obs; // Add this line
+  var hoveredPostIndex = (-1).obs; // Corrected this line
+  var hoveredDemoIndex = (-1).obs;
 
   @override
   void onInit() {
@@ -32,12 +32,12 @@ class DesktopHomeController extends GetxController {
     mostViewedHoveredIndex.value = index;
   }
 
-  // Add the following methods
   void updateHoveredDemoIndex(int index, bool hovering) {
     hoveredDemoIndex.value = hovering ? index : -1;
   }
 
+  // Corrected the method name and variable
   void updateHoveredPostIndex(int index, bool hovering) {
-    hoveredDemoIndex.value = hovering ? index : -1;
+    hoveredPostIndex.value = hovering ? index : -1;
   }
 }

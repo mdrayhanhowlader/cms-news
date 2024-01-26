@@ -9,6 +9,7 @@ class LabelsMenu extends GetView<DesktopHomeController> {
 
   @override
   Widget build(BuildContext context) {
+    DesktopHomeController controller = Get.put(DesktopHomeController());
     return Container(
       padding: EdgeInsets.only(left: 10),
       child: Column(
@@ -68,14 +69,16 @@ class LabelsMenu extends GetView<DesktopHomeController> {
                         ),
                         child: Row(
                           children: [
-                            const FaIcon(
+                            FaIcon(
                               FontAwesomeIcons.angleRight,
+                              color:
+                                  isHovered ? Colors.blue : Colors.deepOrange,
                               size: 14,
                             ),
                             const SizedBox(width: 5),
                             PoppinsText(
                               title: 'Demo $index',
-                              color: Colors.black,
+                              color: Colors.red,
                               size: 14,
                             ),
                           ],

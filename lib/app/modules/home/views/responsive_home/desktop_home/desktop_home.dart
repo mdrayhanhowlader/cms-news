@@ -1,6 +1,7 @@
 import 'package:cms_maahadtahfizaddin/app/modules/common_appbar/views/common_appbar_view.dart';
 import 'package:cms_maahadtahfizaddin/app/modules/common_bottombar/views/common_bottombar_view.dart';
 import 'package:cms_maahadtahfizaddin/app/modules/home/controllers/home_controller.dart';
+import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/desktop_home/widgets/desktop_all_news.dart';
 import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/desktop_home/widgets/desktop_home_left/breaking_news.dart';
 import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/desktop_home/widgets/desktop_home_main.dart';
 import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/desktop_home/widgets/hightlight_news.dart';
@@ -24,6 +25,10 @@ class DesktopHome extends GetView<HomeController> {
             const SizedBox(
               height: 50,
             ),
+            const DesktopAllNews(),
+            const SizedBox(
+              height: 50,
+            ),
             BreakingNews(),
             const SizedBox(
               height: 30,
@@ -32,7 +37,7 @@ class DesktopHome extends GetView<HomeController> {
             const SizedBox(
               height: 20,
             ),
-            CommonBottombarView()
+            const CommonBottombarView()
           ],
         ),
       ),
