@@ -6,6 +6,8 @@ import '../modules/common_bottombar/bindings/common_bottombar_binding.dart';
 import '../modules/common_bottombar/views/common_bottombar_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
+import '../modules/news-detail-page/bindings/news_detail_page_binding.dart';
+import '../modules/news-detail-page/views/news_detail_page_view.dart';
 import '../modules/test/bindings/test_binding.dart';
 import '../modules/test/views/test_view.dart';
 
@@ -36,6 +38,11 @@ class AppPages {
       name: _Paths.COMMON_BOTTOMBAR,
       page: () => const CommonBottombarView(),
       binding: CommonBottombarBinding(),
+    ),
+    GetPage(
+      name: _Paths.NEWS_DETAIL_PAGE,
+      page: () => const NewsDetailPageView(),
+      binding: NewsDetailPageBinding(),
     ),
   ];
 }

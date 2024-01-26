@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cms_maahadtahfizaddin/app/core/widgets/poppins_text.dart';
 import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/desktop_home/desktop_home_controller.dart';
+import 'package:cms_maahadtahfizaddin/app/modules/news-detail-page/views/news_detail_page_view.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
@@ -74,7 +75,9 @@ class DesktopSlider extends GetView<DesktopHomeController> {
                                                 BorderRadius.circular(2)),
                                         backgroundColor:
                                             const Color(0XFFFF6000)),
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      Get.to(NewsDetailPageView());
+                                    },
                                     child: PoppinsText(
                                       title: 'BUTTON',
                                       size: 14,

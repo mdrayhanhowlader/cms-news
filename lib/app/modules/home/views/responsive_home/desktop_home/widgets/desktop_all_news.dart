@@ -1,6 +1,7 @@
 import 'package:cms_maahadtahfizaddin/app/core/widgets/poppins_text.dart';
 import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/desktop_home/desktop_home_controller.dart';
 import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/desktop_home/widgets/desktop_slider.dart';
+import 'package:cms_maahadtahfizaddin/app/modules/news-detail-page/views/news_detail_page_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -65,6 +66,7 @@ class DesktopAllNews extends GetView<DesktopHomeController> {
                   onPressed: () {
                     // Handle button click
                     // print('Read More button clicked for $newsTitle');
+                    Get.to(NewsDetailPageView());
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.deepOrange,

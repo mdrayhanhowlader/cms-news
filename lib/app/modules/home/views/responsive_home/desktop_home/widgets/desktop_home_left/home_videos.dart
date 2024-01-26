@@ -1,6 +1,7 @@
 import 'package:cms_maahadtahfizaddin/app/core/widgets/poppins_text.dart';
 import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/desktop_home/desktop_home_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 
 class HomeVideos extends GetView<DesktopHomeController> {
@@ -10,6 +11,8 @@ class HomeVideos extends GetView<DesktopHomeController> {
   Widget build(BuildContext context) {
     return Container(
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
             width: Get.width * 0.6,
@@ -41,23 +44,37 @@ class HomeVideos extends GetView<DesktopHomeController> {
               ],
             ),
           ),
-          GridView.builder(
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 3,
-              crossAxisSpacing: 10.0,
-              mainAxisSpacing: 10.0,
-            ),
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            itemCount: 6,
-            itemBuilder: (context, index) {
-              return VideoCard(
-                videoTitle: 'Video Title $index',
-                videoDescription: 'Description for Video $index',
-                videoThumbnailUrl: 'assets/images/video/slide$index.png',
-                isHovered: controller.hoveredIndex == index,
-              );
-            },
+          const SizedBox(
+            height: 10,
+          ),
+          Column(
+            children: [
+              Container(
+                child: GridView.builder(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 3,
+                    crossAxisSpacing: 5.0,
+                    mainAxisSpacing: 5.0,
+                  ),
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemCount: 6,
+                  itemBuilder: (context, index) {
+                    return Container(
+                      margin: EdgeInsets.only(right: 10),
+                      child: VideoCard(
+                        videoTitle:
+                            'What is Lorem Ipsum? Lorem Ipsum is simply dummy te $index',
+                        videoDescription: 'April 2023',
+                        videoThumbnailUrl:
+                            'assets/images/video/slide$index.png',
+                        isHovered: controller.hoveredIndex == index,
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ],
           ),
         ],
       ),
@@ -82,8 +99,11 @@ class VideoCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(0)),
+      color: Colors.white,
+      elevation: 0,
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Expanded(
             child: Stack(
@@ -133,14 +153,27 @@ class VideoCard extends StatelessWidget {
               children: [
                 PoppinsText(
                   title: videoTitle,
-                  size: 16,
+                  size: 12,
                   weight: FontWeight.w600,
+                  color: const Color(0XFF292929),
                 ),
                 const SizedBox(height: 8),
-                PoppinsText(
-                  title: videoDescription,
-                  size: 12,
-                  color: Colors.black54,
+                Row(
+                  children: [
+                    const FaIcon(
+                      FontAwesomeIcons.clock,
+                      color: Color(0XFFE7E7E7),
+                      size: 10,
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    PoppinsText(
+                      title: videoDescription,
+                      color: Colors.black54,
+                      size: 10,
+                    ),
+                  ],
                 ),
               ],
             ),

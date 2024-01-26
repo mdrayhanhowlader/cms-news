@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cms_maahadtahfizaddin/app/core/widgets/poppins_text.dart';
 import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/desktop_home/desktop_home_controller.dart';
+import 'package:cms_maahadtahfizaddin/app/modules/news-detail-page/views/news_detail_page_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -57,7 +58,7 @@ class BreakingNews extends GetView<DesktopHomeController> {
       ),
       decoration: const BoxDecoration(
         border: Border(
-          top: BorderSide(width: 1, color: Colors.black),
+          top: BorderSide(width: 1, color: Color(0XFFB2B2B2)),
         ),
       ),
       child: Column(
@@ -70,15 +71,15 @@ class BreakingNews extends GetView<DesktopHomeController> {
                 child: PoppinsText(
                   title: 'BREAKING NEWS',
                   size: 20,
-                  color: Colors.black,
+                  color: Color(0XFF454545),
                   weight: FontWeight.w700,
                 ),
               ),
               Container(
                 width: Get.width * 0.60,
                 decoration: const BoxDecoration(
-                  border:
-                      Border(top: BorderSide(width: 1, color: Colors.black)),
+                  border: Border(
+                      top: BorderSide(width: 3, color: Color(0XFFB2B2B2))),
                 ),
               ),
               Container(
@@ -92,7 +93,10 @@ class BreakingNews extends GetView<DesktopHomeController> {
                       mouseCursor: SystemMouseCursors.click,
                       onHover: (value) {},
                       onTap: previous,
-                      child: const Icon(Icons.arrow_back),
+                      child: const Icon(
+                        Icons.arrow_back,
+                        color: Color(0XFFB2B2B2),
+                      ),
                     ),
                     InkWell(
                       hoverColor: Colors.transparent,
@@ -100,7 +104,10 @@ class BreakingNews extends GetView<DesktopHomeController> {
                       mouseCursor: SystemMouseCursors.click,
                       onHover: (value) {},
                       onTap: next,
-                      child: const Icon(Icons.arrow_forward),
+                      child: const Icon(
+                        Icons.arrow_forward,
+                        color: Color(0XFFB2B2B2),
+                      ),
                     ),
                   ],
                 ),
@@ -108,8 +115,8 @@ class BreakingNews extends GetView<DesktopHomeController> {
               Container(
                 width: Get.width * 0.1,
                 decoration: const BoxDecoration(
-                  border:
-                      Border(top: BorderSide(width: 1, color: Colors.black)),
+                  border: Border(
+                      top: BorderSide(width: 3, color: Color(0XFFB2B2B2))),
                 ),
               ),
             ],
@@ -126,11 +133,17 @@ class BreakingNews extends GetView<DesktopHomeController> {
                   return MouseRegion(
                     onEnter: (_) => controller.updateHoveredIndex(index),
                     onExit: (_) => controller.updateHoveredIndex(-1),
-                    child: buildImage(
-                      urlImage,
-                      slideText,
-                      slideCategory,
-                      index,
+                    child: InkWell(
+                      onTap: () {
+                        // Get.toNamed('/news-detail-page');
+                        Navigator.pushNamed(context, '/news-detail-page');
+                      },
+                      child: buildImage(
+                        urlImage,
+                        slideText,
+                        slideCategory,
+                        index,
+                      ),
                     ),
                   );
                 },

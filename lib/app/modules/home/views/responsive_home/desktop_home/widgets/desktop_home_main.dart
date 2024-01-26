@@ -21,14 +21,14 @@ class DesktopHomeMain extends GetView<DesktopHomeController> {
         decoration: const BoxDecoration(
             border: Border(
                 // right: BorderSide(width: 1, color: Colors.black),
-                top: BorderSide(width: 1, color: Colors.black))),
+                top: BorderSide(width: 1, color: Color(0XFFB2B2B2)))),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
               decoration: const BoxDecoration(
                   border: Border(
-                right: BorderSide(width: 1, color: Colors.black),
+                right: BorderSide(width: 1, color: Color(0XFFB2B2B2)),
                 // top: BorderSide(width: 1, color: Colors.black)
               )),
               width: Get.width * 0.6,

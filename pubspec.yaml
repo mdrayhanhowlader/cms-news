@@ -94,6 +94,7 @@ flutter:
     - assets/images/breaking-news-slider/
     - assets/images/video/
     - assets/images/posts/
+    - assets/images/news-detail/
 
 
   fonts:

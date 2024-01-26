@@ -65,6 +65,7 @@ class CommonAppbarView extends GetView<CommonAppbarController>
                 width: Get.width * 0.9,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     InkWell(
                         onTap: () {

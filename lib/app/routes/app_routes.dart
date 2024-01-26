@@ -7,6 +7,7 @@ abstract class Routes {
   static const COMMON_APPBAR = _Paths.COMMON_APPBAR;
   static const TEST = _Paths.TEST;
   static const COMMON_BOTTOMBAR = _Paths.COMMON_BOTTOMBAR;
+  static const NEWS_DETAIL_PAGE = _Paths.NEWS_DETAIL_PAGE;
 }
 
 abstract class _Paths {
@@ -15,4 +16,5 @@ abstract class _Paths {
   static const COMMON_APPBAR = '/common-appbar';
   static const TEST = '/test';
   static const COMMON_BOTTOMBAR = '/common-bottombar';
+  static const NEWS_DETAIL_PAGE = '/news-detail-page';
 }
