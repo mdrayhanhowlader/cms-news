@@ -1,3 +1,5 @@
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class DesktopHomeController extends GetxController {
@@ -6,6 +8,38 @@ class DesktopHomeController extends GetxController {
   var mostViewedHoveredIndex = (-1).obs;
   var hoveredPostIndex = (-1).obs; // Corrected this line
   var hoveredDemoIndex = (-1).obs;
+
+  final CarouselController carouselController = CarouselController();
+
+  final List<String> imageList = [
+    'assets/images/video/slide0.png',
+    'assets/images/video/slide1.png',
+    'assets/images/video/slide2.png',
+    'assets/images/video/slide3.png',
+    'assets/images/video/slide4.png',
+    'assets/images/video/slide5.png',
+    // Add other image paths as needed
+  ];
+
+  void carouselNext() {
+    carouselController.nextPage(
+      duration: Duration(milliseconds: 300),
+      curve: Curves.linear,
+    );
+  }
+
+  void updateCurrentPage(int index) {
+    // Implement your logic here to handle the current page index update
+    // For example, you can print the index to verify it's working
+    // print('Current page index updated to: $index');
+  }
+
+  void carouselBack() {
+    carouselController.previousPage(
+      duration: Duration(milliseconds: 300),
+      curve: Curves.linear,
+    );
+  }
 
   @override
   void onInit() {
