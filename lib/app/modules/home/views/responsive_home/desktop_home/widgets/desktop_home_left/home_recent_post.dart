@@ -77,9 +77,10 @@ class HomeRecentPost extends GetView<DesktopHomeController> {
                 width: Get.width,
                 height: 250,
                 child: Card(
+                  shadowColor: Colors.transparent,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(0)),
-                  color: Colors.grey.shade300,
+                  color: Colors.grey.shade200,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [

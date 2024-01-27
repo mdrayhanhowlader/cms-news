@@ -38,7 +38,7 @@ class CommonBottombarView extends GetView<CommonBottombarController> {
                             title:
                                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummytet evr sice the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
                             color: Colors.white,
-                            size: 14,
+                            size: 12,
                             overflow: TextOverflow.ellipsis,
                             maxLines: 8,
                           ),
@@ -84,7 +84,7 @@ class CommonBottombarView extends GetView<CommonBottombarController> {
                                 title:
                                     'No 5,1, Jalan USJ 1/1a Regalia Center\n47600, Selangor, Malaysia',
                                 color: Colors.white,
-                                size: 14,
+                                size: 12,
                               ),
                             )
                           ],

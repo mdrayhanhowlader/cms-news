@@ -1,3 +1,4 @@
+import 'package:cms_maahadtahfizaddin/app/core/widgets/poppins_text.dart';
 import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/desktop_home/desktop_home_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -20,13 +21,14 @@ class FollowSocialMedia extends GetView<DesktopHomeController> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
+                  alignment: Alignment.center,
                   width: Get.width * 0.1,
                   color: Colors.black,
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                  child: Text(
-                    'Follow Us On',
-                    style: TextStyle(color: Colors.white),
+                      const EdgeInsets.symmetric(horizontal: 8, vertical: 7),
+                  child: PoppinsText(
+                    title: 'Follow Us On',
+                    color: Colors.white,
                   ),
                 ),
                 Container(
@@ -40,10 +42,13 @@ class FollowSocialMedia extends GetView<DesktopHomeController> {
               ],
             ),
           ),
+          SizedBox(
+            height: 20,
+          ),
           // Social buttons using GridView
           GridView.builder(
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 3, // Adjust the crossAxisCount to 2
+              crossAxisCount: 3,
               crossAxisSpacing: 1.0,
               mainAxisSpacing: 1.0,
               childAspectRatio: 3,
@@ -55,7 +60,7 @@ class FollowSocialMedia extends GetView<DesktopHomeController> {
               return ButtonItem(
                 text: socialButtons[index]['text'],
                 icon: socialButtons[index]['icon'],
-                color: socialButtons[index]['color'],
+                gradientColors: socialButtons[index]['gradientColors'],
               );
             },
           ),
@@ -68,44 +73,64 @@ class FollowSocialMedia extends GetView<DesktopHomeController> {
 class ButtonItem extends GetView<DesktopHomeController> {
   final String text;
   final IconData icon;
-  final Color color;
+  final List<Color> gradientColors;
 
   ButtonItem({
     Key? key,
     required this.text,
     required this.icon,
-    required this.color,
+    required this.gradientColors,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(2),
+      margin: const EdgeInsets.all(2),
       child: ElevatedButton.icon(
         onPressed: () {
           // Handle button click
           print('$text button clicked');
         },
         style: ElevatedButton.styleFrom(
-          backgroundColor: color,
+          padding: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(1.0),
+            borderRadius: BorderRadius.circular(7.0),
           ),
-          // Adjust the padding to 5
+          // Add elevation
+          elevation: 3,
+          // Set gradient background
+          primary: gradientColors.first,
+          onPrimary: Colors.white, // Text color
+          shadowColor: gradientColors.first.withOpacity(0.7), // Shadow color
+          // Use BoxDecoration to set linear gradient
+          // This will create a linear gradient using the specified colors
+          // Adjust the begin and end points as needed
+          // gradient: LinearGradient(
+          //   colors: gradientColors,
+          //   begin: Alignment.topLeft,
+          //   end: Alignment.bottomRight,
+          // ),
         ),
         icon: Container(
-          decoration: BoxDecoration(
-              border: Border(right: BorderSide(width: 1, color: Colors.white))),
+          alignment: Alignment.center,
+          height: Get.height,
+          padding:
+              EdgeInsets.symmetric(horizontal: 8), // Adjust padding for spacing
+          decoration: const BoxDecoration(
+            border: Border(right: BorderSide(width: 1, color: Colors.white)),
+          ),
           child: Icon(
             icon,
             color: Colors.white,
+            size: 20,
           ),
         ),
         label: Text(
           text,
-          style: TextStyle(
-              fontSize: 12,
-              color: Colors.white), // Adjust the font size as needed
+          style: const TextStyle(
+            fontSize: 14,
+            color: Colors.white,
+          ),
         ),
       ),
     );
@@ -116,31 +141,38 @@ final List<Map<String, dynamic>> socialButtons = [
   {
     'text': 'Facebook',
     'icon': Icons.facebook,
-    'color': Colors.blue,
+    'gradientColors': [Colors.blue, Color(0xFF2E3192)],
   },
   {
     'text': 'Twitter',
     'icon': FontAwesomeIcons.twitter,
-    'color': Colors.black,
+    'gradientColors': [Colors.black, Colors.grey],
+  },
+  {
+    'text': 'Snapchat',
+    'icon': FontAwesomeIcons.snapchat,
+    'gradientColors': [Color(0xFFFFFC00), Color(0XFFFFFC00)],
   },
   {
     'text': 'Instagram',
     'icon': FontAwesomeIcons.instagram,
-    'color': Colors.pink,
+    'gradientColors': [
+      Color(0XFFD54FAE),
+      Color(0XFFFA7E1E),
+      Color(0XFFD62976),
+      Color(0XFF962FBF),
+      Color(0XFFD54FAE),
+      Color(0XFFD54FAE),
+    ],
   },
   {
-    'text': 'LinkedIn',
-    'icon': FontAwesomeIcons.linkedin,
-    'color': Colors.blue,
-  },
-  {
-    'text': 'YouTube',
+    'text': 'Apple',
     'icon': FontAwesomeIcons.youtube,
-    'color': Colors.red,
+    'gradientColors': [Color(0XFF000000), Color(0XFF000000)],
   },
   {
-    'text': 'GitHub',
+    'text': 'Youtube',
     'icon': FontAwesomeIcons.github,
-    'color': Colors.black,
+    'gradientColors': [Color(0XFFFF0000), Color(0XFFFF0000)],
   },
 ];

@@ -42,6 +42,9 @@ class LabelsMenu extends GetView<DesktopHomeController> {
             ),
           ),
           // Demo Menu
+          SizedBox(
+            height: 10,
+          ),
           Column(
             children: List.generate(
               10,
@@ -72,14 +75,15 @@ class LabelsMenu extends GetView<DesktopHomeController> {
                             FaIcon(
                               FontAwesomeIcons.angleRight,
                               color:
-                                  isHovered ? Colors.blue : Colors.deepOrange,
-                              size: 14,
+                                  isHovered ? Colors.blue : Color(0XFFFF6000),
+                              size: 12,
                             ),
                             const SizedBox(width: 5),
                             PoppinsText(
                               title: 'Demo $index',
-                              color: Colors.red,
-                              size: 14,
+                              color: Color(0XFF000000),
+                              size: 12,
+                              weight: FontWeight.w600,
                             ),
                           ],
                         ),

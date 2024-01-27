@@ -54,9 +54,10 @@ class HomeTopNews extends GetView<DesktopHomeController> {
               children: [
                 Expanded(
                   child: Card(
+                    shadowColor: Colors.transparent,
                     color: const Color(0XFFE7E5E5),
                     shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5)),
+                        borderRadius: BorderRadius.circular(0)),
                     child: GestureDetector(
                       onTap: () {
                         // Navigate to NewsDetailPageView
@@ -182,7 +183,8 @@ class HomeTopNews extends GetView<DesktopHomeController> {
       width: 426,
       height: 140,
       child: Card(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
+        shadowColor: Colors.transparent,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(0)),
         color: Color(0XFFE7E5E5),
         child: GestureDetector(
           onTap: () {

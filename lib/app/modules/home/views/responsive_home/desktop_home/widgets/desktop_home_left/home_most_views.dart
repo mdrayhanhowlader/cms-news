@@ -78,6 +78,7 @@ class HomeMostViews extends GetView<DesktopHomeController> {
             height: 10,
           ),
           Container(
+            margin: EdgeInsets.only(right: 10),
             width: Get.width,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
