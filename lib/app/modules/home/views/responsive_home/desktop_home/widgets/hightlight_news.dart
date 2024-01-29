@@ -1,3 +1,4 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:cms_maahadtahfizaddin/app/core/widgets/poppins_text.dart';
 import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/desktop_home/desktop_home_controller.dart';
 import 'package:flutter/material.dart';
@@ -44,11 +45,14 @@ class HighlightNews extends GetView<DesktopHomeController> {
                 ),
               ),
               Container(
-                child: PoppinsText(
-                  title: 'Title of the important news',
-                  size: 14,
-                ),
-              ),
+                child: AnimatedTextKit(animatedTexts: [
+                  RotateAnimatedText(
+                    'Title of the important news',
+                    duration: const Duration(milliseconds: 3000),
+                    transitionHeight: 40,
+                  )
+                ]),
+              )
             ],
           ),
           Row(
