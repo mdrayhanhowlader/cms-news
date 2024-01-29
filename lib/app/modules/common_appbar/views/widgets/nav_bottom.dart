@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pluto_menu_bar/pluto_menu_bar.dart';
 import 'package:cms_maahadtahfizaddin/app/modules/common_appbar/controllers/common_appbar_controller.dart';
+import 'package:anim_search_bar/anim_search_bar.dart';
 
 class NavBottom extends GetView<CommonAppbarController> {
   const NavBottom({Key? key}) : super(key: key);
@@ -62,10 +63,22 @@ class NavBottom extends GetView<CommonAppbarController> {
     );
   }
 
-  Widget _buildSearchIcon() {
-    return IconButton(
-      icon: Icon(Icons.search),
-      onPressed: () => controller.toggleSearchInput(),
-    );
-  }
+  // Widget _buildSearchIcon() {
+  //   return IconButton(
+  //     icon: Icon(Icons.search),
+  //     onPressed: () => controller.toggleSearchInput(),
+  //   );
+  // }
+  // Widget _buildSearchIcon() {
+  //   return AnimSearchBar(
+  //     width: 400,
+  //     textController: TextEditingController(text: 'Search Here...'),
+  //     onSuffixTap: () {
+  //       print('search bar is working');
+  //     },
+  //     color: Colors.white,
+  //     helpText: AutofillHints.name,
+  //     onSubmitted: (p0) {},
+  //   );
+  // }
 }

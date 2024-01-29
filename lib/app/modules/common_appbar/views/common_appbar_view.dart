@@ -1,3 +1,4 @@
+import 'package:anim_search_bar/anim_search_bar.dart';
 import 'package:cms_maahadtahfizaddin/app/core/widgets/poppins_text.dart';
 import 'package:cms_maahadtahfizaddin/app/modules/common_appbar/controllers/common_appbar_controller.dart';
 import 'package:cms_maahadtahfizaddin/app/modules/common_appbar/views/widgets/nav_bottom.dart';
@@ -80,6 +81,7 @@ class CommonAppbarView extends GetView<CommonAppbarController>
         ),
         Material(
           child: Container(
+            padding: EdgeInsets.symmetric(horizontal: 0),
             color: Color(0XFF292929),
             width: Get.width * 0.9,
             child: Row(
@@ -87,13 +89,33 @@ class CommonAppbarView extends GetView<CommonAppbarController>
               children: [
                 Container(width: Get.width * 0.7, child: NavBottom()),
                 Container(
-                    padding: const EdgeInsets.only(right: 10, left: 10),
-                    alignment: Alignment.centerRight,
-                    width: Get.width * 0.2,
-                    child: const Icon(
-                      Icons.search,
-                      color: Colors.white,
-                    )),
+                  color: Colors.red,
+                  height: 45,
+                  padding: const EdgeInsets.only(
+                    right: 10,
+                    left: 10,
+                    top: 0, // Adjust top padding
+                    bottom: 0, // Adjust bottom padding
+                  ),
+                  alignment: Alignment.centerRight,
+                  width: Get.width * 0.2,
+                  child: AnimSearchBar(
+                    autoFocus: true,
+                    width: 300,
+                    textController:
+                        TextEditingController(text: 'Search Here...'),
+                    onSuffixTap: () {},
+                    searchIconColor: Colors.white,
+                    boxShadow: false,
+                    color: Colors.transparent,
+                    onSubmitted: (p0) {},
+                    rtl: true,
+                    style: const TextStyle(
+                        fontSize: 10, fontWeight: FontWeight.bold),
+                    textFieldColor: Color(0XFFFF6000),
+                    textFieldIconColor: Colors.white,
+                  ),
+                ),
               ],
             ),
           ),
@@ -101,46 +123,6 @@ class CommonAppbarView extends GetView<CommonAppbarController>
       ],
     );
   }
-
-  // // Function to build the dropdown navigation
-  // Widget _buildDropdownNavigation(List<String> items) {
-  //   return DropdownButton<String>(
-  //     items: items.map((item) {
-  //       return DropdownMenuItem(
-  //         child: Text(item, style: TextStyle(color: Colors.white)),
-  //         value: item,
-  //       );
-  //     }).toList(),
-  //     onChanged: (value) {
-  //       // Handle dropdown item selection
-  //       print('Selected: $value');
-  //     },
-  //     underline: Container(), // Remove the default underline
-  //     icon: Icon(Icons.arrow_drop_down, color: Colors.yellow),
-  //     dropdownColor: Color(0XFF292929),
-  //     style: TextStyle(color: Colors.white),
-  //   );
-  // }
-
-  // // Function to build the search input
-  // Widget _buildSearchInput() {
-  //   return SizedBox(
-  //     width: Get.width * 0.5, // Adjust the width as needed
-  //     child: const TextField(
-  //       decoration: InputDecoration(
-  //         hintText: 'Search...',
-  //         hintStyle: TextStyle(color: Colors.white),
-  //         border: OutlineInputBorder(
-  //           borderSide: BorderSide(color: Colors.yellow),
-  //         ),
-  //         focusedBorder: OutlineInputBorder(
-  //           borderSide: BorderSide(color: Colors.yellow),
-  //         ),
-  //       ),
-  //       style: TextStyle(color: Colors.white),
-  //     ),
-  //   );
-  // }
 
   @override
   Size get preferredSize =>
