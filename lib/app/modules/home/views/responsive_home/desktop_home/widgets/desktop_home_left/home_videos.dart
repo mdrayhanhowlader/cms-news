@@ -9,6 +9,14 @@ class HomeVideos extends GetView<DesktopHomeController> {
 
   @override
   Widget build(BuildContext context) {
+    var crossAxisExtent = 3;
+
+    if (MediaQuery.of(context).size.width < 480) {
+    } else if (MediaQuery.of(context).size.width < 800) {
+      crossAxisExtent = 2;
+    } else if (MediaQuery.of(context).size.width < 1200) {
+      crossAxisExtent = crossAxisExtent;
+    }
     return Container(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -51,8 +59,8 @@ class HomeVideos extends GetView<DesktopHomeController> {
             children: [
               Container(
                 child: GridView.builder(
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 3,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: crossAxisExtent,
                     crossAxisSpacing: 5.0,
                     mainAxisSpacing: 5.0,
                   ),

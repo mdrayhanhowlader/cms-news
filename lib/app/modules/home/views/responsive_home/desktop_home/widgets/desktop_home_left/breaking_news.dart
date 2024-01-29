@@ -1,12 +1,11 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cms_maahadtahfizaddin/app/core/widgets/poppins_text.dart';
 import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/desktop_home/desktop_home_controller.dart';
-import 'package:cms_maahadtahfizaddin/app/modules/news-detail-page/views/news_detail_page_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class BreakingNews extends GetView<DesktopHomeController> {
-  BreakingNews({super.key});
+  BreakingNews({Key? key});
 
   final DesktopHomeController controller = Get.put(DesktopHomeController());
 
@@ -51,6 +50,22 @@ class BreakingNews extends GetView<DesktopHomeController> {
 
   @override
   Widget build(BuildContext context) {
+    double viewportFraction = 0.3;
+    double fontSize = 20;
+    double containerTextWidth = Get.width;
+
+    // Adjust the sizes based on the screen size
+    if (MediaQuery.of(context).size.width < 480) {
+      viewportFraction = 1;
+      fontSize = 14;
+    } else if (MediaQuery.of(context).size.width < 800) {
+      viewportFraction = 0.5;
+      fontSize = 14;
+    } else if (MediaQuery.of(context).size.width < 1200) {
+      viewportFraction = 0.4;
+      fontSize = 20;
+    }
+
     return Container(
       width: Get.width * 0.9,
       padding: const EdgeInsets.only(
@@ -70,8 +85,8 @@ class BreakingNews extends GetView<DesktopHomeController> {
                 width: Get.width * 0.14,
                 child: PoppinsText(
                   title: 'BREAKING NEWS',
-                  size: 20,
-                  color: Color(0XFF454545),
+                  size: fontSize,
+                  color: const Color(0XFF454545),
                   weight: FontWeight.w700,
                 ),
               ),
@@ -135,7 +150,6 @@ class BreakingNews extends GetView<DesktopHomeController> {
                     onExit: (_) => controller.updateHoveredIndex(-1),
                     child: InkWell(
                       onTap: () {
-                        // Get.toNamed('/news-detail-page');
                         Navigator.pushNamed(context, '/news-detail-page');
                       },
                       child: buildImage(
@@ -150,7 +164,7 @@ class BreakingNews extends GetView<DesktopHomeController> {
                 options: CarouselOptions(
                   initialPage: 3,
                   height: 300,
-                  viewportFraction: 0.3,
+                  viewportFraction: viewportFraction,
                   scrollDirection: Axis.horizontal,
                   enlargeCenterPage: false,
                   enlargeStrategy: CenterPageEnlargeStrategy.zoom,

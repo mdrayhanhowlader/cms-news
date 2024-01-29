@@ -2,25 +2,22 @@ import 'package:cms_maahadtahfizaddin/app/data/constants/responsive_constant.dar
 import 'package:flutter/material.dart';
 
 class ResponsiveLayout extends StatelessWidget {
-  // final Widget mobile;
-  // final Widget tablet;
+  final Widget mobile;
+  final Widget tablet;
   final Widget desktop;
 
   ResponsiveLayout(
-      {
-      // required this.mobile,
-      // required this.tablet,
-      required this.desktop});
+      {required this.mobile, required this.tablet, required this.desktop});
 
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
         if (constraints.maxWidth < ResponsiveConstants.mobileWidth) {
-          return desktop;
+          return mobile;
           // return mobile;
         } else if (constraints.maxWidth < ResponsiveConstants.tabletWidth) {
-          return desktop;
+          return tablet;
           // return tablet;
         } else {
           return desktop;

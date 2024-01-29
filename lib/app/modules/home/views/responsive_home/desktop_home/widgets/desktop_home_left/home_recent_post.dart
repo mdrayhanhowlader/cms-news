@@ -98,7 +98,7 @@ class HomeRecentPost extends GetView<DesktopHomeController> {
                       Container(
                         width: Get.width * 0.4,
                         margin: const EdgeInsets.all(5),
-                        padding: EdgeInsets.all(20),
+                        padding: const EdgeInsets.all(20),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [

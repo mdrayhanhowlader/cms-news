@@ -89,7 +89,7 @@ class CommonAppbarView extends GetView<CommonAppbarController>
               children: [
                 Container(width: Get.width * 0.7, child: NavBottom()),
                 Container(
-                  color: Colors.red,
+                  // color: Colors.red,
                   height: 45,
                   padding: const EdgeInsets.only(
                     right: 10,
@@ -102,8 +102,9 @@ class CommonAppbarView extends GetView<CommonAppbarController>
                   child: AnimSearchBar(
                     autoFocus: true,
                     width: 300,
-                    textController:
-                        TextEditingController(text: 'Search Here...'),
+                    textController: TextEditingController(
+                      text: 'Search Here...',
+                    ),
                     onSuffixTap: () {},
                     searchIconColor: Colors.white,
                     boxShadow: false,
@@ -111,7 +112,9 @@ class CommonAppbarView extends GetView<CommonAppbarController>
                     onSubmitted: (p0) {},
                     rtl: true,
                     style: const TextStyle(
-                        fontSize: 10, fontWeight: FontWeight.bold),
+                        fontSize: 10,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white),
                     textFieldColor: Color(0XFFFF6000),
                     textFieldIconColor: Colors.white,
                   ),
