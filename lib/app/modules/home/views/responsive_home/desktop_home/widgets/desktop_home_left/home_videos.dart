@@ -12,6 +12,7 @@ class HomeVideos extends GetView<DesktopHomeController> {
     var crossAxisExtent = 3;
 
     if (MediaQuery.of(context).size.width < 480) {
+      crossAxisExtent = 1;
     } else if (MediaQuery.of(context).size.width < 800) {
       crossAxisExtent = 2;
     } else if (MediaQuery.of(context).size.width < 1200) {

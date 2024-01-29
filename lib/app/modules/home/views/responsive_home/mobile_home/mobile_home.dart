@@ -1,4 +1,9 @@
+import 'package:cms_maahadtahfizaddin/app/modules/common_bottombar/views/common_bottombar_view.dart';
+import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/desktop_home/widgets/desktop_home_left/breaking_news.dart';
+import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/desktop_home/widgets/desktop_home_left/home_videos.dart';
 import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/mobile_home/mobile_home_controller.dart';
+import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/mobile_home/widgets/mobile_bottom_bar.dart';
+import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/mobile_home/widgets/mobile_highlight_news.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -7,6 +12,45 @@ class MobileHomeView extends GetView<MobileHomeController> {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Container(
+          width: Get.width,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                width: Get.width * 0.95,
+                padding: const EdgeInsets.only(top: 15),
+                child: Image.asset('assets/images/logo/logo.png'),
+              ),
+              // const CommonAppbarView(),
+              const SizedBox(
+                height: 20,
+              ),
+              const MobileHighlightNews(),
+              // const SizedBox(
+              //   height: 50,
+              // ),
+              // const DesktopAllNews(),
+              // const SizedBox(
+              //   height: 50,
+              // ),
+              // BreakingNews(),
+              const SizedBox(
+                height: 30,
+              ),
+
+              // const DesktopHomeMain(),
+              const SizedBox(
+                height: 20,
+              ),
+              const MobileBottomBar()
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
