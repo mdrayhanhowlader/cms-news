@@ -99,8 +99,8 @@ class ButtonItem extends GetView<DesktopHomeController> {
           // Add elevation
           elevation: 3,
           // Set gradient background
-          primary: gradientColors.first,
-          onPrimary: Colors.white, // Text color
+          backgroundColor: gradientColors.first,
+          foregroundColor: Colors.white, // Text color
           shadowColor: gradientColors.first.withOpacity(0.7), // Shadow color
           // Use BoxDecoration to set linear gradient
           // This will create a linear gradient using the specified colors
@@ -157,8 +157,8 @@ final List<Map<String, dynamic>> socialButtons = [
     'text': 'Instagram',
     'icon': FontAwesomeIcons.instagram,
     'gradientColors': [
-      Color(0XFFD54FAE),
-      Color(0XFFFA7E1E),
+      Color.fromARGB(255, 207, 5, 150),
+      Color.fromARGB(255, 243, 9, 9),
       Color(0XFFD62976),
       Color(0XFF962FBF),
       Color(0XFFD54FAE),
