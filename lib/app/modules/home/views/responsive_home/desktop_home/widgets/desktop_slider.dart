@@ -144,7 +144,7 @@ class DesktopSlider extends GetView<DesktopHomeController> {
           children: [
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                foregroundColor: Colors.black.withOpacity(0.2),
+                foregroundColor: Colors.black.withOpacity(0.6),
                 backgroundColor: Colors.white,
                 shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.only(

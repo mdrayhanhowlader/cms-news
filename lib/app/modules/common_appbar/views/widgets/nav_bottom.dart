@@ -11,7 +11,7 @@ class NavBottom extends GetView<CommonAppbarController> {
     return [
       PlutoMenuItem(
         title: '',
-        icon: Icons.home,
+        icon: Icons.house,
       ),
       PlutoMenuItem(
         title: 'FEATURES',
@@ -47,38 +47,26 @@ class NavBottom extends GetView<CommonAppbarController> {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         // Left side: PlutoMenuBar
-        PlutoMenuBar(
-          mode: PlutoMenuBarMode.hover,
-          backgroundColor: const Color(0XFF292929),
-          itemStyle: const PlutoMenuItemStyle(
-            activatedColor: Colors.red,
-            indicatorColor: Colors.deepOrange,
-            textStyle: TextStyle(color: Colors.white),
-            iconColor: Colors.white,
-            moreIconColor: Colors.white,
+        Container(
+          padding: const EdgeInsets.symmetric(vertical: 5),
+          child: PlutoMenuBar(
+            mode: PlutoMenuBarMode.hover,
+            height: 60,
+            backgroundColor: const Color(0XFF292929),
+            itemStyle: const PlutoMenuItemStyle(
+              activatedColor: Colors.red,
+              indicatorColor: Colors.deepOrange,
+              textStyle: TextStyle(color: Colors.white),
+              iconColor: Colors.white,
+              moreIconColor: Colors.white,
+              enableSelectedTopMenu: true,
+              selectedTopMenuIconColor: Colors.white,
+              iconSize: 28,
+            ),
+            menus: makeMenus(),
           ),
-          menus: makeMenus(),
         ),
       ],
     );
   }
-
-  // Widget _buildSearchIcon() {
-  //   return IconButton(
-  //     icon: Icon(Icons.search),
-  //     onPressed: () => controller.toggleSearchInput(),
-  //   );
-  // }
-  // Widget _buildSearchIcon() {
-  //   return AnimSearchBar(
-  //     width: 400,
-  //     textController: TextEditingController(text: 'Search Here...'),
-  //     onSuffixTap: () {
-  //       print('search bar is working');
-  //     },
-  //     color: Colors.white,
-  //     helpText: AutofillHints.name,
-  //     onSubmitted: (p0) {},
-  //   );
-  // }
 }

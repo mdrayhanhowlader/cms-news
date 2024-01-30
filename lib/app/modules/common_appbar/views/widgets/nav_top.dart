@@ -11,7 +11,7 @@ class NavTop extends GetView<CommonAppbarController> {
     return [
       PlutoMenuItem(
         title: 'MAIN',
-        onTap: () => Get.to(const HomeView()),
+        onTap: () => Get.toNamed('/home'),
       ),
       PlutoMenuItem(
         title: 'INFO',
@@ -155,14 +155,15 @@ class NavTop extends GetView<CommonAppbarController> {
         PlutoMenuBar(
           mode: PlutoMenuBarMode.hover,
           backgroundColor: const Color(0XFF292929),
-          borderColor: Colors.red,
-          itemStyle: const PlutoMenuItemStyle(
-            activatedColor: Colors.red,
-            indicatorColor: Colors.red,
-            textStyle: TextStyle(color: Colors.white),
-            iconColor: Colors.white,
-            moreIconColor: Colors.white,
-          ),
+          itemStyle: PlutoMenuItemStyle(
+              activatedColor: Colors.red,
+              indicatorColor: Colors.red,
+              textStyle: TextStyle(color: Colors.white),
+              iconColor: Colors.white,
+              moreIconColor: Colors.white,
+              enableSelectedTopMenu: true,
+              selectedTopMenuTextStyle: TextStyle(color: Color(0XFFFF6000)),
+              padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5)),
           menus: makeMenus(),
         ),
       ],
