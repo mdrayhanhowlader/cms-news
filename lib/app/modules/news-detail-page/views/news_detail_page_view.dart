@@ -1,4 +1,3 @@
-import 'package:cms_maahadtahfizaddin/app/core/widgets/poppins_text.dart';
 import 'package:cms_maahadtahfizaddin/app/modules/common_appbar/views/common_appbar_view.dart';
 import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/desktop_home/widgets/hightlight_news.dart';
 import 'package:flutter/material.dart';
@@ -12,6 +11,7 @@ class NewsDetailPageView extends GetView<NewsDetailPageController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(toolbarHeight: 0, automaticallyImplyLeading: false),
       body: SingleChildScrollView(
         child: Center(
           child: Column(

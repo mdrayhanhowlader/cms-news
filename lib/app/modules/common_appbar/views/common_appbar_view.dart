@@ -3,7 +3,6 @@ import 'package:cms_maahadtahfizaddin/app/core/widgets/poppins_text.dart';
 import 'package:cms_maahadtahfizaddin/app/modules/common_appbar/controllers/common_appbar_controller.dart';
 import 'package:cms_maahadtahfizaddin/app/modules/common_appbar/views/widgets/nav_bottom.dart';
 import 'package:cms_maahadtahfizaddin/app/modules/common_appbar/views/widgets/nav_top.dart';
-import 'package:cms_maahadtahfizaddin/app/modules/home/views/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
@@ -25,7 +24,7 @@ class CommonAppbarView extends GetView<CommonAppbarController>
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Container(
-                  margin: EdgeInsets.only(left: 15),
+                  margin: const EdgeInsets.only(left: 15),
                   width: Get.width * 0.8,
                   child: NavTop()),
               Container(
@@ -59,6 +58,7 @@ class CommonAppbarView extends GetView<CommonAppbarController>
           ),
         ),
         AppBar(
+          automaticallyImplyLeading: false,
           title: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -69,10 +69,18 @@ class CommonAppbarView extends GetView<CommonAppbarController>
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     InkWell(
+                        splashColor: Colors.transparent,
+                        autofocus: false,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
                         onTap: () {
-                          Get.to(HomeView());
+                          Get.toNamed('/home');
                         },
-                        child: Image.asset('assets/images/logo/logo.png')),
+                        child: Image.asset(
+                          'assets/images/logo/logo.png',
+                          color: Colors.transparent,
+                        )),
                   ],
                 ),
               ),

@@ -19,14 +19,21 @@ class MobileBottomBar extends GetView<MobileHomeController> {
             child: Image.asset('assets/images/logo/bottom-logo.png'),
           ),
           Container(
-            child: PoppinsText(
-              title:
-                  'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout',
-              size: 12,
-              weight: FontWeight.w400,
-              spacing: 0.5,
-              color: Colors.white,
-              align: TextAlign.center,
+            padding: EdgeInsets.symmetric(horizontal: 10),
+            child: Row(
+              children: [
+                Flexible(
+                  child: PoppinsText(
+                    title:
+                        'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout',
+                    size: 12,
+                    weight: FontWeight.w400,
+                    spacing: 0.5,
+                    color: Colors.white,
+                    align: TextAlign.center,
+                  ),
+                ),
+              ],
             ),
           ),
           const SizedBox(
@@ -46,15 +53,22 @@ class MobileBottomBar extends GetView<MobileHomeController> {
             ),
           ),
           Container(
-            padding: const EdgeInsets.only(left: 20, top: 10, bottom: 30),
-            child: PoppinsText(
-              title:
-                  'No 5,1, Jalan USJ 1/1a Regalia Center 47600, Selangor, Malaysia.',
-              size: 14,
-              weight: FontWeight.w400,
-              spacing: 0.5,
-              color: Colors.white,
-              align: TextAlign.left,
+            padding: const EdgeInsets.only(left: 20, top: 10, bottom: 20),
+            child: Row(
+              children: [
+                Flexible(
+                  fit: FlexFit.loose,
+                  child: PoppinsText(
+                    title:
+                        'No 5,1, Jalan USJ 1/1a Regalia Center 47600, Selangor, Malaysia.',
+                    size: 14,
+                    weight: FontWeight.w400,
+                    spacing: 0.5,
+                    color: Colors.white,
+                    align: TextAlign.left,
+                  ),
+                ),
+              ],
             ),
           ),
           Container(
@@ -71,24 +85,43 @@ class MobileBottomBar extends GetView<MobileHomeController> {
             ),
           ),
           Container(
-              padding: const EdgeInsets.only(left: 20, top: 10, bottom: 20),
+              padding: const EdgeInsets.only(left: 20, top: 10, bottom: 30),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Icon(
-                    Icons.email,
-                    color: Colors.white,
+                  Container(
+                    padding: const EdgeInsets.only(right: 5),
+                    child: const Icon(
+                      Icons.email,
+                      color: Colors.white,
+                    ),
                   ),
-                  PoppinsText(
-                    title:
-                        'No 5,1, Jalan USJ 1/1a Regalia Center 47600, Selangor, Malaysia.',
-                    size: 14,
-                    weight: FontWeight.w400,
-                    spacing: 0.5,
-                    color: Colors.white,
-                    align: TextAlign.left,
+                  Flexible(
+                    child: PoppinsText(
+                      title:
+                          'No 5,1, Jalan USJ 1/1a Regalia Center 47600, Selangor, Malaysia.',
+                      size: 14,
+                      weight: FontWeight.w400,
+                      spacing: 0.5,
+                      color: Colors.white,
+                      align: TextAlign.left,
+                    ),
                   ),
                 ],
               )),
+          Container(
+            width: Get.width,
+            padding: const EdgeInsets.only(top: 10, bottom: 30),
+            decoration: const BoxDecoration(
+                border: Border(
+                    top: BorderSide(width: 1, color: Color(0XFFE7E7E7)))),
+            child: PoppinsText(
+              title: 'Copyright AWFATECH',
+              color: Colors.white,
+              align: TextAlign.center,
+            ),
+          )
         ],
       ),
     );

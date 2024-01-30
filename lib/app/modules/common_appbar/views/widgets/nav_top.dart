@@ -1,5 +1,5 @@
 import 'package:cms_maahadtahfizaddin/app/modules/common_appbar/controllers/common_appbar_controller.dart';
-import 'package:cms_maahadtahfizaddin/app/modules/news-detail-page/views/news_detail_page_view.dart';
+import 'package:cms_maahadtahfizaddin/app/modules/home/views/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pluto_menu_bar/pluto_menu_bar.dart';
@@ -11,64 +11,139 @@ class NavTop extends GetView<CommonAppbarController> {
     return [
       PlutoMenuItem(
         title: 'MAIN',
-        children: [
-          PlutoMenuItem(
-            title: 'Menu 1-1',
-            icon: Icons.group,
-            onTap: () => message('Menu 1-1 tap'),
-            children: [
-              PlutoMenuItem(
-                title: 'Menu 1-1-1',
-                onTap: () => message('Menu 1-1-1 tap'),
-                children: [
-                  PlutoMenuItem(
-                    title: 'Menu 1-1-1-1',
-                    onTap: () => message('Menu 1-1-1-1 tap'),
-                  ),
-                  PlutoMenuItem(
-                    title: 'Menu 1-1-1-2',
-                    onTap: () => message('Menu 1-1-1-2 tap'),
-                  ),
-                ],
-              ),
-              PlutoMenuItem(
-                title: 'Menu 1-1-2',
-                onTap: () => message('Menu 1-1-2 tap'),
-              ),
-            ],
-          ),
-          // Add other MAIN menu items here...
-        ],
+        onTap: () => Get.to(const HomeView()),
       ),
       PlutoMenuItem(
         title: 'INFO',
         children: [
           // Add INFO menu items here...
+
+          PlutoMenuItem(
+            title: 'Headquarters Organization Chart',
+            onTap: () => Get.toNamed('/news-detail-page'),
+          ),
+          PlutoMenuItem(
+            title: 'Fee Information',
+            onTap: () => Get.toNamed('/news-detail-page'),
+          ),
+          PlutoMenuItem(
+            title: 'Background',
+            onTap: () => Get.toNamed('/news-detail-page'),
+          ),
+          PlutoMenuItem(
+            title: 'Education Flow Chart',
+            onTap: () => Get.toNamed('/news-detail-page'),
+          ),
+          PlutoMenuItem(
+            title: 'Character',
+            onTap: () => Get.toNamed('/news-detail-page'),
+          ),
+          PlutoMenuItem(
+            title: 'Objective',
+            onTap: () => Get.toNamed('/news-detail-page'),
+          ),
+          PlutoMenuItem(
+            title: 'Management Congregation',
+            onTap: () => Get.toNamed('/news-detail-page'),
+          ),
+          PlutoMenuItem(
+            title: 'Logo Interpretation',
+            onTap: () => Get.toNamed('/news-detail-page'),
+          ),
         ],
       ),
       PlutoMenuItem(
         title: 'BRANCH',
         children: [
           // Add BRANCH menu items here...
+          PlutoMenuItem(
+            title: 'Primary School',
+            onTap: () => Get.toNamed('/news-detail-page'),
+          ),
+          PlutoMenuItem(
+            title: 'Low School',
+            onTap: () => Get.toNamed('/news-detail-page'),
+          ),
+          PlutoMenuItem(
+            title: 'Upper Secondary',
+            onTap: () => Get.toNamed('/news-detail-page'),
+          ),
+          PlutoMenuItem(
+            title: 'Vocational Tahfiz',
+            onTap: () => Get.toNamed('/news-detail-page'),
+          ),
+          PlutoMenuItem(
+            title: 'Diploma',
+            onTap: () => Get.toNamed('/news-detail-page'),
+          ),
         ],
       ),
       PlutoMenuItem(
         title: 'E-ALUMNI',
         children: [
           // Add E-ALUMNI menu items here...
+          PlutoMenuItem(
+            title: 'Headquarters Organization Chart',
+            onTap: () => Get.toNamed('/news-detail-page'),
+          ),
+          PlutoMenuItem(
+            title: 'Fee Information',
+            onTap: () => Get.toNamed('/news-detail-page'),
+          ),
+          PlutoMenuItem(
+            title: 'Background',
+            onTap: () => Get.toNamed('/news-detail-page'),
+          ),
+          PlutoMenuItem(
+            title: 'Education Flow Chart',
+            onTap: () => Get.toNamed('/news-detail-page'),
+          ),
+          PlutoMenuItem(
+            title: 'Character',
+            onTap: () => Get.toNamed('/news-detail-page'),
+          ),
+          PlutoMenuItem(
+            title: 'Objective',
+            onTap: () => Get.toNamed('/news-detail-page'),
+          ),
+          PlutoMenuItem(
+            title: 'Management Congregation',
+            onTap: () => Get.toNamed('/news-detail-page'),
+          ),
+          PlutoMenuItem(
+            title: 'Logo Interpretation',
+            onTap: () => Get.toNamed('/news-detail-page'),
+          ),
         ],
       ),
       PlutoMenuItem(
-        title: 'E-CAREER',
+        title: 'LINK',
         children: [
-          PlutoMenuItem(
-              title: 'e-career 1',
-              onTap: () {
-                Get.to(NewsDetailPageView());
-              })
           // Add E-CAREER menu items here...
+          PlutoMenuItem(
+            title: 'Primary School',
+            onTap: () => Get.toNamed('/news-detail-page'),
+          ),
+          PlutoMenuItem(
+            title: 'Low School',
+            onTap: () => Get.toNamed('/news-detail-page'),
+          ),
+          PlutoMenuItem(
+            title: 'Upper Secondary',
+            onTap: () => Get.toNamed('/news-detail-page'),
+          ),
+          PlutoMenuItem(
+            title: 'Vocational Tahfiz',
+            onTap: () => Get.toNamed('/news-detail-page'),
+          ),
+          PlutoMenuItem(
+            title: 'Diploma',
+            onTap: () => Get.toNamed('/news-detail-page'),
+          ),
         ],
       ),
+      PlutoMenuItem(
+          title: 'E-CAREER', onTap: () => Get.toNamed('/news-detail-page')),
       // Add other menu items here...
     ];
   }
@@ -79,10 +154,11 @@ class NavTop extends GetView<CommonAppbarController> {
       children: [
         PlutoMenuBar(
           mode: PlutoMenuBarMode.hover,
-          backgroundColor: Color(0XFF292929),
+          backgroundColor: const Color(0XFF292929),
+          borderColor: Colors.red,
           itemStyle: const PlutoMenuItemStyle(
-            activatedColor: Colors.deepOrange,
-            indicatorColor: Colors.deepOrange,
+            activatedColor: Colors.red,
+            indicatorColor: Colors.red,
             textStyle: TextStyle(color: Colors.white),
             iconColor: Colors.white,
             moreIconColor: Colors.white,

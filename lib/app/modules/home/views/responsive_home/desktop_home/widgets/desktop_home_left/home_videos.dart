@@ -10,21 +10,30 @@ class HomeVideos extends GetView<DesktopHomeController> {
   @override
   Widget build(BuildContext context) {
     var crossAxisExtent = 3;
+    var width = 0.9;
+    var mainAxis = MainAxisAlignment.start;
+    var crossAxis = CrossAxisAlignment.start;
 
     if (MediaQuery.of(context).size.width < 480) {
       crossAxisExtent = 1;
+      width = 0.95;
+      mainAxis = MainAxisAlignment.center;
+      crossAxis = CrossAxisAlignment.center;
     } else if (MediaQuery.of(context).size.width < 800) {
       crossAxisExtent = 2;
     } else if (MediaQuery.of(context).size.width < 1200) {
       crossAxisExtent = crossAxisExtent;
+      width = 0.6;
+      mainAxis = MainAxisAlignment.start;
+      crossAxis = CrossAxisAlignment.start;
     }
     return Container(
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: mainAxis,
+        crossAxisAlignment: crossAxis,
         children: [
           Container(
-            width: Get.width * 0.6,
+            width: Get.width * width,
             margin: const EdgeInsets.only(right: 10),
             decoration: const BoxDecoration(
               border: Border(bottom: BorderSide(width: 1, color: Colors.red)),
@@ -70,7 +79,7 @@ class HomeVideos extends GetView<DesktopHomeController> {
                   itemCount: 6,
                   itemBuilder: (context, index) {
                     return Container(
-                      margin: EdgeInsets.only(right: 10),
+                      margin: const EdgeInsets.only(right: 10),
                       child: VideoCard(
                         videoTitle:
                             'What is Lorem Ipsum? Lorem Ipsum is simply dummy te $index',
@@ -174,7 +183,7 @@ class VideoCard extends StatelessWidget {
                       color: Color(0XFFE7E7E7),
                       size: 10,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                     PoppinsText(

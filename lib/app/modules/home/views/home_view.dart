@@ -13,10 +13,14 @@ class HomeView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(
+          toolbarHeight: 0,
+          automaticallyImplyLeading: false,
+        ),
         body: ResponsiveLayout(
-      mobile: const MobileHomeView(),
-      tablet: const TabletHomeView(),
-      desktop: const DesktopHomeView(),
-    ));
+          mobile: const MobileHomeView(),
+          tablet: const TabletHomeView(),
+          desktop: const DesktopHomeView(),
+        ));
   }
 }

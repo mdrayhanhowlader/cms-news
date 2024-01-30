@@ -61,30 +61,6 @@ class MobileHighlightNews extends GetView<DesktopHomeController> {
                   )
                 ],
               ),
-              // Row(
-              //   crossAxisAlignment: CrossAxisAlignment.center,
-              //   children: [
-              //     Container(
-              //       decoration: const BoxDecoration(
-              //           border: Border(
-              //               right: BorderSide(width: 1, color: Colors.black26),
-              //               left: BorderSide(width: 1, color: Colors.black26))),
-              //       padding:
-              //           const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
-              //       child: const FaIcon(
-              //         FontAwesomeIcons.angleUp,
-              //         size: 16,
-              //       ),
-              //     ),
-              //     Container(
-              //       padding: const EdgeInsets.symmetric(horizontal: 8),
-              //       child: const FaIcon(
-              //         FontAwesomeIcons.angleDown,
-              //         size: 16,
-              //       ),
-              //     ),
-              //   ],
-              // ),
             ],
           ),
         ),

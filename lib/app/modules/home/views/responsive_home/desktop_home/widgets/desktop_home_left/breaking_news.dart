@@ -50,22 +50,6 @@ class BreakingNews extends GetView<DesktopHomeController> {
 
   @override
   Widget build(BuildContext context) {
-    double viewportFraction = 0.3;
-    double fontSize = 20;
-    double containerTextWidth = Get.width;
-
-    // Adjust the sizes based on the screen size
-    if (MediaQuery.of(context).size.width < 480) {
-      viewportFraction = 1;
-      fontSize = 14;
-    } else if (MediaQuery.of(context).size.width < 800) {
-      viewportFraction = 0.5;
-      fontSize = 14;
-    } else if (MediaQuery.of(context).size.width < 1200) {
-      viewportFraction = 0.4;
-      fontSize = 20;
-    }
-
     return Container(
       width: Get.width * 0.9,
       padding: const EdgeInsets.only(
@@ -76,109 +60,128 @@ class BreakingNews extends GetView<DesktopHomeController> {
           top: BorderSide(width: 1, color: Color(0XFFB2B2B2)),
         ),
       ),
-      child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          double viewportFraction = 0.3;
+          double fontSize = 20;
+
+          // Adjust the sizes based on the screen width
+          if (constraints.maxWidth < 480) {
+            viewportFraction = 1;
+            fontSize = 12;
+          } else if (constraints.maxWidth < 800) {
+            viewportFraction = 0.5;
+            fontSize = 14;
+          } else if (constraints.maxWidth < 1200) {
+            viewportFraction = 0.3;
+            fontSize = 20;
+          }
+
+          return Column(
             children: [
-              Container(
-                width: Get.width * 0.14,
-                child: PoppinsText(
-                  title: 'BREAKING NEWS',
-                  size: fontSize,
-                  color: const Color(0XFF454545),
-                  weight: FontWeight.w700,
-                ),
-              ),
-              Container(
-                width: Get.width * 0.60,
-                decoration: const BoxDecoration(
-                  border: Border(
-                      top: BorderSide(width: 3, color: Color(0XFFB2B2B2))),
-                ),
-              ),
-              Container(
-                width: Get.width * 0.05,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    InkWell(
-                      hoverColor: Colors.transparent,
-                      highlightColor: Colors.amber,
-                      mouseCursor: SystemMouseCursors.click,
-                      onHover: (value) {},
-                      onTap: previous,
-                      child: const Icon(
-                        Icons.arrow_back,
-                        color: Color(0XFFB2B2B2),
-                      ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    width: Get.width * 0.14,
+                    child: PoppinsText(
+                      title: 'BREAKING NEWS',
+                      size: fontSize,
+                      color: const Color(0XFF454545),
+                      weight: FontWeight.w700,
                     ),
-                    InkWell(
-                      hoverColor: Colors.transparent,
-                      highlightColor: Colors.amber,
-                      mouseCursor: SystemMouseCursors.click,
-                      onHover: (value) {},
-                      onTap: next,
-                      child: const Icon(
-                        Icons.arrow_forward,
-                        color: Color(0XFFB2B2B2),
-                      ),
+                  ),
+                  Container(
+                    width: Get.width * 0.54,
+                    decoration: const BoxDecoration(
+                      border: Border(
+                          top: BorderSide(width: 3, color: Color(0XFFB2B2B2))),
                     ),
-                  ],
-                ),
+                  ),
+                  Container(
+                    width: Get.width * 0.10,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        InkWell(
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.amber,
+                          mouseCursor: SystemMouseCursors.click,
+                          onHover: (value) {},
+                          onTap: previous,
+                          child: const Icon(
+                            Icons.arrow_back,
+                            color: Color(0XFFB2B2B2),
+                          ),
+                        ),
+                        InkWell(
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.amber,
+                          mouseCursor: SystemMouseCursors.click,
+                          onHover: (value) {},
+                          onTap: next,
+                          child: const Icon(
+                            Icons.arrow_forward,
+                            color: Color(0XFFB2B2B2),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    width: Get.width * 0.1,
+                    decoration: const BoxDecoration(
+                      border: Border(
+                          top: BorderSide(width: 3, color: Color(0XFFB2B2B2))),
+                    ),
+                  ),
+                ],
               ),
-              Container(
-                width: Get.width * 0.1,
-                decoration: const BoxDecoration(
-                  border: Border(
-                      top: BorderSide(width: 3, color: Color(0XFFB2B2B2))),
-                ),
+              Stack(
+                children: [
+                  CarouselSlider.builder(
+                    carouselController: sliderController,
+                    itemCount: urlImages.length,
+                    itemBuilder: (context, index, realindex) {
+                      final urlImage = urlImages[index];
+                      final slideText = slideTexts[index];
+                      final slideCategory = slideCategories[index];
+                      return MouseRegion(
+                        onEnter: (_) => controller.updateHoveredIndex(index),
+                        onExit: (_) => controller.updateHoveredIndex(-1),
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.pushNamed(context, '/news-detail-page');
+                          },
+                          child: buildImage(
+                            urlImage,
+                            slideText,
+                            slideCategory,
+                            index,
+                          ),
+                        ),
+                      );
+                    },
+                    options: CarouselOptions(
+                      initialPage: 3,
+                      height: 300,
+                      viewportFraction: viewportFraction,
+                      scrollDirection: Axis.horizontal,
+                      enlargeCenterPage: false,
+                      enlargeStrategy: CenterPageEnlargeStrategy.zoom,
+                      autoPlay: true,
+                      enableInfiniteScroll: false,
+                      animateToClosest: true,
+                      autoPlayInterval: const Duration(seconds: 3),
+                      onPageChanged: (index, reason) =>
+                          controller.activeIndex.value = index,
+                    ),
+                  ),
+                ],
               ),
             ],
-          ),
-          Stack(
-            children: [
-              CarouselSlider.builder(
-                carouselController: sliderController,
-                itemCount: urlImages.length,
-                itemBuilder: (context, index, realindex) {
-                  final urlImage = urlImages[index];
-                  final slideText = slideTexts[index];
-                  final slideCategory = slideCategories[index];
-                  return MouseRegion(
-                    onEnter: (_) => controller.updateHoveredIndex(index),
-                    onExit: (_) => controller.updateHoveredIndex(-1),
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.pushNamed(context, '/news-detail-page');
-                      },
-                      child: buildImage(
-                        urlImage,
-                        slideText,
-                        slideCategory,
-                        index,
-                      ),
-                    ),
-                  );
-                },
-                options: CarouselOptions(
-                  initialPage: 3,
-                  height: 300,
-                  viewportFraction: viewportFraction,
-                  scrollDirection: Axis.horizontal,
-                  enlargeCenterPage: false,
-                  enlargeStrategy: CenterPageEnlargeStrategy.zoom,
-                  autoPlay: true,
-                  enableInfiniteScroll: false,
-                  animateToClosest: true,
-                  autoPlayInterval: const Duration(seconds: 3),
-                  onPageChanged: (index, reason) =>
-                      controller.activeIndex.value = index,
-                ),
-              ),
-            ],
-          ),
-        ],
+          );
+        },
       ),
     );
   }
@@ -231,13 +234,15 @@ class BreakingNews extends GetView<DesktopHomeController> {
                           visible: controller.hoveredIndex.value == index,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 5, vertical: 2),
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(1)),
-                                backgroundColor: Colors.deepOrange,
-                                animationDuration: const Duration(seconds: 2),
-                                elevation: 4.0),
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 5, vertical: 2),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(1),
+                              ),
+                              backgroundColor: Colors.deepOrange,
+                              animationDuration: const Duration(seconds: 2),
+                              elevation: 4.0,
+                            ),
                             onPressed: () {
                               // Handle button click
                               // You can navigate to the news category page or perform any other action.
