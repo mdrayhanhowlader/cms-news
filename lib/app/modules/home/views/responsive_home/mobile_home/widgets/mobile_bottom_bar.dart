@@ -71,17 +71,24 @@ class MobileBottomBar extends GetView<MobileHomeController> {
             ),
           ),
           Container(
-            padding: const EdgeInsets.only(left: 20, top: 10, bottom: 20),
-            child: PoppinsText(
-              title:
-                  'No 5,1, Jalan USJ 1/1a Regalia Center 47600, Selangor, Malaysia.',
-              size: 14,
-              weight: FontWeight.w400,
-              spacing: 0.5,
-              color: Colors.white,
-              align: TextAlign.left,
-            ),
-          ),
+              padding: const EdgeInsets.only(left: 20, top: 10, bottom: 20),
+              child: Row(
+                children: [
+                  const Icon(
+                    Icons.email,
+                    color: Colors.white,
+                  ),
+                  PoppinsText(
+                    title:
+                        'No 5,1, Jalan USJ 1/1a Regalia Center 47600, Selangor, Malaysia.',
+                    size: 14,
+                    weight: FontWeight.w400,
+                    spacing: 0.5,
+                    color: Colors.white,
+                    align: TextAlign.left,
+                  ),
+                ],
+              )),
         ],
       ),
     );
