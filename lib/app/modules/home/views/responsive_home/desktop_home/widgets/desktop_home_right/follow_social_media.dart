@@ -1,8 +1,10 @@
 import 'package:cms_maahadtahfizaddin/app/core/widgets/poppins_text.dart';
+import 'package:cms_maahadtahfizaddin/app/data/constants/extensions/widget_extensions.dart';
 import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/desktop_home/desktop_home_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class FollowSocialMedia extends GetView<DesktopHomeController> {
   const FollowSocialMedia({Key? key});
@@ -87,7 +89,26 @@ class ButtonItem extends GetView<DesktopHomeController> {
     return Container(
       margin: const EdgeInsets.all(2),
       child: ElevatedButton.icon(
-        onPressed: () {
+        onPressed: () async {
+          const url = 'https://www.facebook.com/';
+          if (await canLaunchUrlString(url)) {
+            await launchUrlString(url);
+          } else {
+            showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                      title: Text('Error'),
+                      content: Text('Could not launch $url'),
+                      actions: [
+                        TextButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: Text('ok'))
+                      ]);
+                });
+          }
           // Handle button click
           print('$text button clicked');
         },
@@ -141,7 +162,10 @@ final List<Map<String, dynamic>> socialButtons = [
   {
     'text': 'Facebook',
     'icon': Icons.facebook,
-    'gradientColors': [Colors.blue, Color(0xFF2E3192)],
+    'gradientColors': [
+      const Color.fromARGB(255, 3, 100, 179),
+      Color(0xFF2E3192)
+    ],
   },
   {
     'text': 'Twitter',
@@ -157,8 +181,8 @@ final List<Map<String, dynamic>> socialButtons = [
     'text': 'Instagram',
     'icon': FontAwesomeIcons.instagram,
     'gradientColors': [
-      Color.fromARGB(255, 207, 5, 150),
       Color.fromARGB(255, 243, 9, 9),
+      Color.fromARGB(255, 207, 5, 150),
       Color(0XFFD62976),
       Color(0XFF962FBF),
       Color(0XFFD54FAE),

@@ -6,6 +6,8 @@ import 'package:cms_maahadtahfizaddin/app/modules/common_appbar/views/widgets/na
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class CommonAppbarView extends GetView<CommonAppbarController>
     implements PreferredSizeWidget {
@@ -37,20 +39,89 @@ class CommonAppbarView extends GetView<CommonAppbarController>
                         size: 14,
                         color: Colors.white,
                       ),
-                      Icon(
-                        Icons.facebook_sharp,
-                        color: Colors.grey.shade200,
-                        size: 14,
+                      InkWell(
+                        onTap: () async {
+                          const url = 'https://www.facebook.com/';
+                          if (await canLaunchUrlString(url)) {
+                            await launchUrlString(url);
+                          } else {
+                            showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                      title: Text('Error'),
+                                      content: Text('Could not launch $url'),
+                                      actions: [
+                                        TextButton(
+                                            onPressed: () {
+                                              Navigator.pop(context);
+                                            },
+                                            child: Text('ok'))
+                                      ]);
+                                });
+                          }
+                        },
+                        child: Icon(
+                          Icons.facebook_sharp,
+                          color: Colors.grey.shade200,
+                          size: 14,
+                        ),
                       ),
-                      FaIcon(
-                        FontAwesomeIcons.xTwitter,
-                        color: Colors.grey.shade200,
-                        size: 14,
+                      InkWell(
+                        onTap: () async {
+                          const url = 'https://www.facebook.com/';
+                          if (await canLaunchUrlString(url)) {
+                            await launchUrlString(url);
+                          } else {
+                            showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                      title: Text('Error'),
+                                      content: Text('Could not launch $url'),
+                                      actions: [
+                                        TextButton(
+                                            onPressed: () {
+                                              Navigator.pop(context);
+                                            },
+                                            child: Text('ok'))
+                                      ]);
+                                });
+                          }
+                        },
+                        child: FaIcon(
+                          FontAwesomeIcons.xTwitter,
+                          color: Colors.grey.shade200,
+                          size: 14,
+                        ),
                       ),
-                      FaIcon(
-                        FontAwesomeIcons.whatsapp,
-                        color: Colors.grey.shade200,
-                        size: 14,
+                      InkWell(
+                        onTap: () async {
+                          const url = 'https://www.facebook.com/';
+                          if (await canLaunchUrlString(url)) {
+                            await launchUrlString(url);
+                          } else {
+                            showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                      title: Text('Error'),
+                                      content: Text('Could not launch $url'),
+                                      actions: [
+                                        TextButton(
+                                            onPressed: () {
+                                              Navigator.pop(context);
+                                            },
+                                            child: Text('ok'))
+                                      ]);
+                                });
+                          }
+                        },
+                        child: FaIcon(
+                          FontAwesomeIcons.whatsapp,
+                          color: Colors.grey.shade200,
+                          size: 14,
+                        ),
                       ),
                     ],
                   )),
