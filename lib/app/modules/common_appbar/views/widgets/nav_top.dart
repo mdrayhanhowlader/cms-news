@@ -24,7 +24,7 @@ class NavTop extends GetView<CommonAppbarController> {
           ),
           PlutoMenuItem(
             title: 'Fee Information',
-            onTap: () => Get.toNamed('/news-detail-page'),
+            onTap: () => Get.toNamed('/fees'),
           ),
           PlutoMenuItem(
             title: 'Background',

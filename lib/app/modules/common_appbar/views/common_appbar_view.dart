@@ -191,10 +191,10 @@ class CommonAppbarView extends GetView<CommonAppbarController>
                     onSubmitted: (p0) {},
                     rtl: true,
                     style: const TextStyle(
-                        fontSize: 10,
+                        fontSize: 14,
                         fontWeight: FontWeight.bold,
                         color: Colors.white),
-                    textFieldColor: Color(0XFFFF6000),
+                    textFieldColor: const Color(0XFFFF6000),
                     textFieldIconColor: Colors.white,
                   ),
                 ),

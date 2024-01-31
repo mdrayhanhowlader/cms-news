@@ -4,6 +4,8 @@ import '../modules/common_appbar/bindings/common_appbar_binding.dart';
 import '../modules/common_appbar/views/common_appbar_view.dart';
 import '../modules/common_bottombar/bindings/common_bottombar_binding.dart';
 import '../modules/common_bottombar/views/common_bottombar_view.dart';
+import '../modules/fees/bindings/fees_binding.dart';
+import '../modules/fees/views/fees_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/news-detail-page/bindings/news_detail_page_binding.dart';
@@ -43,6 +45,11 @@ class AppPages {
       name: _Paths.NEWS_DETAIL_PAGE,
       page: () => const NewsDetailPageView(),
       binding: NewsDetailPageBinding(),
+    ),
+    GetPage(
+      name: _Paths.FEES,
+      page: () => const FeesView(),
+      binding: FeesBinding(),
     ),
   ];
 }
