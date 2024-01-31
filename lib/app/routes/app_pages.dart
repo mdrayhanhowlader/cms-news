@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 
+import '../modules/background/bindings/background_binding.dart';
+import '../modules/background/views/background_view.dart';
 import '../modules/common_appbar/bindings/common_appbar_binding.dart';
 import '../modules/common_appbar/views/common_appbar_view.dart';
 import '../modules/common_bottombar/bindings/common_bottombar_binding.dart';
@@ -50,6 +52,11 @@ class AppPages {
       name: _Paths.FEES,
       page: () => const FeesView(),
       binding: FeesBinding(),
+    ),
+    GetPage(
+      name: _Paths.BACKGROUND,
+      page: () => const BackgroundView(),
+      binding: BackgroundBinding(),
     ),
   ];
 }

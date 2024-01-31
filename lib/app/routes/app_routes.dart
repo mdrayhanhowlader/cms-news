@@ -9,6 +9,7 @@ abstract class Routes {
   static const COMMON_BOTTOMBAR = _Paths.COMMON_BOTTOMBAR;
   static const NEWS_DETAIL_PAGE = _Paths.NEWS_DETAIL_PAGE;
   static const FEES = _Paths.FEES;
+  static const BACKGROUND = _Paths.BACKGROUND;
 }
 
 abstract class _Paths {
@@ -19,4 +20,5 @@ abstract class _Paths {
   static const COMMON_BOTTOMBAR = '/common-bottombar';
   static const NEWS_DETAIL_PAGE = '/news-detail-page';
   static const FEES = '/fees';
+  static const BACKGROUND = '/background';
 }
