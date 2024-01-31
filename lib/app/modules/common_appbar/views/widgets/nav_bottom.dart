@@ -17,7 +17,7 @@ class NavBottom extends GetView<CommonAppbarController> {
         title: 'FEATURES',
         children: [
           PlutoMenuItem.divider(
-              height: 3, color: Colors.red, thickness: 3, endIndent: 3),
+              height: 4, color: Colors.red, thickness: 4, endIndent: 3),
           PlutoMenuItem.widget(
             widget: featureSubNav(),
           ),
@@ -27,15 +27,17 @@ class NavBottom extends GetView<CommonAppbarController> {
         title: 'HOMESTAY',
         children: [
           // Use PlutoMenuItem.widget to add a custom widget
+          PlutoMenuItem.divider(
+              height: 4, color: Colors.red, thickness: 4, endIndent: 3),
           PlutoMenuItem.widget(
             widget: buildBottomNav(),
           ),
         ],
       ),
       PlutoMenuItem(
-          title: 'E-INFAQ',
-          onTap: () => controller.message('E-INFAQ tap'),
-          children: [PlutoMenuItem.divider(height: 2, color: Colors.red)]),
+        title: 'E-INFAQ',
+        onTap: () => controller.message('E-INFAQ tap'),
+      ),
       PlutoMenuItem(
         title: 'COLLABORATE',
         onTap: () => controller.message('COLLABORATE tap'),
@@ -644,9 +646,114 @@ class NavBottom extends GetView<CommonAppbarController> {
 
   Widget buildBottomNav() {
     return Container(
-      height: 300,
-      width: Get.width,
-      child: Text('hekhdkfhsdkhfsdkhfsidhfi'),
+      width: Get.width * 0.7,
+      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Container(
+            alignment: Alignment.topCenter,
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            width: Get.width * 0.15,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                  decoration: const BoxDecoration(
+                      border: Border(
+                          bottom:
+                              BorderSide(width: 1, color: Color(0XFF000000)))),
+                  child: PoppinsText(
+                    title: 'APARTMENT A',
+                    color: Colors.white,
+                    size: 16,
+                    weight: FontWeight.w700,
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Container(
+                  decoration: const BoxDecoration(
+                      border: Border(
+                          bottom:
+                              BorderSide(width: 1, color: Color(0XFF000000)))),
+                  child: PoppinsText(
+                    title: 'APARTMENT B',
+                    color: Colors.white,
+                    size: 16,
+                    weight: FontWeight.w700,
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Container(
+                  decoration: const BoxDecoration(
+                      border: Border(
+                          bottom:
+                              BorderSide(width: 1, color: Color(0XFF000000)))),
+                  child: PoppinsText(
+                    title: 'APARTMENT C',
+                    color: Colors.white,
+                    size: 16,
+                    weight: FontWeight.w700,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 0),
+            width: Get.width * 0.5,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(16.0),
+                  child: Container(
+                    child: Image.asset(
+                      'assets/images/apartment/apartment1.png',
+                      height: 200,
+                      width: Get.width * 0.15,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  width: 15,
+                ),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(16.0),
+                  child: Container(
+                    child: Image.asset(
+                      'assets/images/apartment/apartment2.png',
+                      height: 200,
+                      width: Get.width * 0.15,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  width: 15,
+                ),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(16.0),
+                  child: Container(
+                    child: Image.asset(
+                      'assets/images/apartment/apartment3.png',
+                      height: 200,
+                      width: Get.width * 0.15,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          )
+        ],
+      ),
     );
   }
 }

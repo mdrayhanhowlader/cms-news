@@ -1,5 +1,4 @@
 import 'package:cms_maahadtahfizaddin/app/modules/common_appbar/controllers/common_appbar_controller.dart';
-import 'package:cms_maahadtahfizaddin/app/modules/home/views/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pluto_menu_bar/pluto_menu_bar.dart';
@@ -17,7 +16,8 @@ class NavTop extends GetView<CommonAppbarController> {
         title: 'INFO',
         children: [
           // Add INFO menu items here...
-
+          PlutoMenuItem.divider(
+              height: 4, color: Colors.red, thickness: 4, endIndent: 3),
           PlutoMenuItem(
             title: 'Headquarters Organization Chart',
             onTap: () => Get.toNamed('/news-detail-page'),
@@ -56,6 +56,8 @@ class NavTop extends GetView<CommonAppbarController> {
         title: 'BRANCH',
         children: [
           // Add BRANCH menu items here...
+          PlutoMenuItem.divider(
+              height: 4, color: Colors.red, thickness: 4, endIndent: 3),
           PlutoMenuItem(
             title: 'Primary School',
             onTap: () => Get.toNamed('/news-detail-page'),
@@ -82,6 +84,8 @@ class NavTop extends GetView<CommonAppbarController> {
         title: 'E-ALUMNI',
         children: [
           // Add E-ALUMNI menu items here...
+          PlutoMenuItem.divider(
+              height: 4, color: Colors.red, thickness: 4, endIndent: 3),
           PlutoMenuItem(
             title: 'Headquarters Organization Chart',
             onTap: () => Get.toNamed('/news-detail-page'),
@@ -120,6 +124,8 @@ class NavTop extends GetView<CommonAppbarController> {
         title: 'LINK',
         children: [
           // Add E-CAREER menu items here...
+          PlutoMenuItem.divider(
+              height: 4, color: Colors.red, thickness: 4, endIndent: 3),
           PlutoMenuItem(
             title: 'Primary School',
             onTap: () => Get.toNamed('/news-detail-page'),

@@ -95,6 +95,7 @@ flutter:
     - assets/images/video/
     - assets/images/posts/
     - assets/images/news-detail/
+    - assets/images/apartment/
 
 
   fonts:
