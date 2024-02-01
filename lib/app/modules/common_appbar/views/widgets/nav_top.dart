@@ -60,11 +60,11 @@ class NavTop extends GetView<CommonAppbarController> {
               height: 4, color: Colors.red, thickness: 4, endIndent: 3),
           PlutoMenuItem(
             title: 'Primary School',
-            onTap: () => Get.toNamed('/news-detail-page'),
+            onTap: () => Get.toNamed('/primary-school'),
           ),
           PlutoMenuItem(
             title: 'Low School',
-            onTap: () => Get.toNamed('/news-detail-page'),
+            onTap: () => Get.toNamed('/low-school'),
           ),
           PlutoMenuItem(
             title: 'Upper Secondary',

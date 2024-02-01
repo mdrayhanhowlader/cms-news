@@ -85,21 +85,54 @@ class HomeTopNews extends GetView<DesktopHomeController> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Container(
-                                  child: ElevatedButton(
-                                    style: ElevatedButton.styleFrom(
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(0)),
-                                      backgroundColor: Color(0XFFFF6000),
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 15, vertical: 3),
-                                    ),
-                                    onPressed: () {},
-                                    child: PoppinsText(
-                                      title: 'Button',
-                                      color: Colors.white,
-                                      size: 10,
-                                    ),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Container(
+                                        child: ElevatedButton(
+                                          style: ElevatedButton.styleFrom(
+                                            elevation: 0,
+                                            shadowColor: Colors.transparent,
+                                            shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(0)),
+                                            backgroundColor:
+                                                const Color(0XFFFF6000),
+                                            padding: const EdgeInsets.symmetric(
+                                                horizontal: 25, vertical: 0),
+                                          ),
+                                          onPressed: () {
+                                            Get.toNamed('/news-detail-page');
+                                          },
+                                          child: PoppinsText(
+                                            title: 'Button',
+                                            color: Colors.white,
+                                            size: 12,
+                                          ),
+                                        ),
+                                      ),
+                                      Container(
+                                        child: Row(
+                                          children: [
+                                            const FaIcon(
+                                              FontAwesomeIcons.clock,
+                                              size: 10,
+                                              color: Color.fromARGB(
+                                                  151, 41, 41, 41),
+                                            ),
+                                            const SizedBox(
+                                              width: 5,
+                                            ),
+                                            PoppinsText(
+                                              title: 'April 2023',
+                                              size: 10,
+                                              color: const Color(0XFF292929),
+                                            )
+                                          ],
+                                        ),
+                                      )
+                                    ],
                                   ),
                                 ),
                                 const SizedBox(
@@ -189,7 +222,7 @@ class HomeTopNews extends GetView<DesktopHomeController> {
         child: GestureDetector(
           onTap: () {
             // Navigate to NewsDetailPageView
-            Get.to(NewsDetailPageView());
+            Get.toNamed('/news-detail-page');
           },
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

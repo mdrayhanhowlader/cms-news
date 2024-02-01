@@ -92,6 +92,7 @@ class NavBottom extends GetView<CommonAppbarController> {
         children: [
           Container(
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
                   padding: const EdgeInsets.only(top: 10, bottom: 10),
@@ -132,6 +133,7 @@ class NavBottom extends GetView<CommonAppbarController> {
                   height: 5,
                 ),
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Icon(
                       Icons.arrow_right,
@@ -152,6 +154,7 @@ class NavBottom extends GetView<CommonAppbarController> {
                   height: 5,
                 ),
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Icon(
                       Icons.arrow_right,
@@ -172,6 +175,7 @@ class NavBottom extends GetView<CommonAppbarController> {
                   height: 5,
                 ),
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Icon(
                       Icons.arrow_right,
@@ -192,6 +196,7 @@ class NavBottom extends GetView<CommonAppbarController> {
                   height: 5,
                 ),
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Icon(
                       Icons.arrow_right,
@@ -212,6 +217,7 @@ class NavBottom extends GetView<CommonAppbarController> {
                   height: 5,
                 ),
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Icon(
                       Icons.arrow_right,
@@ -233,6 +239,7 @@ class NavBottom extends GetView<CommonAppbarController> {
           ),
           Container(
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
                   padding: const EdgeInsets.only(top: 10, bottom: 10),
@@ -248,6 +255,7 @@ class NavBottom extends GetView<CommonAppbarController> {
                   height: 10,
                 ),
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Icon(
                       Icons.arrow_right,
@@ -268,6 +276,7 @@ class NavBottom extends GetView<CommonAppbarController> {
                   height: 5,
                 ),
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Icon(
                       Icons.arrow_right,
@@ -288,6 +297,7 @@ class NavBottom extends GetView<CommonAppbarController> {
                   height: 5,
                 ),
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Icon(
                       Icons.arrow_right,
@@ -308,6 +318,7 @@ class NavBottom extends GetView<CommonAppbarController> {
                   height: 5,
                 ),
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Icon(
                       Icons.arrow_right,
@@ -328,6 +339,7 @@ class NavBottom extends GetView<CommonAppbarController> {
                   height: 5,
                 ),
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Icon(
                       Icons.arrow_right,
@@ -348,6 +360,7 @@ class NavBottom extends GetView<CommonAppbarController> {
                   height: 5,
                 ),
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Icon(
                       Icons.arrow_right,
@@ -369,6 +382,7 @@ class NavBottom extends GetView<CommonAppbarController> {
           ),
           Container(
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
                   padding: const EdgeInsets.only(top: 10, bottom: 10),
@@ -384,6 +398,7 @@ class NavBottom extends GetView<CommonAppbarController> {
                   height: 10,
                 ),
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Icon(
                       Icons.arrow_right,
@@ -404,6 +419,7 @@ class NavBottom extends GetView<CommonAppbarController> {
                   height: 5,
                 ),
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Icon(
                       Icons.arrow_right,
@@ -424,6 +440,7 @@ class NavBottom extends GetView<CommonAppbarController> {
                   height: 5,
                 ),
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Icon(
                       Icons.arrow_right,
@@ -444,6 +461,7 @@ class NavBottom extends GetView<CommonAppbarController> {
                   height: 5,
                 ),
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Icon(
                       Icons.arrow_right,
@@ -464,6 +482,7 @@ class NavBottom extends GetView<CommonAppbarController> {
                   height: 5,
                 ),
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Icon(
                       Icons.arrow_right,
@@ -484,6 +503,7 @@ class NavBottom extends GetView<CommonAppbarController> {
                   height: 5,
                 ),
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Icon(
                       Icons.arrow_right,
@@ -505,6 +525,7 @@ class NavBottom extends GetView<CommonAppbarController> {
           ),
           Container(
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
                   padding: const EdgeInsets.only(top: 10, bottom: 10),
@@ -520,6 +541,7 @@ class NavBottom extends GetView<CommonAppbarController> {
                   height: 10,
                 ),
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Icon(
                       Icons.arrow_right,
@@ -540,6 +562,7 @@ class NavBottom extends GetView<CommonAppbarController> {
                   height: 5,
                 ),
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Icon(
                       Icons.arrow_right,
@@ -560,6 +583,7 @@ class NavBottom extends GetView<CommonAppbarController> {
                   height: 5,
                 ),
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Icon(
                       Icons.arrow_right,
@@ -580,6 +604,7 @@ class NavBottom extends GetView<CommonAppbarController> {
                   height: 5,
                 ),
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Icon(
                       Icons.arrow_right,
@@ -600,6 +625,7 @@ class NavBottom extends GetView<CommonAppbarController> {
                   height: 5,
                 ),
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Icon(
                       Icons.arrow_right,
@@ -620,6 +646,7 @@ class NavBottom extends GetView<CommonAppbarController> {
                   height: 5,
                 ),
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Icon(
                       Icons.arrow_right,

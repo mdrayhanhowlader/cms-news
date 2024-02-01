@@ -80,13 +80,20 @@ class HomeVideos extends GetView<DesktopHomeController> {
                   itemBuilder: (context, index) {
                     return Container(
                       margin: const EdgeInsets.only(right: 10),
-                      child: VideoCard(
-                        videoTitle:
-                            'What is Lorem Ipsum? Lorem Ipsum is simply dummy te $index',
-                        videoDescription: 'April 2023',
-                        videoThumbnailUrl:
-                            'assets/images/video/slide$index.png',
-                        isHovered: controller.hoveredIndex == index,
+                      child: InkWell(
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        autofocus: false,
+                        onTap: () => Get.toNamed('/news-detail-page'),
+                        child: VideoCard(
+                          videoTitle:
+                              'What is Lorem Ipsum? Lorem Ipsum is simply dummy te $index',
+                          videoDescription: 'April 2023',
+                          videoThumbnailUrl:
+                              'assets/images/video/slide$index.png',
+                          isHovered: controller.hoveredIndex == index,
+                        ),
                       ),
                     );
                   },

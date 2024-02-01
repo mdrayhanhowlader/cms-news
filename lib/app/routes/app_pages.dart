@@ -16,6 +16,8 @@ import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/logo_interpretation/bindings/logo_interpretation_binding.dart';
 import '../modules/logo_interpretation/views/logo_interpretation_view.dart';
+import '../modules/low_school/bindings/low_school_binding.dart';
+import '../modules/low_school/views/low_school_view.dart';
 import '../modules/management_congregation/bindings/management_congregation_binding.dart';
 import '../modules/management_congregation/views/management_congregation_view.dart';
 import '../modules/news-detail-page/bindings/news_detail_page_binding.dart';
@@ -99,6 +101,11 @@ class AppPages {
       name: _Paths.PRIMARY_SCHOOL,
       page: () => const PrimarySchoolView(),
       binding: PrimarySchoolBinding(),
+    ),
+    GetPage(
+      name: _Paths.LOW_SCHOOL,
+      page: () => const LowSchoolView(),
+      binding: LowSchoolBinding(),
     ),
   ];
 }

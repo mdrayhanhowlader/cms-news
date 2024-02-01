@@ -145,12 +145,15 @@ class HomeMostViews extends GetView<DesktopHomeController> {
                                 controller.mostViewedHoveredIndex(index),
                             onExit: (_) =>
                                 controller.mostViewedHoveredIndex(-1),
-                            child: Container(
-                              // width: Get.width *
-                              //     0.5, // Each slide takes 50% of the viewport width
-                              margin: const EdgeInsets.only(
-                                  left: 2, right: 4), // Margin between slides
-                              child: buildImage(urlImage, slideText, index),
+                            child: InkWell(
+                              onTap: () => Get.toNamed('/news-detail-page'),
+                              child: Container(
+                                // width: Get.width *
+                                //     0.5, // Each slide takes 50% of the viewport width
+                                margin: const EdgeInsets.only(
+                                    left: 2, right: 4), // Margin between slides
+                                child: buildImage(urlImage, slideText, index),
+                              ),
                             ),
                           );
                         },
@@ -200,18 +203,23 @@ class HomeMostViews extends GetView<DesktopHomeController> {
                 right: 0,
                 child: Column(
                   children: [
-                    PoppinsText(
-                      title: slideText,
-                      color: controller.mostViewedHoveredIndex.value == index
-                          ? Colors.white
-                          : Colors.white70,
-                      size: 14,
-                      weight: FontWeight.w500,
-                      spacing: 0.5,
-                      decoration:
-                          controller.mostViewedHoveredIndex.value == index
-                              ? TextDecoration.underline
-                              : TextDecoration.none,
+                    InkWell(
+                      onTap: () {
+                        Get.toNamed('news-detail-page');
+                      },
+                      child: PoppinsText(
+                        title: slideText,
+                        color: controller.mostViewedHoveredIndex.value == index
+                            ? Colors.white
+                            : Colors.white70,
+                        size: 14,
+                        weight: FontWeight.w500,
+                        spacing: 0.5,
+                        decoration:
+                            controller.mostViewedHoveredIndex.value == index
+                                ? TextDecoration.underline
+                                : TextDecoration.none,
+                      ),
                     ),
                     Row(
                       children: [

@@ -16,6 +16,7 @@ abstract class Routes {
   static const MANAGEMENT_CONGREGATION = _Paths.MANAGEMENT_CONGREGATION;
   static const LOGO_INTERPRETATION = _Paths.LOGO_INTERPRETATION;
   static const PRIMARY_SCHOOL = _Paths.PRIMARY_SCHOOL;
+  static const LOW_SCHOOL = _Paths.LOW_SCHOOL;
 }
 
 abstract class _Paths {
@@ -33,4 +34,5 @@ abstract class _Paths {
   static const MANAGEMENT_CONGREGATION = '/management-congregation';
   static const LOGO_INTERPRETATION = '/logo-interpretation';
   static const PRIMARY_SCHOOL = '/primary-school';
+  static const LOW_SCHOOL = '/low-school';
 }
