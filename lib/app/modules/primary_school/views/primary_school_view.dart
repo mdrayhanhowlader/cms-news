@@ -24,9 +24,6 @@ class PrimarySchoolView extends GetView<PrimarySchoolController> {
           const SizedBox(
             height: 10,
           ),
-          const SizedBox(
-            height: 50,
-          ),
           Container(
             width: Get.width * 0.9,
             child: Column(
@@ -50,11 +47,14 @@ class PrimarySchoolView extends GetView<PrimarySchoolController> {
                         size: 16,
                         weight: FontWeight.w600,
                       ),
-                      PoppinsText(
-                        title:
-                            'sekalian alam. Pelajar tahfiz merupakan tunas yang perlu disemai dan dibajai sebaik mungkin demi melahirkan generasi Al-Quran yang mapan dari pelbagai sudut. Mereka datang daripada pelbagai latar belakang pendidikan dan sosioekonomi, sekaligus memerlukan bimbingan yang komprehensif dan bersepadudalam mencapai maksud pendidikan.',
-                        size: 14,
-                        weight: FontWeight.w400,
+                      Container(
+                        width: Get.width * 0.6,
+                        child: PoppinsText(
+                          title:
+                              'sekalian alam. Pelajar tahfiz merupakan tunas yang perlu disemai dan dibajai sebaik mungkin demi melahirkan generasi Al-Quran yang mapan dari pelbagai sudut. Mereka datang daripada pelbagai latar belakang pendidikan dan sosioekonomi, sekaligus memerlukan bimbingan yang komprehensif dan bersepadudalam mencapai maksud pendidikan.',
+                          size: 14,
+                          weight: FontWeight.w400,
+                        ),
                       )
                     ],
                   ),
@@ -65,6 +65,7 @@ class PrimarySchoolView extends GetView<PrimarySchoolController> {
                 Container(
                   width: Get.width * 0.6,
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Image.asset(
                           'assets/images/primary-school/primary-school2.png'),
@@ -89,6 +90,7 @@ class PrimarySchoolView extends GetView<PrimarySchoolController> {
                 Container(
                   width: Get.width * 0.6,
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Image.asset(
                           'assets/images/primary-school/primary-school3.png'),
@@ -103,9 +105,6 @@ class PrimarySchoolView extends GetView<PrimarySchoolController> {
                       )
                     ],
                   ),
-                ),
-                const SizedBox(
-                  height: 20,
                 ),
                 const SizedBox(
                   height: 50,
