@@ -97,6 +97,9 @@ flutter:
     - assets/images/news-detail/
     - assets/images/apartment/
     - assets/images/background/
+    - assets/images/education/
+    - assets/images/character/
+    - assets/images/primary-school/
 
 
   fonts:

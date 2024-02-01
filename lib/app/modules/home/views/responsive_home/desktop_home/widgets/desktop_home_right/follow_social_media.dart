@@ -94,6 +94,7 @@ class ButtonItem extends GetView<DesktopHomeController> {
           if (await canLaunchUrlString(url)) {
             await launchUrlString(url);
           } else {
+            // ignore: use_build_context_synchronously
             showDialog(
                 context: context,
                 builder: (BuildContext context) {

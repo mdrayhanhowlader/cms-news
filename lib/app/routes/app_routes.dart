@@ -10,6 +10,12 @@ abstract class Routes {
   static const NEWS_DETAIL_PAGE = _Paths.NEWS_DETAIL_PAGE;
   static const FEES = _Paths.FEES;
   static const BACKGROUND = _Paths.BACKGROUND;
+  static const EDUCATIONAL_FLOW_CHART = _Paths.EDUCATIONAL_FLOW_CHART;
+  static const CHARACTER = _Paths.CHARACTER;
+  static const OBJECTIVE = _Paths.OBJECTIVE;
+  static const MANAGEMENT_CONGREGATION = _Paths.MANAGEMENT_CONGREGATION;
+  static const LOGO_INTERPRETATION = _Paths.LOGO_INTERPRETATION;
+  static const PRIMARY_SCHOOL = _Paths.PRIMARY_SCHOOL;
 }
 
 abstract class _Paths {
@@ -21,4 +27,10 @@ abstract class _Paths {
   static const NEWS_DETAIL_PAGE = '/news-detail-page';
   static const FEES = '/fees';
   static const BACKGROUND = '/background';
+  static const EDUCATIONAL_FLOW_CHART = '/educational-flow-chart';
+  static const CHARACTER = '/character';
+  static const OBJECTIVE = '/objective';
+  static const MANAGEMENT_CONGREGATION = '/management-congregation';
+  static const LOGO_INTERPRETATION = '/logo-interpretation';
+  static const PRIMARY_SCHOOL = '/primary-school';
 }

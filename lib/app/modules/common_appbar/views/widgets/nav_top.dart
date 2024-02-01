@@ -32,23 +32,23 @@ class NavTop extends GetView<CommonAppbarController> {
           ),
           PlutoMenuItem(
             title: 'Education Flow Chart',
-            onTap: () => Get.toNamed('/news-detail-page'),
+            onTap: () => Get.toNamed('/educational-flow-chart'),
           ),
           PlutoMenuItem(
             title: 'Character',
-            onTap: () => Get.toNamed('/news-detail-page'),
+            onTap: () => Get.toNamed('/character'),
           ),
           PlutoMenuItem(
             title: 'Objective',
-            onTap: () => Get.toNamed('/news-detail-page'),
+            onTap: () => Get.toNamed('/objective'),
           ),
           PlutoMenuItem(
             title: 'Management Congregation',
-            onTap: () => Get.toNamed('/news-detail-page'),
+            onTap: () => Get.toNamed('/management-congregation'),
           ),
           PlutoMenuItem(
             title: 'Logo Interpretation',
-            onTap: () => Get.toNamed('/news-detail-page'),
+            onTap: () => Get.toNamed('/logo-interpretation'),
           ),
         ],
       ),
