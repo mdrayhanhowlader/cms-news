@@ -19,7 +19,7 @@ class NavBottom extends GetView<CommonAppbarController> {
           PlutoMenuItem.divider(
               height: 4, color: Colors.red, thickness: 4, endIndent: 3),
           PlutoMenuItem.widget(
-            widget: featureSubNav(),
+            widget: Container(width: Get.width * 0.9, child: featureSubNav()),
           ),
         ],
       ),
@@ -83,8 +83,7 @@ class NavBottom extends GetView<CommonAppbarController> {
 
   Widget featureSubNav() {
     return Container(
-      width: Get.width * 0.8,
-      alignment: Alignment.topLeft,
+      width: Get.width * 0.9,
       padding: const EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10),
       color: Colors.black12,
       child: Row(

@@ -61,7 +61,7 @@ dependencies:
   syncfusion_flutter_calendar: ^23.1.42
   calendar_view: ^1.0.0
   qr_code_scanner: ^1.0.1
-  flutter_widget_from_html_core: ^0.10.0
+
   flutter_launcher_icons: ^0.13.1
   flutter_svg: ^2.0.9
   another_flushbar: ^1.12.30
@@ -77,6 +77,7 @@ dependencies:
   animated_text_kit: ^4.2.2
   video_player: ^2.8.2
   chewie: ^1.0.0
+  flutter_html: ^3.0.0-beta.2
 
 dev_dependencies: 
   flutter_lints: ^2.0.0
@@ -101,6 +102,7 @@ flutter:
     - assets/images/character/
     - assets/images/primary-school/
     - assets/images/low-school/
+    - assets/images/objective/
 
 
   fonts:

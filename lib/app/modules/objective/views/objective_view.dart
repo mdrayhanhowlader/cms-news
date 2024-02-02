@@ -2,15 +2,20 @@ import 'package:cms_maahadtahfizaddin/app/modules/common_appbar/views/common_app
 import 'package:cms_maahadtahfizaddin/app/modules/common_bottombar/views/common_bottombar_view.dart';
 import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/desktop_home/widgets/hightlight_news.dart';
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
+import 'package:flutter_html/flutter_html.dart';
 
 import '../controllers/objective_controller.dart';
 
 class ObjectiveView extends GetView<ObjectiveController> {
   const ObjectiveView({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
+    final _htmlContent = """
+
+<div>Hello world</div>
+""";
     return Scaffold(
         body: SingleChildScrollView(
       child: Column(
@@ -58,6 +63,9 @@ class ObjectiveView extends GetView<ObjectiveController> {
                     fit: BoxFit.cover,
                   ),
                 ),
+                // Container(
+                //   child: Html(data: _htmlContent),
+                // ),
                 const SizedBox(
                   height: 50,
                 ),
