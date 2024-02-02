@@ -1,4 +1,3 @@
-import 'dart:js';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pluto_menu_bar/pluto_menu_bar.dart';
@@ -10,7 +9,6 @@ class NavBottom extends GetView<CommonAppbarController> {
 
   double calculateFontSize(BuildContext context, double baseFontSize) {
     double screenWidth = MediaQuery.of(context).size.width;
-    double baseFontSize = 15.0;
 
     if (screenWidth > 1280) {
       return baseFontSize;
@@ -35,10 +33,7 @@ class NavBottom extends GetView<CommonAppbarController> {
             endIndent: 3,
           ),
           PlutoMenuItem.widget(
-            widget: Container(
-              width: Get.width * 0.9,
-              child: featureSubNav(),
-            ),
+            widget: featureSubNav(),
           ),
         ],
       ),
@@ -77,7 +72,7 @@ class NavBottom extends GetView<CommonAppbarController> {
 
   @override
   Widget build(BuildContext context) {
-    double baseFontSize = 16.0;
+    double baseFontSize = 15.0;
     double fontSize = calculateFontSize(context, baseFontSize);
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -92,15 +87,17 @@ class NavBottom extends GetView<CommonAppbarController> {
               activatedColor: Colors.red,
               indicatorColor: Colors.deepOrange,
               textStyle: TextStyle(
-                  color: Colors.white,
-                  fontSize: calculateFontSize(context, baseFontSize)),
+                color: Colors.white,
+                fontSize: calculateFontSize(context, baseFontSize),
+              ),
               iconColor: Colors.white,
               moreIconColor: Colors.white,
               enableSelectedTopMenu: true,
               selectedTopMenuIconColor: Colors.white,
               selectedTopMenuTextStyle: TextStyle(
-                  color: const Color(0XFFFF6000),
-                  fontSize: calculateFontSize(context, baseFontSize)),
+                color: const Color(0XFFFF6000),
+                fontSize: calculateFontSize(context, baseFontSize),
+              ),
               iconSize: 28,
             ),
             menus: makeMenus(),
@@ -111,8 +108,51 @@ class NavBottom extends GetView<CommonAppbarController> {
   }
 
   Widget featureSubNav() {
+    double baseFontSize = 13.0;
+    double fontSize = baseFontSize;
+
+    List<Widget> pageRows = [
+      _buildRow('NEW PAGE', fontSize),
+      _buildRow('NEW PAGE', fontSize),
+      _buildRow('NEW PAGE', fontSize),
+      _buildRow('NEW PAGE', fontSize),
+      _buildRow('NEW PAGE', fontSize),
+      _buildRow('NEW PAGE', fontSize),
+      _buildRow('NEW PAGE', fontSize),
+    ];
+
+    List<Widget> blogRows = [
+      _buildRow('NEW PAGE', fontSize),
+      _buildRow('NEW PAGE', fontSize),
+      _buildRow('NEW PAGE', fontSize),
+      _buildRow('NEW PAGE', fontSize),
+      _buildRow('NEW PAGE', fontSize),
+      _buildRow('NEW PAGE', fontSize),
+      _buildRow('NEW PAGE', fontSize),
+    ];
+
+    List<Widget> postRows = [
+      _buildRow('NEW PAGE', fontSize),
+      _buildRow('NEW PAGE', fontSize),
+      _buildRow('NEW PAGE', fontSize),
+      _buildRow('NEW PAGE', fontSize),
+      _buildRow('NEW PAGE', fontSize),
+      _buildRow('NEW PAGE', fontSize),
+      _buildRow('NEW PAGE', fontSize),
+    ];
+
+    List<Widget> reviewRows = [
+      _buildRow('NEW PAGE', fontSize),
+      _buildRow('NEW PAGE', fontSize),
+      _buildRow('NEW PAGE', fontSize),
+      _buildRow('NEW PAGE', fontSize),
+      _buildRow('NEW PAGE', fontSize),
+      _buildRow('NEW PAGE', fontSize),
+      _buildRow('NEW PAGE', fontSize),
+    ];
+
     return Container(
-      width: Get.width * 0.9,
+      width: Get.width * 0.8,
       padding: const EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10),
       color: Colors.black12,
       child: Row(
@@ -122,146 +162,8 @@ class NavBottom extends GetView<CommonAppbarController> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Container(
-                  padding: const EdgeInsets.only(top: 10, bottom: 10),
-                  decoration: const BoxDecoration(
-                      border: Border(
-                          bottom: BorderSide(width: 1, color: Colors.black))),
-                  child: PoppinsText(
-                    title: 'PAGES',
-                    color: Colors.white,
-                  ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                InkWell(
-                  onHover: (value) {
-                    Colors.red;
-                  },
-                  child: Row(
-                    children: [
-                      const Icon(
-                        Icons.arrow_right,
-                        color: Colors.white,
-                        size: 20,
-                      ),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      PoppinsText(
-                        title: 'NEW PAGE',
-                        size: 16,
-                        color: Colors.white,
-                      )
-                    ],
-                  ),
-                ),
-                const SizedBox(
-                  height: 5,
-                ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Icon(
-                      Icons.arrow_right,
-                      color: Colors.white,
-                      size: 20,
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    PoppinsText(
-                      title: 'NEW PAGE',
-                      size: 16,
-                      color: Colors.white,
-                    )
-                  ],
-                ),
-                const SizedBox(
-                  height: 5,
-                ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Icon(
-                      Icons.arrow_right,
-                      color: Colors.white,
-                      size: 20,
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    PoppinsText(
-                      title: 'NEW PAGE',
-                      size: 16,
-                      color: Colors.white,
-                    )
-                  ],
-                ),
-                const SizedBox(
-                  height: 5,
-                ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Icon(
-                      Icons.arrow_right,
-                      color: Colors.white,
-                      size: 20,
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    PoppinsText(
-                      title: 'NEW PAGE',
-                      size: 16,
-                      color: Colors.white,
-                    )
-                  ],
-                ),
-                const SizedBox(
-                  height: 5,
-                ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Icon(
-                      Icons.arrow_right,
-                      color: Colors.white,
-                      size: 20,
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    PoppinsText(
-                      title: 'NEW PAGE',
-                      size: 16,
-                      color: Colors.white,
-                    )
-                  ],
-                ),
-                const SizedBox(
-                  height: 5,
-                ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Icon(
-                      Icons.arrow_right,
-                      color: Colors.white,
-                      size: 20,
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    PoppinsText(
-                      title: 'NEW PAGE',
-                      size: 16,
-                      color: Colors.white,
-                    )
-                  ],
-                ),
+                _buildSection('PAGES', Colors.white),
+                ...pageRows,
               ],
             ),
           ),
@@ -269,142 +171,8 @@ class NavBottom extends GetView<CommonAppbarController> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Container(
-                  padding: const EdgeInsets.only(top: 10, bottom: 10),
-                  decoration: const BoxDecoration(
-                      border: Border(
-                          bottom: BorderSide(width: 1, color: Colors.black))),
-                  child: PoppinsText(
-                    title: 'BLOG',
-                    color: Colors.white,
-                  ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Icon(
-                      Icons.arrow_right,
-                      color: Colors.white,
-                      size: 20,
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    PoppinsText(
-                      title: 'NEW PAGE',
-                      size: 16,
-                      color: Colors.white,
-                    )
-                  ],
-                ),
-                const SizedBox(
-                  height: 5,
-                ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Icon(
-                      Icons.arrow_right,
-                      color: Colors.white,
-                      size: 20,
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    PoppinsText(
-                      title: 'NEW PAGE',
-                      size: 16,
-                      color: Colors.white,
-                    )
-                  ],
-                ),
-                const SizedBox(
-                  height: 5,
-                ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Icon(
-                      Icons.arrow_right,
-                      color: Colors.white,
-                      size: 20,
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    PoppinsText(
-                      title: 'NEW PAGE',
-                      size: 16,
-                      color: Colors.white,
-                    )
-                  ],
-                ),
-                const SizedBox(
-                  height: 5,
-                ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Icon(
-                      Icons.arrow_right,
-                      color: Colors.white,
-                      size: 20,
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    PoppinsText(
-                      title: 'NEW PAGE',
-                      size: 16,
-                      color: Colors.white,
-                    )
-                  ],
-                ),
-                const SizedBox(
-                  height: 5,
-                ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Icon(
-                      Icons.arrow_right,
-                      color: Colors.white,
-                      size: 20,
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    PoppinsText(
-                      title: 'NEW PAGE',
-                      size: 16,
-                      color: Colors.white,
-                    )
-                  ],
-                ),
-                const SizedBox(
-                  height: 5,
-                ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Icon(
-                      Icons.arrow_right,
-                      color: Colors.white,
-                      size: 20,
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    PoppinsText(
-                      title: 'NEW PAGE',
-                      size: 16,
-                      color: Colors.white,
-                    )
-                  ],
-                ),
+                _buildSection('BLOG', Colors.white),
+                ...blogRows,
               ],
             ),
           ),
@@ -412,142 +180,8 @@ class NavBottom extends GetView<CommonAppbarController> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Container(
-                  padding: const EdgeInsets.only(top: 10, bottom: 10),
-                  decoration: const BoxDecoration(
-                      border: Border(
-                          bottom: BorderSide(width: 1, color: Colors.black))),
-                  child: PoppinsText(
-                    title: 'POST',
-                    color: Colors.white,
-                  ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Icon(
-                      Icons.arrow_right,
-                      color: Colors.white,
-                      size: 20,
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    PoppinsText(
-                      title: 'NEW PAGE',
-                      size: 16,
-                      color: Colors.white,
-                    )
-                  ],
-                ),
-                const SizedBox(
-                  height: 5,
-                ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Icon(
-                      Icons.arrow_right,
-                      color: Colors.white,
-                      size: 20,
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    PoppinsText(
-                      title: 'NEW PAGE',
-                      size: 16,
-                      color: Colors.white,
-                    )
-                  ],
-                ),
-                const SizedBox(
-                  height: 5,
-                ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Icon(
-                      Icons.arrow_right,
-                      color: Colors.white,
-                      size: 20,
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    PoppinsText(
-                      title: 'NEW PAGE',
-                      size: 16,
-                      color: Colors.white,
-                    )
-                  ],
-                ),
-                const SizedBox(
-                  height: 5,
-                ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Icon(
-                      Icons.arrow_right,
-                      color: Colors.white,
-                      size: 20,
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    PoppinsText(
-                      title: 'NEW PAGE',
-                      size: 16,
-                      color: Colors.white,
-                    )
-                  ],
-                ),
-                const SizedBox(
-                  height: 5,
-                ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Icon(
-                      Icons.arrow_right,
-                      color: Colors.white,
-                      size: 20,
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    PoppinsText(
-                      title: 'NEW PAGE',
-                      size: 16,
-                      color: Colors.white,
-                    )
-                  ],
-                ),
-                const SizedBox(
-                  height: 5,
-                ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Icon(
-                      Icons.arrow_right,
-                      color: Colors.white,
-                      size: 20,
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    PoppinsText(
-                      title: 'NEW PAGE',
-                      size: 16,
-                      color: Colors.white,
-                    )
-                  ],
-                ),
+                _buildSection('POST', Colors.white),
+                ...postRows,
               ],
             ),
           ),
@@ -555,142 +189,8 @@ class NavBottom extends GetView<CommonAppbarController> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Container(
-                  padding: const EdgeInsets.only(top: 10, bottom: 10),
-                  decoration: const BoxDecoration(
-                      border: Border(
-                          bottom: BorderSide(width: 1, color: Colors.black))),
-                  child: PoppinsText(
-                    title: 'Review',
-                    color: Colors.white,
-                  ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Icon(
-                      Icons.arrow_right,
-                      color: Colors.white,
-                      size: 20,
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    PoppinsText(
-                      title: 'NEW PAGE',
-                      size: 16,
-                      color: Colors.white,
-                    )
-                  ],
-                ),
-                const SizedBox(
-                  height: 5,
-                ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Icon(
-                      Icons.arrow_right,
-                      color: Colors.white,
-                      size: 20,
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    PoppinsText(
-                      title: 'NEW PAGE',
-                      size: 16,
-                      color: Colors.white,
-                    )
-                  ],
-                ),
-                const SizedBox(
-                  height: 5,
-                ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Icon(
-                      Icons.arrow_right,
-                      color: Colors.white,
-                      size: 20,
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    PoppinsText(
-                      title: 'NEW PAGE',
-                      size: 16,
-                      color: Colors.white,
-                    )
-                  ],
-                ),
-                const SizedBox(
-                  height: 5,
-                ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Icon(
-                      Icons.arrow_right,
-                      color: Colors.white,
-                      size: 20,
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    PoppinsText(
-                      title: 'NEW PAGE',
-                      size: 16,
-                      color: Colors.white,
-                    )
-                  ],
-                ),
-                const SizedBox(
-                  height: 5,
-                ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Icon(
-                      Icons.arrow_right,
-                      color: Colors.white,
-                      size: 20,
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    PoppinsText(
-                      title: 'NEW PAGE',
-                      size: 16,
-                      color: Colors.white,
-                    )
-                  ],
-                ),
-                const SizedBox(
-                  height: 5,
-                ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Icon(
-                      Icons.arrow_right,
-                      color: Colors.white,
-                      size: 20,
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    PoppinsText(
-                      title: 'NEW PAGE',
-                      size: 16,
-                      color: Colors.white,
-                    )
-                  ],
-                ),
+                _buildSection('Review', Colors.white),
+                ...reviewRows,
               ],
             ),
           ),
@@ -700,9 +200,6 @@ class NavBottom extends GetView<CommonAppbarController> {
   }
 
   Widget buildBottomNav() {
-    double baseFontSize = 16.0;
-
-    // double fontSize = calculateFontSize(context, baseFontSize);
     return Container(
       width: Get.width * 0.7,
       padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 0),
@@ -717,48 +214,11 @@ class NavBottom extends GetView<CommonAppbarController> {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Container(
-                  decoration: const BoxDecoration(
-                      border: Border(
-                          bottom:
-                              BorderSide(width: 1, color: Color(0XFF000000)))),
-                  child: PoppinsText(
-                    title: 'APARTMENT A',
-                    color: Colors.white,
-                    size: 16,
-                    weight: FontWeight.w700,
-                  ),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                Container(
-                  decoration: const BoxDecoration(
-                      border: Border(
-                          bottom:
-                              BorderSide(width: 1, color: Color(0XFF000000)))),
-                  child: PoppinsText(
-                    title: 'APARTMENT B',
-                    color: Colors.white,
-                    size: 16,
-                    weight: FontWeight.w700,
-                  ),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                Container(
-                  decoration: const BoxDecoration(
-                      border: Border(
-                          bottom:
-                              BorderSide(width: 1, color: Color(0XFF000000)))),
-                  child: PoppinsText(
-                    title: 'APARTMENT C',
-                    color: Colors.white,
-                    size: 16,
-                    weight: FontWeight.w700,
-                  ),
-                ),
+                _buildSection('APARTMENT A', Colors.white),
+                const SizedBox(height: 20),
+                _buildSection('APARTMENT B', Colors.white),
+                const SizedBox(height: 20),
+                _buildSection('APARTMENT C', Colors.white),
               ],
             ),
           ),
@@ -768,49 +228,72 @@ class NavBottom extends GetView<CommonAppbarController> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(16.0),
-                  child: Container(
-                    child: Image.asset(
-                      'assets/images/apartment/apartment1.png',
-                      height: 200,
-                      width: Get.width * 0.15,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  width: 15,
-                ),
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(16.0),
-                  child: Container(
-                    child: Image.asset(
-                      'assets/images/apartment/apartment2.png',
-                      height: 200,
-                      width: Get.width * 0.15,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  width: 15,
-                ),
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(16.0),
-                  child: Container(
-                    child: Image.asset(
-                      'assets/images/apartment/apartment3.png',
-                      height: 200,
-                      width: Get.width * 0.15,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
+                _buildImage('assets/images/apartment/apartment1.png'),
+                const SizedBox(width: 15),
+                _buildImage('assets/images/apartment/apartment2.png'),
+                const SizedBox(width: 15),
+                _buildImage('assets/images/apartment/apartment3.png'),
               ],
             ),
-          )
+          ),
         ],
+      ),
+    );
+  }
+
+  Widget _buildRow(String title, double fontSize) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        Row(
+          children: [
+            const Icon(
+              Icons.arrow_right,
+              color: Colors.white,
+              size: 20,
+            ),
+            const SizedBox(width: 5),
+            PoppinsText(
+              title: title,
+              size: fontSize,
+              color: Colors.white,
+            ),
+          ],
+        ),
+        const SizedBox(height: 5),
+      ],
+    );
+  }
+
+  Widget _buildSection(String title, Color color) {
+    return Container(
+      padding: const EdgeInsets.only(
+        top: 10,
+        bottom: 10,
+      ),
+      decoration: BoxDecoration(
+        border: Border(
+          bottom: BorderSide(width: 1, color: Colors.black),
+        ),
+      ),
+      child: PoppinsText(
+        title: title,
+        color: color,
+      ),
+    );
+  }
+
+  Widget _buildImage(String assetPath) {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(16.0),
+      child: Container(
+        child: Image.asset(
+          assetPath,
+          height: 200,
+          width: Get.width * 0.15,
+          fit: BoxFit.cover,
+        ),
       ),
     );
   }

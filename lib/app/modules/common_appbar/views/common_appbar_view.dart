@@ -158,14 +158,14 @@ class CommonAppbarView extends GetView<CommonAppbarController>
           ),
         ),
         Material(
+          color: const Color(0XFF292929),
+          borderRadius: BorderRadius.circular(5),
           child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 0),
-            color: Color(0XFF292929),
             width: Get.width * 0.9,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Container(width: Get.width * 0.7, child: NavBottom()),
+                Container(width: Get.width * 0.7, child: const NavBottom()),
                 Container(
                   // color: Colors.red,
                   height: 45,
