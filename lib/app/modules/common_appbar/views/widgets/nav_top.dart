@@ -154,6 +154,21 @@ class NavTop extends GetView<CommonAppbarController> {
     ];
   }
 
+  double calculateFontSize(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+
+    // Set a maximum font size
+    double maxFontSize = 15.0;
+
+    // Check if the screen width is greater than 1280px (for web)
+    if (screenWidth > 1280) {
+      return maxFontSize;
+    } else {
+      // Adjust the font size based on screen width for smaller screens
+      return maxFontSize * screenWidth / 1280.0;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -164,12 +179,16 @@ class NavTop extends GetView<CommonAppbarController> {
           itemStyle: PlutoMenuItemStyle(
               activatedColor: Colors.red,
               indicatorColor: Colors.red,
-              textStyle: TextStyle(color: Colors.white),
+              textStyle: TextStyle(
+                  color: Colors.white, fontSize: calculateFontSize(context)),
               iconColor: Colors.white,
               moreIconColor: Colors.white,
               enableSelectedTopMenu: true,
-              selectedTopMenuTextStyle: TextStyle(color: Color(0XFFFF6000)),
-              padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5)),
+              selectedTopMenuTextStyle: TextStyle(
+                  color: Color(0XFFFF6000),
+                  background: Paint(),
+                  fontSize: calculateFontSize(context)),
+              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5)),
           menus: makeMenus(),
         ),
       ],

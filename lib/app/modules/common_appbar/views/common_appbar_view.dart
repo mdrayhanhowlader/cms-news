@@ -20,14 +20,14 @@ class CommonAppbarView extends GetView<CommonAppbarController>
       mainAxisSize: MainAxisSize.min,
       children: [
         Material(
-          color: Color(0XFF292929),
+          color: const Color(0XFF292929),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Container(
                   margin: const EdgeInsets.only(left: 15),
                   width: Get.width * 0.8,
-                  child: NavTop()),
+                  child: const NavTop()),
               Container(
                   width: Get.width * 0.1,
                   child: Row(

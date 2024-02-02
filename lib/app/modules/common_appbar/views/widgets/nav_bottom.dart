@@ -1,11 +1,23 @@
-import 'package:cms_maahadtahfizaddin/app/core/widgets/poppins_text.dart';
+import 'dart:js';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pluto_menu_bar/pluto_menu_bar.dart';
+import 'package:cms_maahadtahfizaddin/app/core/widgets/poppins_text.dart';
 import 'package:cms_maahadtahfizaddin/app/modules/common_appbar/controllers/common_appbar_controller.dart';
 
 class NavBottom extends GetView<CommonAppbarController> {
   const NavBottom({Key? key}) : super(key: key);
+
+  double calculateFontSize(BuildContext context, double baseFontSize) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double baseFontSize = 15.0;
+
+    if (screenWidth > 1280) {
+      return baseFontSize;
+    } else {
+      return baseFontSize * screenWidth / 1280.0;
+    }
+  }
 
   List<PlutoMenuItem> makeMenus() {
     return [
@@ -17,18 +29,28 @@ class NavBottom extends GetView<CommonAppbarController> {
         title: 'FEATURES',
         children: [
           PlutoMenuItem.divider(
-              height: 4, color: Colors.red, thickness: 4, endIndent: 3),
+            height: 4,
+            color: Colors.red,
+            thickness: 4,
+            endIndent: 3,
+          ),
           PlutoMenuItem.widget(
-            widget: Container(width: Get.width * 0.9, child: featureSubNav()),
+            widget: Container(
+              width: Get.width * 0.9,
+              child: featureSubNav(),
+            ),
           ),
         ],
       ),
       PlutoMenuItem(
         title: 'HOMESTAY',
         children: [
-          // Use PlutoMenuItem.widget to add a custom widget
           PlutoMenuItem.divider(
-              height: 4, color: Colors.red, thickness: 4, endIndent: 3),
+            height: 4,
+            color: Colors.red,
+            thickness: 4,
+            endIndent: 3,
+          ),
           PlutoMenuItem.widget(
             widget: buildBottomNav(),
           ),
@@ -55,6 +77,8 @@ class NavBottom extends GetView<CommonAppbarController> {
 
   @override
   Widget build(BuildContext context) {
+    double baseFontSize = 16.0;
+    double fontSize = calculateFontSize(context, baseFontSize);
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -64,14 +88,19 @@ class NavBottom extends GetView<CommonAppbarController> {
           child: PlutoMenuBar(
             mode: PlutoMenuBarMode.hover,
             backgroundColor: const Color(0XFF292929),
-            itemStyle: const PlutoMenuItemStyle(
+            itemStyle: PlutoMenuItemStyle(
               activatedColor: Colors.red,
               indicatorColor: Colors.deepOrange,
-              textStyle: TextStyle(color: Colors.white),
+              textStyle: TextStyle(
+                  color: Colors.white,
+                  fontSize: calculateFontSize(context, baseFontSize)),
               iconColor: Colors.white,
               moreIconColor: Colors.white,
               enableSelectedTopMenu: true,
               selectedTopMenuIconColor: Colors.white,
+              selectedTopMenuTextStyle: TextStyle(
+                  color: const Color(0XFFFF6000),
+                  fontSize: calculateFontSize(context, baseFontSize)),
               iconSize: 28,
             ),
             menus: makeMenus(),
@@ -671,6 +700,9 @@ class NavBottom extends GetView<CommonAppbarController> {
   }
 
   Widget buildBottomNav() {
+    double baseFontSize = 16.0;
+
+    // double fontSize = calculateFontSize(context, baseFontSize);
     return Container(
       width: Get.width * 0.7,
       padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 0),
