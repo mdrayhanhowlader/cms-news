@@ -1,5 +1,6 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:cms_maahadtahfizaddin/app/core/widgets/poppins_text.dart';
-import 'package:cms_maahadtahfizaddin/app/data/constants/extensions/widget_extensions.dart';
 import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/desktop_home/desktop_home_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -12,7 +13,7 @@ class FollowSocialMedia extends GetView<DesktopHomeController> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(left: 10),
+      padding: const EdgeInsets.only(left: 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
@@ -44,7 +45,7 @@ class FollowSocialMedia extends GetView<DesktopHomeController> {
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           // Social buttons using GridView
@@ -94,64 +95,70 @@ class ButtonItem extends GetView<DesktopHomeController> {
           if (await canLaunchUrlString(url)) {
             await launchUrlString(url);
           } else {
-            // ignore: use_build_context_synchronously
             showDialog(
-                context: context,
-                builder: (BuildContext context) {
-                  return AlertDialog(
-                      title: Text('Error'),
-                      content: Text('Could not launch $url'),
-                      actions: [
-                        TextButton(
-                            onPressed: () {
-                              Navigator.pop(context);
-                            },
-                            child: Text('ok'))
-                      ]);
-                });
+              context: context,
+              builder: (BuildContext context) {
+                return AlertDialog(
+                  title: const Text('Error'),
+                  content: const Text('Could not launch $url'),
+                  actions: [
+                    TextButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: const Text('ok'),
+                    )
+                  ],
+                );
+              },
+            );
           }
           // Handle button click
           print('$text button clicked');
         },
         style: ElevatedButton.styleFrom(
-          padding: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+          padding: const EdgeInsets.symmetric(
+            horizontal: 5,
+          ),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(7.0),
           ),
-          // Add elevation
           elevation: 3,
-          // Set gradient background
-          backgroundColor: gradientColors.first,
+          shadowColor: gradientColors.first.withOpacity(0.7),
+          backgroundColor: Colors.transparent,
           foregroundColor: Colors.white, // Text color
-          shadowColor: gradientColors.first.withOpacity(0.7), // Shadow color
-          // Use BoxDecoration to set linear gradient
-          // This will create a linear gradient using the specified colors
-          // Adjust the begin and end points as needed
-          // gradient: LinearGradient(
-          //   colors: gradientColors,
-          //   begin: Alignment.topLeft,
-          //   end: Alignment.bottomRight,
-          // ),
+          disabledForegroundColor: Colors.white,
+          textStyle: const TextStyle(
+            fontSize: 14,
+          ),
+
+          // Set gradient directly here
         ),
         icon: Container(
           alignment: Alignment.center,
           height: Get.height,
-          padding:
-              EdgeInsets.symmetric(horizontal: 8), // Adjust padding for spacing
+          // padding: const EdgeInsets.symmetric(horizontal: 8),
           decoration: const BoxDecoration(
-            border: Border(right: BorderSide(width: 1, color: Colors.white)),
-          ),
+              // border: Border(right: BorderSide(width: 1, color: Colors.white)),
+
+              ),
           child: Icon(
             icon,
             color: Colors.white,
             size: 20,
           ),
         ),
-        label: Text(
-          text,
-          style: const TextStyle(
-            fontSize: 14,
-            color: Colors.white,
+        label: Container(
+          padding: const EdgeInsets.only(top: 7.9, bottom: 7.9, left: 2),
+          decoration: const BoxDecoration(
+            border: Border(left: BorderSide(width: 1, color: Colors.white)),
+          ),
+          child: Text(
+            text,
+            style: const TextStyle(
+              fontSize: 14,
+              color: Colors.white,
+            ),
           ),
         ),
       ),
@@ -164,40 +171,53 @@ final List<Map<String, dynamic>> socialButtons = [
     'text': 'Facebook',
     'icon': Icons.facebook,
     'gradientColors': [
-      const Color.fromARGB(255, 3, 100, 179),
-      Color(0xFF2E3192)
+      const Color(0xFF1877F2),
+      const Color(0xFF1877F2),
     ],
   },
   {
     'text': 'Twitter',
     'icon': FontAwesomeIcons.twitter,
-    'gradientColors': [Colors.black, Colors.grey],
+    'gradientColors': [
+      const Color(0xFF1DA1F2),
+      const Color(0xFF1DA1F2),
+    ],
   },
   {
     'text': 'Snapchat',
     'icon': FontAwesomeIcons.snapchat,
-    'gradientColors': [Color(0xFFFFFC00), Color(0XFFFFFC00)],
+    'gradientColors': [
+      const Color(0xFFFFFC00),
+      const Color(0xFFFFFC00),
+    ],
   },
   {
     'text': 'Instagram',
     'icon': FontAwesomeIcons.instagram,
     'gradientColors': [
-      Color.fromARGB(255, 243, 9, 9),
-      Color.fromARGB(255, 207, 5, 150),
-      Color(0XFFD62976),
-      Color(0XFF962FBF),
-      Color(0XFFD54FAE),
-      Color(0XFFD54FAE),
+      const Color(0xFFE1306C),
+      const Color(0xFF405DE6),
+      const Color(0xFF5851DB),
+      const Color(0xFF833AB4),
+      const Color(0xFFC13584),
+      const Color(0xFFFD1D1D),
+      const Color(0xFFF56040),
     ],
   },
   {
     'text': 'Apple',
-    'icon': FontAwesomeIcons.youtube,
-    'gradientColors': [Color(0XFF000000), Color(0XFF000000)],
+    'icon': FontAwesomeIcons.apple,
+    'gradientColors': [
+      const Color(0xFF000000),
+      const Color(0xFF000000),
+    ],
   },
   {
     'text': 'Youtube',
-    'icon': FontAwesomeIcons.github,
-    'gradientColors': [Color(0XFFFF0000), Color(0XFFFF0000)],
+    'icon': FontAwesomeIcons.youtube,
+    'gradientColors': [
+      const Color(0xFFFF0000),
+      const Color(0xFFFF0000),
+    ],
   },
 ];
