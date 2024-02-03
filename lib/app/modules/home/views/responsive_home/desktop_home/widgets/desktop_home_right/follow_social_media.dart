@@ -1,5 +1,3 @@
-// ignore_for_file: use_build_context_synchronously
-
 import 'package:cms_maahadtahfizaddin/app/core/widgets/poppins_text.dart';
 import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/desktop_home/desktop_home_controller.dart';
 import 'package:flutter/material.dart';
@@ -48,7 +46,6 @@ class FollowSocialMedia extends GetView<DesktopHomeController> {
           const SizedBox(
             height: 20,
           ),
-          // Social buttons using GridView
           GridView.builder(
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 3,
@@ -89,6 +86,14 @@ class ButtonItem extends GetView<DesktopHomeController> {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.all(2),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(7.0),
+        gradient: LinearGradient(
+          colors: gradientColors,
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+      ),
       child: ElevatedButton.icon(
         onPressed: () async {
           const url = 'https://www.facebook.com/';
@@ -113,7 +118,6 @@ class ButtonItem extends GetView<DesktopHomeController> {
               },
             );
           }
-          // Handle button click
           print('$text button clicked');
         },
         style: ElevatedButton.styleFrom(
@@ -124,24 +128,12 @@ class ButtonItem extends GetView<DesktopHomeController> {
             borderRadius: BorderRadius.circular(7.0),
           ),
           elevation: 3,
-          shadowColor: gradientColors.first.withOpacity(0.7),
           backgroundColor: Colors.transparent,
-          foregroundColor: Colors.white, // Text color
-          disabledForegroundColor: Colors.white,
-          textStyle: const TextStyle(
-            fontSize: 14,
-          ),
-
-          // Set gradient directly here
+          foregroundColor: Colors.transparent,
         ),
         icon: Container(
           alignment: Alignment.center,
           height: Get.height,
-          // padding: const EdgeInsets.symmetric(horizontal: 8),
-          decoration: const BoxDecoration(
-              // border: Border(right: BorderSide(width: 1, color: Colors.white)),
-
-              ),
           child: Icon(
             icon,
             color: Colors.white,
@@ -149,7 +141,7 @@ class ButtonItem extends GetView<DesktopHomeController> {
           ),
         ),
         label: Container(
-          padding: const EdgeInsets.only(top: 7.9, bottom: 7.9, left: 2),
+          padding: const EdgeInsets.only(top: 7.9, bottom: 7.9, left: 4),
           decoration: const BoxDecoration(
             border: Border(left: BorderSide(width: 1, color: Colors.white)),
           ),
@@ -195,10 +187,10 @@ final List<Map<String, dynamic>> socialButtons = [
     'text': 'Instagram',
     'icon': FontAwesomeIcons.instagram,
     'gradientColors': [
-      const Color(0xFFE1306C),
       const Color(0xFF405DE6),
       const Color(0xFF5851DB),
       const Color(0xFF833AB4),
+      const Color(0xFFE1306C),
       const Color(0xFFC13584),
       const Color(0xFFFD1D1D),
       const Color(0xFFF56040),
