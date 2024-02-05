@@ -6,7 +6,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 
 class HomeTopNews extends GetView<DesktopHomeController> {
-  const HomeTopNews({super.key});
+  const HomeTopNews({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -66,13 +66,13 @@ class HomeTopNews extends GetView<DesktopHomeController> {
                       child: Column(
                         children: [
                           Container(
-                            height: 284,
-                            width: 427,
+                            height: Get.width < 600 ? 150 : 284,
+                            width: Get.width < 600 ? 200 : 427,
                             child: Image.asset(
                               'assets/images/posts/post1.png',
                               fit: BoxFit.cover,
-                              height: 284,
-                              width: 427,
+                              height: Get.width < 600 ? 150 : 284,
+                              width: Get.width < 600 ? 200 : 427,
                             ),
                           ),
                           const SizedBox(
@@ -108,7 +108,7 @@ class HomeTopNews extends GetView<DesktopHomeController> {
                                           child: PoppinsText(
                                             title: 'Button',
                                             color: Colors.white,
-                                            size: 12,
+                                            size: Get.width < 600 ? 10 : 12,
                                           ),
                                         ),
                                       ),
@@ -126,7 +126,7 @@ class HomeTopNews extends GetView<DesktopHomeController> {
                                             ),
                                             PoppinsText(
                                               title: 'April 2023',
-                                              size: 10,
+                                              size: Get.width < 600 ? 8 : 10,
                                               color: const Color(0XFF292929),
                                             )
                                           ],
@@ -143,7 +143,7 @@ class HomeTopNews extends GetView<DesktopHomeController> {
                                   child: PoppinsText(
                                     title: 'Main Topic Of The Post',
                                     color: const Color(0XFF454545),
-                                    size: 20,
+                                    size: Get.width < 600 ? 16 : 20,
                                     weight: FontWeight.w600,
                                   ),
                                 ),
@@ -153,7 +153,7 @@ class HomeTopNews extends GetView<DesktopHomeController> {
                                   child: PoppinsText(
                                     title:
                                         'What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typese',
-                                    size: 12,
+                                    size: Get.width < 600 ? 10 : 12,
                                     weight: FontWeight.w300,
                                     color:
                                         const Color.fromARGB(176, 41, 41, 41),
@@ -213,8 +213,8 @@ class HomeTopNews extends GetView<DesktopHomeController> {
     required String content,
   }) {
     return Container(
-      width: 426,
-      height: 140,
+      width: Get.width < 600 ? 200 : 426,
+      height: Get.width < 600 ? 100 : 140,
       child: Card(
         shadowColor: Colors.transparent,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(0)),
@@ -229,12 +229,12 @@ class HomeTopNews extends GetView<DesktopHomeController> {
             children: [
               Expanded(
                 child: Container(
-                  width: 189,
+                  width: Get.width < 600 ? 90 : 189,
                   child: Image.asset(
                     image,
                     fit: BoxFit.cover,
-                    height: Get.height,
-                    width: Get.width,
+                    height: Get.width < 600 ? 100 : Get.height,
+                    width: Get.width < 600 ? 120 : Get.width,
                   ),
                 ),
               ),
@@ -242,7 +242,7 @@ class HomeTopNews extends GetView<DesktopHomeController> {
                 height: 20,
               ),
               Container(
-                width: 226,
+                width: Get.width < 600 ? 110 : 226,
                 padding: const EdgeInsets.all(10),
                 child: Column(
                   children: [
@@ -252,20 +252,24 @@ class HomeTopNews extends GetView<DesktopHomeController> {
                           FontAwesomeIcons.clock,
                           size: 8,
                         ),
-                        PoppinsText(
-                          title: date,
-                          size: 8,
-                          color: Colors.black54,
+                        Text(
+                          date,
+                          style: TextStyle(
+                            fontSize: Get.width < 600 ? 6 : 8,
+                            color: Colors.black54,
+                          ),
                         )
                       ],
                     ),
                     const SizedBox(
                       height: 20,
                     ),
-                    PoppinsText(
-                      title: content,
-                      size: 12,
-                      weight: FontWeight.w500,
+                    Text(
+                      content,
+                      style: TextStyle(
+                        fontSize: Get.width < 600 ? 10 : 12,
+                        fontWeight: FontWeight.w500,
+                      ),
                     )
                   ],
                 ),

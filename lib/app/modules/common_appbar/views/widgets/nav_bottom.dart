@@ -33,7 +33,12 @@ class NavBottom extends GetView<CommonAppbarController> {
             endIndent: 3,
           ),
           PlutoMenuItem.widget(
-            widget: featureSubNav(),
+            widget: featureSubNav(
+              pages: ['Page 1', 'Page 2', 'Page 3'],
+              blogs: ['Blog 1', 'Blog 2', 'Blog 3'],
+              posts: ['Post 1', 'Post 2', 'Post 3'],
+              reviews: ['Review 1', 'Review 2', 'Review 3'],
+            ),
           ),
         ],
       ),
@@ -47,7 +52,9 @@ class NavBottom extends GetView<CommonAppbarController> {
             endIndent: 3,
           ),
           PlutoMenuItem.widget(
-            widget: buildBottomNav(),
+            widget: Container(
+              child: buildBottomNav(),
+            ),
           ),
         ],
       ),
@@ -77,7 +84,6 @@ class NavBottom extends GetView<CommonAppbarController> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        // Left side: PlutoMenuBar
         Container(
           padding: const EdgeInsets.symmetric(vertical: 5),
           child: PlutoMenuBar(
@@ -107,54 +113,28 @@ class NavBottom extends GetView<CommonAppbarController> {
     );
   }
 
-  Widget featureSubNav() {
+  Widget featureSubNav({
+    required List<String> pages,
+    required List<String> blogs,
+    required List<String> posts,
+    required List<String> reviews,
+  }) {
     double baseFontSize = 13.0;
     double fontSize = baseFontSize;
 
-    List<Widget> pageRows = [
-      _buildRow('NEW PAGE', fontSize),
-      _buildRow('NEW PAGE', fontSize),
-      _buildRow('NEW PAGE', fontSize),
-      _buildRow('NEW PAGE', fontSize),
-      _buildRow('NEW PAGE', fontSize),
-      _buildRow('NEW PAGE', fontSize),
-      _buildRow('NEW PAGE', fontSize),
-    ];
-
-    List<Widget> blogRows = [
-      _buildRow('NEW PAGE', fontSize),
-      _buildRow('NEW PAGE', fontSize),
-      _buildRow('NEW PAGE', fontSize),
-      _buildRow('NEW PAGE', fontSize),
-      _buildRow('NEW PAGE', fontSize),
-      _buildRow('NEW PAGE', fontSize),
-      _buildRow('NEW PAGE', fontSize),
-    ];
-
-    List<Widget> postRows = [
-      _buildRow('NEW PAGE', fontSize),
-      _buildRow('NEW PAGE', fontSize),
-      _buildRow('NEW PAGE', fontSize),
-      _buildRow('NEW PAGE', fontSize),
-      _buildRow('NEW PAGE', fontSize),
-      _buildRow('NEW PAGE', fontSize),
-      _buildRow('NEW PAGE', fontSize),
-    ];
-
-    List<Widget> reviewRows = [
-      _buildRow('NEW PAGE', fontSize),
-      _buildRow('NEW PAGE', fontSize),
-      _buildRow('NEW PAGE', fontSize),
-      _buildRow('NEW PAGE', fontSize),
-      _buildRow('NEW PAGE', fontSize),
-      _buildRow('NEW PAGE', fontSize),
-      _buildRow('NEW PAGE', fontSize),
-    ];
+    List<Widget> pageRows =
+        pages.map((title) => _buildInkWell(title, fontSize)).toList();
+    List<Widget> blogRows =
+        blogs.map((title) => _buildInkWell(title, fontSize)).toList();
+    List<Widget> postRows =
+        posts.map((title) => _buildInkWell(title, fontSize)).toList();
+    List<Widget> reviewRows =
+        reviews.map((title) => _buildInkWell(title, fontSize)).toList();
 
     return Container(
       width: Get.width * 0.8,
-      padding: const EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10),
-      color: Colors.black12,
+      padding: const EdgeInsets.only(left: 0, right: 0, top: 10, bottom: 10),
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(2)),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -208,7 +188,6 @@ class NavBottom extends GetView<CommonAppbarController> {
         children: [
           Container(
             alignment: Alignment.topCenter,
-            padding: const EdgeInsets.symmetric(horizontal: 10),
             width: Get.width * 0.15,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -241,28 +220,34 @@ class NavBottom extends GetView<CommonAppbarController> {
     );
   }
 
-  Widget _buildRow(String title, double fontSize) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        Row(
-          children: [
-            const Icon(
-              Icons.arrow_right,
-              color: Colors.white,
-              size: 20,
-            ),
-            const SizedBox(width: 5),
-            PoppinsText(
-              title: title,
-              size: fontSize,
-              color: Colors.white,
-            ),
-          ],
-        ),
-        const SizedBox(height: 5),
-      ],
+  Widget _buildInkWell(String title, double fontSize) {
+    return InkWell(
+      onTap: () {
+        // Handle onTap event
+        print('$title tapped!');
+      },
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              const Icon(
+                Icons.arrow_right,
+                color: Colors.white,
+                size: 20,
+              ),
+              const SizedBox(width: 5),
+              PoppinsText(
+                title: title,
+                size: fontSize,
+                color: Colors.white,
+              ),
+            ],
+          ),
+          const SizedBox(height: 5),
+        ],
+      ),
     );
   }
 
@@ -272,7 +257,7 @@ class NavBottom extends GetView<CommonAppbarController> {
         top: 10,
         bottom: 10,
       ),
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         border: Border(
           bottom: BorderSide(width: 1, color: Colors.black),
         ),

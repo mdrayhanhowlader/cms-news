@@ -127,9 +127,8 @@ class ButtonItem extends GetView<DesktopHomeController> {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(7.0),
           ),
-          elevation: 3,
+          elevation: 0,
           backgroundColor: Colors.transparent,
-          foregroundColor: Colors.transparent,
         ),
         icon: Container(
           alignment: Alignment.center,
@@ -163,16 +162,16 @@ final List<Map<String, dynamic>> socialButtons = [
     'text': 'Facebook',
     'icon': Icons.facebook,
     'gradientColors': [
-      const Color(0xFF1877F2),
-      const Color(0xFF1877F2),
+      const Color(0xFF3D5A98),
+      const Color(0xFF3D5A98),
     ],
   },
   {
     'text': 'Twitter',
     'icon': FontAwesomeIcons.twitter,
     'gradientColors': [
-      const Color(0xFF1DA1F2),
-      const Color(0xFF1DA1F2),
+      const Color(0xFF55ACEE),
+      const Color(0xFF55ACEE),
     ],
   },
   {

@@ -1,5 +1,4 @@
-import 'package:cms_maahadtahfizaddin/app/modules/common_bottombar/views/common_bottombar_view.dart';
-import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/desktop_home/widgets/desktop_home_left/breaking_news.dart';
+import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/desktop_home/widgets/desktop_home_left/home_top_news.dart';
 import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/desktop_home/widgets/desktop_home_left/home_videos.dart';
 import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/mobile_home/mobile_home_controller.dart';
 import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/mobile_home/widgets/mobile_appbar.dart';
@@ -22,23 +21,20 @@ class MobileHomeView extends GetView<MobileHomeController> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              MobileAppbar(),
-              Container(
-                width: Get.width * 0.95,
-                padding: const EdgeInsets.only(top: 15),
-                child: Image.asset('assets/images/logo/logo.png'),
-              ),
+              const MobileAppbar(),
               // const CommonAppbarView(),
-              const SizedBox(
-                height: 20,
-              ),
-              const MobileHighlightNews(),
 
               const SizedBox(
                 height: 5,
               ),
 
               MobileSlider(),
+
+              const SizedBox(
+                height: 20,
+              ),
+
+              const HomeTopNews(),
 
               const SizedBox(
                 height: 20,

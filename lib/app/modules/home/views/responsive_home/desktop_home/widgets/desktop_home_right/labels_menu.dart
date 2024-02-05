@@ -63,9 +63,8 @@ class LabelsMenu extends GetView<DesktopHomeController> {
                       controller.updateHoveredDemoIndex(index, hovering);
                     },
                     child: Container(
-                      color: isHovered
-                          ? const Color(0XFFFF6000)
-                          : Colors.transparent,
+                      color:
+                          isHovered ? Colors.grey.shade100 : Colors.transparent,
                       child: AnimatedContainer(
                         duration: const Duration(milliseconds: 200),
                         margin: EdgeInsets.only(left: isHovered ? 10 : 0),

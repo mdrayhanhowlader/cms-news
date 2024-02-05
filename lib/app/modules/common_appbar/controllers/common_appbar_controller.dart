@@ -1,27 +1,8 @@
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pluto_menu_bar/pluto_menu_bar.dart';
 
 class CommonAppbarController extends GetxController {
-  // Add an observable to track the visibility of the search input
   final RxBool isSearchInputVisible = false.obs;
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
-  // void increment() => count.value++;
-
-  // Function to toggle the visibility of the search input
-  void toggleSearchInput() {
-    isSearchInputVisible.toggle();
-  }
 
   final whiteHoverMenus = <PlutoMenuItem>[].obs;
   final orangeHoverMenus = <PlutoMenuItem>[].obs;
@@ -30,11 +11,27 @@ class CommonAppbarController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    // whiteHoverMenus.assignAll(_makeBottomMenus());
-    // orangeHoverMenus.assignAll(_makeMenus());
+    whiteHoverMenus.assignAll(_makeBottomMenus());
+    orangeHoverMenus.assignAll(_makeMenus());
+  }
+
+  void toggleSearchInput() {
+    isSearchInputVisible.toggle();
   }
 
   void message(String text) {
     Get.snackbar('Message', text);
+  }
+
+  List<PlutoMenuItem> _makeBottomMenus() {
+    return [
+      // Customize your white hover menus here
+    ];
+  }
+
+  List<PlutoMenuItem> _makeMenus() {
+    return [
+      // Customize your orange hover menus here
+    ];
   }
 }
