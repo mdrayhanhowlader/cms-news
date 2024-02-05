@@ -47,7 +47,7 @@ class HomeMostViews extends GetView<DesktopHomeController> {
           Container(
             width: Get.width * 0.6,
             margin: const EdgeInsets.only(right: 10),
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
               border: Border(bottom: BorderSide(width: 1, color: Colors.red)),
             ),
             child: Row(
@@ -77,111 +77,102 @@ class HomeMostViews extends GetView<DesktopHomeController> {
           const SizedBox(
             height: 10,
           ),
-          Container(
-            margin: EdgeInsets.only(right: 10),
-            width: Get.width,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Expanded(
-                  // width: Get.width * 0.29,
-
-                  child: Stack(
-                    children: [
-                      CarouselSlider.builder(
-                        carouselController: sliderController,
-                        itemCount: urlImages.length,
-                        itemBuilder: (context, index, realindex) {
-                          final urlImage = urlImages[index];
-                          final slideText = slideTexts[index];
-
-                          return MouseRegion(
-                            onEnter: (_) =>
-                                controller.mostViewedHoveredIndex(index),
-                            onExit: (_) =>
-                                controller.mostViewedHoveredIndex(-1),
-                            child: Container(
-                              // width: Get.width *
-                              //     0.5, // Each slide takes 50% of the viewport width
-                              margin: const EdgeInsets.only(
-                                  right: 2), // Margin between slides
-                              child: buildImage(urlImage, slideText, index),
-                            ),
-                          );
-                        },
-                        options: CarouselOptions(
-                          initialPage: 0,
-                          viewportFraction:
-                              1, // Each slide takes up the entire viewport width
-                          scrollDirection: Axis.horizontal,
-                          enlargeCenterPage: false,
-                          enlargeStrategy: CenterPageEnlargeStrategy.zoom,
-                          autoPlay: true,
-                          enableInfiniteScroll: false,
-                          animateToClosest: true,
-                          pageSnapping: true,
-                          reverse: false,
-                          autoPlayInterval: const Duration(seconds: 5),
-                          onPageChanged: (index, reason) =>
-                              controller.activeIndex.value = index,
+          LayoutBuilder(
+            builder: (context, constraints) {
+              if (constraints.maxWidth < 600) {
+                // For mobile, use single-column layout
+                return Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Container(
+                          alignment: Alignment.center,
+                          width: Get.width * 0.95,
+                          child: _buildMobileCarousel(),
                         ),
-                      ),
-                    ],
-                  ),
-                ),
-                Expanded(
-                  // width: Get.width * 0.29,
-                  child: Stack(
-                    children: [
-                      CarouselSlider.builder(
-                        carouselController: sliderController,
-                        itemCount: urlImages.length,
-                        itemBuilder: (context, index, realindex) {
-                          final urlImage = urlImages[index];
-                          final slideText = slideTexts[index];
-
-                          return MouseRegion(
-                            onEnter: (_) =>
-                                controller.mostViewedHoveredIndex(index),
-                            onExit: (_) =>
-                                controller.mostViewedHoveredIndex(-1),
-                            child: InkWell(
-                              onTap: () => Get.toNamed('/news-detail-page'),
-                              child: Container(
-                                // width: Get.width *
-                                //     0.5, // Each slide takes 50% of the viewport width
-                                margin: const EdgeInsets.only(
-                                    left: 2, right: 4), // Margin between slides
-                                child: buildImage(urlImage, slideText, index),
-                              ),
-                            ),
-                          );
-                        },
-                        options: CarouselOptions(
-                          initialPage: 1,
-                          viewportFraction:
-                              1, // Each slide takes up the entire viewport width
-                          scrollDirection: Axis.horizontal,
-                          enlargeCenterPage: false,
-                          enlargeStrategy: CenterPageEnlargeStrategy.zoom,
-                          autoPlay: true,
-                          enableInfiniteScroll: false,
-                          animateToClosest: true,
-                          pageSnapping: true,
-                          reverse: false,
-                          autoPlayInterval: const Duration(seconds: 5),
-                          onPageChanged: (index, reason) =>
-                              controller.activeIndex.value = index,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
+                      ],
+                    ),
+                  ],
+                );
+              } else if (constraints.maxWidth < 1200) {
+                // For tablet, use two columns
+                return Column(
+                  children: [
+                    _buildTabletCarousel(),
+                  ],
+                );
+              } else {
+                // For desktop, use the original layout
+                return Row(
+                  children: [
+                    Expanded(child: _buildDesktopCarousel()),
+                  ],
+                );
+              }
+            },
           ),
         ],
       ),
+    );
+  }
+
+  Widget _buildMobileCarousel() {
+    return CarouselSlider.builder(
+      carouselController: sliderController,
+      itemCount: urlImages.length,
+      itemBuilder: (context, index, realindex) {
+        final urlImage = urlImages[index];
+        final slideText = slideTexts[index];
+
+        return MouseRegion(
+          onEnter: (_) => controller.mostViewedHoveredIndex(index),
+          onExit: (_) => controller.mostViewedHoveredIndex(-1),
+          child: Container(
+            margin: const EdgeInsets.only(
+                right: 2), // Margin between slides for mobile
+            child: buildImage(urlImage, slideText, index),
+          ),
+        );
+      },
+      options: CarouselOptions(
+        initialPage: 0,
+        viewportFraction: 1,
+        scrollDirection: Axis.horizontal,
+        enlargeCenterPage: false,
+        enlargeStrategy: CenterPageEnlargeStrategy.zoom,
+        autoPlay: true,
+        enableInfiniteScroll: false,
+        animateToClosest: true,
+        pageSnapping: true,
+        reverse: false,
+        autoPlayInterval: const Duration(seconds: 5),
+        onPageChanged: (index, reason) => controller.activeIndex.value = index,
+      ),
+    );
+  }
+
+  Widget _buildTabletCarousel() {
+    return Row(
+      children: [
+        Expanded(
+          child: _buildMobileCarousel(),
+        ),
+        Expanded(
+          child: _buildMobileCarousel(),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildDesktopCarousel() {
+    return Row(
+      children: [
+        Expanded(
+          child: _buildMobileCarousel(),
+        ),
+      ],
     );
   }
 
@@ -189,7 +180,6 @@ class HomeMostViews extends GetView<DesktopHomeController> {
         color: Colors.transparent,
         child: Obx(
           () => Stack(
-            // alignment: Alignment.center,
             children: [
               Image.asset(
                 urlImage,

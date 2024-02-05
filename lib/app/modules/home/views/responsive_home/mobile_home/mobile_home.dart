@@ -1,3 +1,4 @@
+import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/desktop_home/widgets/desktop_home_left/home_most_views.dart';
 import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/desktop_home/widgets/desktop_home_left/home_top_news.dart';
 import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/desktop_home/widgets/desktop_home_left/home_videos.dart';
 import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/mobile_home/mobile_home_controller.dart';
@@ -36,6 +37,11 @@ class MobileHomeView extends GetView<MobileHomeController> {
 
               const HomeTopNews(),
 
+              const SizedBox(
+                height: 20,
+              ),
+
+              HomeMostViews(),
               const SizedBox(
                 height: 20,
               ),
