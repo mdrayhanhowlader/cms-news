@@ -11,7 +11,7 @@ class LabelsMenu extends GetView<DesktopHomeController> {
   Widget build(BuildContext context) {
     DesktopHomeController controller = Get.put(DesktopHomeController());
     return Container(
-      padding: EdgeInsets.only(left: 10),
+      padding: const EdgeInsets.only(left: 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
@@ -35,21 +35,22 @@ class LabelsMenu extends GetView<DesktopHomeController> {
                 Container(
                   width: Get.width * 0.19,
                   decoration: const BoxDecoration(
-                      border: Border(
-                          top: BorderSide(width: 1, color: Colors.black))),
+                    border:
+                        Border(top: BorderSide(width: 1, color: Colors.black)),
+                  ),
                 ),
               ],
             ),
           ),
           // Demo Menu
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           Column(
             children: List.generate(
               10,
-              (index) => GetBuilder<DesktopHomeController>(
-                builder: (controller) {
+              (index) => Obx(
+                () {
                   final isHovered = controller.hoveredDemoIndex == index;
 
                   return InkWell(
@@ -62,27 +63,29 @@ class LabelsMenu extends GetView<DesktopHomeController> {
                       controller.updateHoveredDemoIndex(index, hovering);
                     },
                     child: Container(
-                      color: isHovered ? Colors.grey : Colors.transparent,
+                      color: isHovered
+                          ? const Color(0XFFFF6000)
+                          : Colors.transparent,
                       child: AnimatedContainer(
                         duration: const Duration(milliseconds: 200),
                         margin: EdgeInsets.only(left: isHovered ? 10 : 0),
-                        padding: EdgeInsets.symmetric(
-                          horizontal: isHovered ? 50 : 10,
+                        padding: const EdgeInsets.symmetric(
                           vertical: 5,
                         ),
                         child: Row(
                           children: [
-                            FaIcon(
+                            const FaIcon(
                               FontAwesomeIcons.angleRight,
-                              color:
-                                  isHovered ? Colors.blue : Color(0XFFFF6000),
-                              size: 12,
+                              color: Color(0XFFFF6000),
+                              size: 14,
                             ),
                             const SizedBox(width: 5),
                             PoppinsText(
                               title: 'Demo $index',
-                              color: Color(0XFF000000),
-                              size: 12,
+                              color: isHovered
+                                  ? const Color(0XFFFF6000)
+                                  : const Color(0XFF000000),
+                              size: 14,
                               weight: FontWeight.w600,
                             ),
                           ],
