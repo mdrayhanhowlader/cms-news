@@ -18,22 +18,27 @@ class MobileHomeView extends GetView<MobileHomeController> {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize:
-            const Size.fromHeight(180.0), // Adjust the height as needed
+            const Size.fromHeight(165.0), // Adjust the height as needed
         child: Column(
           children: [
             Container(
               height: 100,
               width: Get.width * 0.95,
-              child: Image.asset(
-                'assets/images/logo/logo.png', // Replace with your logo image asset
-                width: Get.width * 0.9,
-                // Adjust the height as needed
+              child: InkWell(
+                onTap: () {
+                  Get.toNamed('/home');
+                },
+                child: Image.asset(
+                  'assets/images/logo/logo.png', // Replace with your logo image asset
+                  width: Get.width * 0.9,
+                  // Adjust the height as needed
+                ),
               ),
             ),
             Container(
               width: Get.width * 0.95,
               child: AppBar(
-                toolbarHeight: 70,
+                toolbarHeight: 60,
                 foregroundColor: Colors.white,
                 backgroundColor: Colors.black, // Set your desired app bar color
 
