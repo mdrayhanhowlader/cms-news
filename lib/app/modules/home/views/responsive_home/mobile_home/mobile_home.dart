@@ -3,7 +3,7 @@ import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/des
 import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/desktop_home/widgets/desktop_home_left/home_videos.dart';
 import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/desktop_home/widgets/desktop_home_right/follow_social_media.dart';
 import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/mobile_home/mobile_home_controller.dart';
-import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/mobile_home/widgets/mobile_appbar.dart';
+import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/mobile_home/navigation_drawer.dart';
 import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/mobile_home/widgets/mobile_bottom_bar.dart';
 import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/mobile_home/widgets/mobile_highlight_news.dart';
 import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/mobile_home/widgets/mobile_slider.dart';
@@ -62,7 +62,7 @@ class MobileHomeView extends GetView<MobileHomeController> {
         width: Get.width,
         child: Container(
           color: Colors.white, // Set your desired drawer background color
-          child: MyDrawer(),
+          child: const NavigationDrawerMenu(),
         ),
       ),
       body: SingleChildScrollView(
@@ -88,85 +88,6 @@ class MobileHomeView extends GetView<MobileHomeController> {
               const MobileBottomBar(),
             ],
           ),
-        ),
-      ),
-    );
-  }
-}
-
-class MyDrawer extends StatelessWidget {
-  const MyDrawer({Key? key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Drawer(
-      width: Get.width * 0.95,
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            Container(
-              child: InkWell(
-                onTap: () {
-                  Get.toNamed('/home');
-                },
-                child: Icon(Icons.arrow_back),
-              ),
-            ),
-            Container(
-              child: Column(
-                children: List.generate(
-                  5,
-                  (index) => ListTile(
-                    title: Text('Title $index'),
-                    subtitle: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        DropdownButton<String>(
-                          hint: Text('Dropdown 1'),
-                          items: ['Option 1', 'Option 2', 'Option 3']
-                              .map((String value) {
-                            return DropdownMenuItem<String>(
-                              value: value,
-                              child: Text(value),
-                            );
-                          }).toList(),
-                          onChanged: (String? value) {
-                            // Handle dropdown 1 value change
-                          },
-                        ),
-                        DropdownButton<String>(
-                          hint: Text('Dropdown 2'),
-                          items: ['Option A', 'Option B', 'Option C']
-                              .map((String value) {
-                            return DropdownMenuItem<String>(
-                              value: value,
-                              child: Text(value),
-                            );
-                          }).toList(),
-                          onChanged: (String? value) {
-                            // Handle dropdown 2 value change
-                          },
-                        ),
-                        DropdownButton<String>(
-                          hint: Text('Dropdown 3'),
-                          items: ['Choice X', 'Choice Y', 'Choice Z']
-                              .map((String value) {
-                            return DropdownMenuItem<String>(
-                              value: value,
-                              child: Text(value),
-                            );
-                          }).toList(),
-                          onChanged: (String? value) {
-                            // Handle dropdown 3 value change
-                          },
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ],
         ),
       ),
     );

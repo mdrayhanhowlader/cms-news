@@ -21,21 +21,3 @@ class MobileAppbar extends StatelessWidget {
     );
   }
 }
-
-class NavigationDrawer extends GetView<MobileHomeController> {
-  const NavigationDrawer({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Drawer(
-      child: Container(
-        child: Column(
-          children: [
-            // Add your drawer content here
-            const Text('Hello Drawer'),
-          ],
-        ),
-      ),
-    );
-  }
-}
