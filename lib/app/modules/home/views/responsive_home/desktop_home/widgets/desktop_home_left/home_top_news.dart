@@ -262,7 +262,7 @@ class HomeTopNews extends GetView<DesktopHomeController> {
       child: Card(
         shadowColor: Colors.transparent,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(0)),
-        color: Color(0XFFE7E5E5),
+        color: const Color(0XFFE7E5E5),
         child: GestureDetector(
           onTap: () {
             Get.toNamed('/news-detail-page');

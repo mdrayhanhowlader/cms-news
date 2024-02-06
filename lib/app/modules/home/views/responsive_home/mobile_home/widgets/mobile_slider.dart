@@ -93,12 +93,13 @@ class MobileSlider extends GetView<MobileHomeController> {
                                   height: 150,
                                 ),
                                 Container(
-                                  // padding: const EdgeInsets.only(right: 10),
+                                  // padding: const EdgeInsets.only(right: 2),
                                   child: Flexible(
+                                    fit: FlexFit.tight,
                                     child: PoppinsText(
                                       title: controller.slideTitles[index],
                                       color: Colors.white,
-                                      size: 16,
+                                      size: 14,
                                       weight: FontWeight.w300,
                                       spacing: 0.2,
                                     ),

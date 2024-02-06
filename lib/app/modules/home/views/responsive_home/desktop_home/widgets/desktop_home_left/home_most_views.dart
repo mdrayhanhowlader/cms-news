@@ -45,9 +45,10 @@ class HomeMostViews extends GetView<DesktopHomeController> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
+            // container width part
             width: Get.width * 0.6,
             margin: const EdgeInsets.only(right: 10),
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               border: Border(bottom: BorderSide(width: 1, color: Colors.red)),
             ),
             child: Row(
@@ -130,6 +131,7 @@ class HomeMostViews extends GetView<DesktopHomeController> {
           onEnter: (_) => controller.mostViewedHoveredIndex(index),
           onExit: (_) => controller.mostViewedHoveredIndex(-1),
           child: Container(
+            width: Get.width * 0.9, // 90% width for mobile
             margin: const EdgeInsets.only(
                 right: 2), // Margin between slides for mobile
             child: buildImage(urlImage, slideText, index),

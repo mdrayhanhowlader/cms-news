@@ -22,14 +22,16 @@ class FollowSocialMedia extends GetView<DesktopHomeController> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
+                  // social media title
                   alignment: Alignment.center,
-                  width: Get.width * 0.1,
+                  width: _calculateTitleWidth(context),
                   color: Colors.black,
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 8, vertical: 7),
+                  padding: EdgeInsets.symmetric(
+                      horizontal: 8, vertical: _calculateTitlePadding(context)),
                   child: PoppinsText(
                     title: 'Follow Us On',
                     color: Colors.white,
+                    size: _calculateTitleFontSize(context),
                   ),
                 ),
                 Container(
@@ -47,8 +49,8 @@ class FollowSocialMedia extends GetView<DesktopHomeController> {
             height: 20,
           ),
           GridView.builder(
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 3,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: _calculateCrossAxisCount(context),
               crossAxisSpacing: 1.0,
               mainAxisSpacing: 1.0,
               childAspectRatio: 3,
@@ -67,6 +69,46 @@ class FollowSocialMedia extends GetView<DesktopHomeController> {
         ],
       ),
     );
+  }
+
+  double _calculateTitleWidth(BuildContext context) {
+    if (Get.width >= 1200) {
+      return Get.width * 0.1;
+    } else if (Get.width >= 600) {
+      return Get.width * 0.18;
+    } else {
+      return Get.width * 0.5;
+    }
+  }
+
+  double _calculateTitleFontSize(BuildContext context) {
+    if (Get.width >= 1200) {
+      return 14.0;
+    } else if (Get.width >= 600) {
+      return 12.0;
+    } else {
+      return 16.0;
+    }
+  }
+
+  double _calculateTitlePadding(BuildContext context) {
+    if (Get.width >= 1200) {
+      return 7;
+    } else if (Get.width >= 600) {
+      return 7;
+    } else {
+      return 10;
+    }
+  }
+
+  int _calculateCrossAxisCount(BuildContext context) {
+    if (Get.width >= 1200) {
+      return 3;
+    } else if (Get.width >= 600) {
+      return 2;
+    } else {
+      return 2;
+    }
   }
 }
 
