@@ -17,38 +17,46 @@ class MobileHomeView extends GetView<MobileHomeController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(60.0), // Adjust the height as needed
-        child: AppBar(
-          backgroundColor: Colors.black, // Set your desired app bar color
-          title: Row(
-            children: [
-              Image.asset(
-                'assets/images/logo/bottom-logo.png', // Replace with your logo image asset
-                width: 150,
-                fit: BoxFit.fitWidth, // Adjust the height as needed
+        preferredSize:
+            const Size.fromHeight(180.0), // Adjust the height as needed
+        child: Column(
+          children: [
+            Container(
+              height: 100,
+              width: Get.width * 0.95,
+              child: Image.asset(
+                'assets/images/logo/logo.png', // Replace with your logo image asset
+                width: Get.width * 0.9,
+                // Adjust the height as needed
               ),
-            ],
-          ),
-          actions: [
-            IconButton(
-              icon: Icon(
-                Icons.search,
-                color: Colors.white,
+            ),
+            Container(
+              width: Get.width * 0.95,
+              child: AppBar(
+                toolbarHeight: 70,
+                foregroundColor: Colors.white,
+                backgroundColor: Colors.black, // Set your desired app bar color
+
+                actions: [
+                  IconButton(
+                    icon: const Icon(
+                      Icons.search,
+                      color: Colors.white,
+                    ),
+                    onPressed: () {
+                      // Handle search icon press
+                    },
+                  ),
+                ],
               ),
-              onPressed: () {
-                // Handle search icon press
-              },
             ),
           ],
         ),
       ),
       drawer: Drawer(
         width: Get.width,
-        shadowColor: Colors.white,
-        surfaceTintColor: Colors.white,
-        backgroundColor: Colors.black,
         child: Container(
-          color: Colors.black, // Set your desired drawer background color
+          color: Colors.white, // Set your desired drawer background color
           child: MyDrawer(),
         ),
       ),
@@ -59,8 +67,8 @@ class MobileHomeView extends GetView<MobileHomeController> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const MobileAppbar(),
-              const SizedBox(height: 5),
+              // const MobileAppbar(),
+              // const SizedBox(height: 5),
               const MobileHighlightNews(),
               MobileSlider(),
               const SizedBox(height: 20),
