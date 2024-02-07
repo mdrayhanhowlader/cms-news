@@ -211,6 +211,7 @@ class CommonBottombarView extends GetView<CommonBottombarController> {
                                 child: PoppinsText(
                                   title: 'amount : 231489',
                                   color: Colors.white,
+                                  size: 14,
                                 ),
                               ),
                               Container(
@@ -218,6 +219,7 @@ class CommonBottombarView extends GetView<CommonBottombarController> {
                                 child: PoppinsText(
                                   title: 'today : 351',
                                   color: Colors.white,
+                                  size: 14,
                                 ),
                               ),
                               Container(
@@ -225,6 +227,7 @@ class CommonBottombarView extends GetView<CommonBottombarController> {
                                 child: PoppinsText(
                                   title: 'yesterday : 351',
                                   color: Colors.white,
+                                  size: 14,
                                 ),
                               ),
                               Container(
@@ -232,6 +235,7 @@ class CommonBottombarView extends GetView<CommonBottombarController> {
                                 child: PoppinsText(
                                   title: 'this month : 12141',
                                   color: Colors.white,
+                                  size: 14,
                                 ),
                               ),
                               Container(
@@ -239,6 +243,7 @@ class CommonBottombarView extends GetView<CommonBottombarController> {
                                 child: PoppinsText(
                                   title: 'Last Month : 12141',
                                   color: Colors.white,
+                                  size: 14,
                                 ),
                               ),
                             ],

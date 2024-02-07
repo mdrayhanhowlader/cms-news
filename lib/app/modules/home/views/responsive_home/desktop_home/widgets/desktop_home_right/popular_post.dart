@@ -8,6 +8,10 @@ class PopularPost extends GetView<DesktopHomeController> {
 
   @override
   Widget build(BuildContext context) {
+    final isMobile = Get.width < 600;
+    final titleWidth = isMobile ? Get.width * 0.4 : Get.width * 0.1;
+    final borderWidth = isMobile ? Get.width * 0.53 : Get.width * 0.19;
+
     return Container(
       padding: EdgeInsets.only(left: 10),
       child: Column(
@@ -20,7 +24,7 @@ class PopularPost extends GetView<DesktopHomeController> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
-                  width: Get.width * 0.1,
+                  width: titleWidth,
                   color: Colors.black,
                   padding:
                       const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
@@ -30,7 +34,7 @@ class PopularPost extends GetView<DesktopHomeController> {
                   ),
                 ),
                 Container(
-                  width: Get.width * 0.19,
+                  width: borderWidth,
                   decoration: const BoxDecoration(
                       border: Border(
                           top: BorderSide(width: 1, color: Colors.black))),
@@ -70,6 +74,10 @@ class PostItem extends GetView<DesktopHomeController> {
 
   @override
   Widget build(BuildContext context) {
+    final isMobile = Get.width < 600;
+
+    final itemWidth = isMobile ? Get.width * 0.95 : Get.width * 0.28;
+
     return InkWell(
       onTap: () {
         // Handle post item click here
@@ -80,7 +88,7 @@ class PostItem extends GetView<DesktopHomeController> {
         controller.updateHoveredPostIndex(index, hovering);
       },
       child: Container(
-        width: Get.width * 0.28,
+        width: itemWidth,
         margin: EdgeInsets.symmetric(vertical: 10),
         child: Column(
           children: [

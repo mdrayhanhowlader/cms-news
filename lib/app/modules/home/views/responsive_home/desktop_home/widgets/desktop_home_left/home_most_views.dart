@@ -1,9 +1,9 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cms_maahadtahfizaddin/app/core/widgets/poppins_text.dart';
 import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/desktop_home/desktop_home_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 
 class HomeMostViews extends GetView<DesktopHomeController> {
   HomeMostViews({Key? key}) : super(key: key);
@@ -39,14 +39,16 @@ class HomeMostViews extends GetView<DesktopHomeController> {
 
   @override
   Widget build(BuildContext context) {
+    final isMobile = Get.width < 600;
+    final titleWidth = isMobile ? Get.width * 0.9 : Get.width * 0.6;
     return Container(
       width: Get.width,
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment:
+            isMobile ? CrossAxisAlignment.center : CrossAxisAlignment.start,
         children: [
           Container(
-            // container width part
-            width: Get.width * 0.6,
+            width: titleWidth,
             margin: const EdgeInsets.only(right: 10),
             decoration: const BoxDecoration(
               border: Border(bottom: BorderSide(width: 1, color: Colors.red)),
@@ -128,8 +130,8 @@ class HomeMostViews extends GetView<DesktopHomeController> {
         final slideText = slideTexts[index];
 
         return MouseRegion(
-          onEnter: (_) => controller.mostViewedHoveredIndex(index),
-          onExit: (_) => controller.mostViewedHoveredIndex(-1),
+          onEnter: (_) => controller.activeIndex.value = index,
+          onExit: (_) => controller.activeIndex.value = -1,
           child: Container(
             width: Get.width * 0.9, // 90% width for mobile
             margin: const EdgeInsets.only(
@@ -201,16 +203,15 @@ class HomeMostViews extends GetView<DesktopHomeController> {
                       },
                       child: PoppinsText(
                         title: slideText,
-                        color: controller.mostViewedHoveredIndex.value == index
+                        color: controller.activeIndex.value == index
                             ? Colors.white
                             : Colors.white70,
                         size: 14,
                         weight: FontWeight.w500,
                         spacing: 0.5,
-                        decoration:
-                            controller.mostViewedHoveredIndex.value == index
-                                ? TextDecoration.underline
-                                : TextDecoration.none,
+                        decoration: controller.activeIndex.value == index
+                            ? TextDecoration.underline
+                            : TextDecoration.none,
                       ),
                     ),
                     Row(
@@ -235,7 +236,7 @@ class HomeMostViews extends GetView<DesktopHomeController> {
                 left: 0,
                 right: 0,
                 child: Visibility(
-                  visible: controller.mostViewedHoveredIndex.value == index,
+                  visible: controller.activeIndex.value == index,
                   child: Container(
                     height: Get.height,
                     color: Colors.black.withOpacity(0.1),
@@ -243,8 +244,7 @@ class HomeMostViews extends GetView<DesktopHomeController> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Visibility(
-                          visible:
-                              controller.mostViewedHoveredIndex.value == index,
+                          visible: controller.activeIndex.value == index,
                           child: const SizedBox(width: 0),
                         ),
                       ],

@@ -1,4 +1,5 @@
 import 'package:cms_maahadtahfizaddin/app/core/widgets/poppins_text.dart';
+import 'package:cms_maahadtahfizaddin/app/modules/home/views/home_view.dart';
 import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/mobile_home/mobile_home_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -9,33 +10,98 @@ class NavigationDrawerMenu extends GetView<MobileHomeController> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(0)),
+      backgroundColor: const Color(0XFF454545),
       child: SingleChildScrollView(
         child: Container(
-          color: Colors.black,
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                margin: const EdgeInsets.only(top: 10, left: 10),
+                height: 60,
+                width: Get.width,
+                color: Colors.black,
                 alignment: Alignment.centerLeft,
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                 child: InkWell(
-                  onTap: () => Get.toNamed('/home'),
+                  onTap: () => Get.to(HomeView()),
                   child: const Icon(
                     Icons.arrow_back,
+                    size: 30,
                     color: Colors.white,
+                    textDirection: TextDirection.ltr,
                   ),
                 ),
               ),
-              _buildCategory('Top Menu',
-                  ['MAIN', 'INFO', 'BRANCH', 'E-ALUMNI', 'LINK', 'E-CAREER']),
-              _buildCategory('Main Menu', [
-                'HOMESTAY',
-                'E-INFAQ',
-                'COLLABORATE',
-                'APPLY FOR ZAKAT',
-                'SHOP',
-                'FEATURES'
-              ]),
+              Container(
+                color: const Color(0XFF454545),
+                width: Get.width,
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    // primary menu title
+                    Container(
+                      decoration: const BoxDecoration(
+                        border: Border(
+                          bottom:
+                              BorderSide(width: 1, color: Color(0XFFFF6000)),
+                        ),
+                      ),
+                      child: PoppinsText(
+                        title: 'Top Menu',
+                        size: 16,
+                        weight: FontWeight.w500,
+                        color: Colors.white,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    // primary menu
+                    _buildNestedDropdownMenu(
+                      hint: 'Top Menu',
+                      menuItems: [
+                        'Primary Option 1',
+                        'Primary Option 2',
+                        'Primary Option 3'
+                      ],
+                    ),
+
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    // secondary menu title
+                    Container(
+                      decoration: const BoxDecoration(
+                        border: Border(
+                          bottom:
+                              BorderSide(width: 1, color: Color(0XFFFF6000)),
+                        ),
+                      ),
+                      child: PoppinsText(
+                        title: 'Main Menu',
+                        size: 16,
+                        weight: FontWeight.w500,
+                        color: Colors.white,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    // secondary menu
+                    _buildNestedDropdownMenu(
+                      hint: 'Main Menu',
+                      menuItems: [
+                        'Secondary Option A',
+                        'Secondary Option B',
+                        'Secondary Option C'
+                      ],
+                    ),
+                  ],
+                ),
+              )
             ],
           ),
         ),
@@ -43,70 +109,55 @@ class NavigationDrawerMenu extends GetView<MobileHomeController> {
     );
   }
 
-  Widget _buildCategory(String title, [List<String>? items]) {
-    return Container(
-      color: const Color(0XFF454545),
-      child: Column(
-        children: [
-          Container(
-            alignment: Alignment.topLeft,
-            margin: const EdgeInsets.only(left: 10),
-            decoration: const BoxDecoration(
-              border: Border(
-                bottom: BorderSide(
-                  width: 1,
-                  color: Color(0XFFFF6000),
+  Widget _buildNestedDropdownMenu({
+    required String hint,
+    required List<String> menuItems,
+  }) {
+    return menuItems.isNotEmpty
+        ? DropdownButton<String>(
+            hint: PoppinsText(title: hint),
+            items: menuItems.map((String menuItem) {
+              return DropdownMenuItem<String>(
+                value: menuItem,
+                child: InkWell(
+                  onTap: () {
+                    // Handle navigation based on menuItem
+                    _navigateToPage(menuItem);
+                  },
+                  child: Text(menuItem),
                 ),
-              ),
+              );
+            }).toList(),
+            onChanged: (String? value) {
+              // Handle dropdown item selection here
+            },
+          )
+        : Container(
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.white),
+              borderRadius: BorderRadius.circular(5.0),
             ),
-            child: PoppinsText(
-              title: title,
-              color: Colors.white,
+            padding: const EdgeInsets.symmetric(horizontal: 12.0),
+            child: const Text(
+              'No options available',
+              style: TextStyle(color: Colors.white),
             ),
-          ),
-          if (items != null)
-            _buildDropdowns(
-              items,
-              title,
-              icon: const Icon(Icons.arrow_drop_down),
-            ),
-        ],
-      ),
-    );
+          );
   }
 
-  Widget _buildDropdowns(List<String> items, String hintText, {Icon? icon}) {
-    return ListTile(
-      subtitle: Column(
-        children: items
-            .map(
-              (value) => Padding(
-                padding: const EdgeInsets.only(bottom: 8.0),
-                child: DropdownButton<String>(
-                  icon: icon,
-                  iconEnabledColor: const Color(0XFFFF6000),
-                  dropdownColor: Colors.black,
-                  hint: Text(
-                    hintText,
-                    style: const TextStyle(color: Colors.white),
-                  ),
-                  items: items
-                      .map((value) => DropdownMenuItem<String>(
-                            value: value,
-                            child: Text(
-                              value,
-                              style: const TextStyle(color: Colors.white),
-                            ),
-                          ))
-                      .toList(),
-                  onChanged: (String? value) {
-                    // Handle dropdown value change
-                  },
-                ),
-              ),
-            )
-            .toList(),
-      ),
-    );
+  void _navigateToPage(String menuItem) {
+    // Implement your navigation logic here
+    switch (menuItem) {
+      case 'Primary Option 1':
+        Get.toNamed('/home');
+        break;
+      case 'Primary Option 2':
+        Get.toNamed('/home');
+        break;
+      case 'Primary Option 3':
+        Get.toNamed('/home');
+        break;
+      // Add more cases for other menu items
+    }
   }
 }
