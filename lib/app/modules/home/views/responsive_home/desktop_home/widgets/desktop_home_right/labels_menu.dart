@@ -10,6 +10,9 @@ class LabelsMenu extends GetView<DesktopHomeController> {
   @override
   Widget build(BuildContext context) {
     DesktopHomeController controller = Get.put(DesktopHomeController());
+    final isMobile = Get.width < 600;
+    final titleWidth = isMobile ? Get.width * 0.4 : Get.width * 0.1;
+    final borderWidth = isMobile ? Get.width * 0.53 : Get.width * 0.19;
     return Container(
       padding: const EdgeInsets.only(left: 10),
       child: Column(
@@ -22,7 +25,7 @@ class LabelsMenu extends GetView<DesktopHomeController> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
-                  width: Get.width * 0.1,
+                  width: titleWidth,
                   color: Colors.black,
                   padding:
                       const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
@@ -30,10 +33,11 @@ class LabelsMenu extends GetView<DesktopHomeController> {
                     title: 'Labels',
                     color: Colors.white,
                     spacing: 0.5,
+                    align: TextAlign.center,
                   ),
                 ),
                 Container(
-                  width: Get.width * 0.19,
+                  width: borderWidth,
                   decoration: const BoxDecoration(
                     border:
                         Border(top: BorderSide(width: 1, color: Colors.black)),

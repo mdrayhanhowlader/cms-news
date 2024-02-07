@@ -13,7 +13,7 @@ class FollowSocialMedia extends GetView<DesktopHomeController> {
     final isMobile = Get.width < 600;
     final borderWidth = isMobile ? Get.width * 0.43 : Get.width * 0.19;
     final containerMargin =
-        isMobile ? EdgeInsets.only(right: 10) : EdgeInsets.only(right: 10);
+        isMobile ? EdgeInsets.only(right: 10) : EdgeInsets.only(right: 0);
     return Container(
       margin: containerMargin,
       padding: const EdgeInsets.only(left: 10),

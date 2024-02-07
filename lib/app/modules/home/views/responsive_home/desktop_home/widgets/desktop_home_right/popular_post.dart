@@ -80,6 +80,9 @@ class PostItem extends GetView<DesktopHomeController> {
     final itemWidth = isMobile ? Get.width * 0.95 : Get.width * 0.28;
 
     return InkWell(
+      autofocus: false,
+      highlightColor: Colors.transparent,
+      hoverColor: Colors.transparent,
       onTap: () {
         // Handle post item click here
         print('Post $index clicked');
@@ -90,7 +93,7 @@ class PostItem extends GetView<DesktopHomeController> {
       },
       child: Container(
         width: itemWidth,
-        margin: EdgeInsets.symmetric(vertical: 10),
+        margin: const EdgeInsets.symmetric(vertical: 10),
         child: Column(
           children: [
             Stack(
