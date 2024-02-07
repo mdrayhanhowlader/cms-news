@@ -31,6 +31,7 @@ class PopularPost extends GetView<DesktopHomeController> {
                   child: PoppinsText(
                     title: 'Popular Post',
                     color: Colors.white,
+                    align: TextAlign.center,
                   ),
                 ),
                 Container(

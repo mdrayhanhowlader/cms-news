@@ -10,7 +10,12 @@ class FollowSocialMedia extends GetView<DesktopHomeController> {
 
   @override
   Widget build(BuildContext context) {
+    final isMobile = Get.width < 600;
+    final borderWidth = isMobile ? Get.width * 0.43 : Get.width * 0.19;
+    final containerMargin =
+        isMobile ? EdgeInsets.only(right: 10) : EdgeInsets.only(right: 10);
     return Container(
+      margin: containerMargin,
       padding: const EdgeInsets.only(left: 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -35,7 +40,7 @@ class FollowSocialMedia extends GetView<DesktopHomeController> {
                   ),
                 ),
                 Container(
-                  width: Get.width * 0.19,
+                  width: borderWidth,
                   decoration: const BoxDecoration(
                     border: Border(
                       top: BorderSide(width: 1, color: Colors.black),
