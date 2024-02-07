@@ -83,7 +83,7 @@ class MobileSlider extends GetView<MobileHomeController> {
                                               backgroundColor:
                                                   const Color(0XFFFF6000)),
                                           onPressed: () {
-                                            Get.to(NewsDetailPageView());
+                                            Get.toNamed('/news-detail-page');
                                           },
                                           child: PoppinsText(
                                             title: 'BUTTON',

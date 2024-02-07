@@ -94,21 +94,31 @@ class PostItem extends GetView<DesktopHomeController> {
       child: Container(
         width: itemWidth,
         margin: const EdgeInsets.symmetric(vertical: 10),
-        child: Column(
+        child: Stack(
           children: [
-            Stack(
-              children: [
-                Image.asset(
-                  imageUrl,
-                  width: Get.width, // Adjust the width as needed
-                  height: 120, // Adjust the height as needed
-                  fit: BoxFit.cover,
+            Image.asset(
+              imageUrl,
+              width: Get.width, // Adjust the width as needed
+              height: 120, // Adjust the height as needed
+              fit: BoxFit.cover,
+            ),
+            Positioned(
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              child: Container(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [
+                      Colors.transparent,
+                      Colors.black.withOpacity(0.7),
+                    ],
+                  ),
                 ),
-                Positioned(
-                  top: 50,
-                  left: 0,
-                  right: 0,
-                  bottom: 0,
+                child: Center(
                   child: PoppinsText(
                     title: text,
                     size: 12,
@@ -116,29 +126,27 @@ class PostItem extends GetView<DesktopHomeController> {
                     align: TextAlign.center,
                   ),
                 ),
-                Positioned(
-                  top: 0,
-                  left: 0,
-                  right: 0,
-                  bottom: 0,
-                  child: Visibility(
-                    visible: controller.hoveredPostIndex == index,
-                    child: Container(
-                      height: Get.height,
-                      width: Get.width,
-                      color: Colors.black.withOpacity(0.5),
-                      child: Center(
-                        child: PoppinsText(
-                          title: 'Hover Text',
-                          size: 16,
-                          color: Colors.white,
-                          align: TextAlign.center,
-                        ),
-                      ),
+              ),
+            ),
+            Positioned(
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              child: Visibility(
+                visible: controller.hoveredPostIndex == index,
+                child: Container(
+                  color: Colors.black.withOpacity(0.5),
+                  child: Center(
+                    child: PoppinsText(
+                      title: 'Hover Text',
+                      size: 16,
+                      color: Colors.white,
+                      align: TextAlign.center,
                     ),
                   ),
                 ),
-              ],
+              ),
             ),
           ],
         ),
