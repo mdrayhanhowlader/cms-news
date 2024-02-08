@@ -16,7 +16,7 @@ class HomeVideos extends GetView<DesktopHomeController> {
 
     if (MediaQuery.of(context).size.width < 480) {
       crossAxisExtent = 1;
-      width = 0.95;
+      width = 0.90;
       mainAxis = MainAxisAlignment.center;
       crossAxis = CrossAxisAlignment.center;
     } else if (MediaQuery.of(context).size.width < 800) {
@@ -79,7 +79,7 @@ class HomeVideos extends GetView<DesktopHomeController> {
                   itemCount: 6,
                   itemBuilder: (context, index) {
                     return Container(
-                      margin: const EdgeInsets.only(right: 10),
+                      margin: const EdgeInsets.only(right: 5, left: 5),
                       child: InkWell(
                         focusColor: Colors.transparent,
                         hoverColor: Colors.transparent,
@@ -156,6 +156,10 @@ class VideoCard extends StatelessWidget {
                 ),
 
                 Positioned(
+                  bottom: 0,
+                  left: 0,
+                  right: 0,
+                  height: isHovered ? 50 : 0,
                   child: Visibility(
                     visible: isHovered,
                     child: Container(
@@ -163,10 +167,6 @@ class VideoCard extends StatelessWidget {
                       child: const Text('Data'),
                     ),
                   ),
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  height: isHovered ? 50 : 0,
                 ),
               ],
             ),

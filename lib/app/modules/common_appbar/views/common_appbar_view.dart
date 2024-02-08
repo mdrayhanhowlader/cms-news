@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:anim_search_bar/anim_search_bar.dart';
 import 'package:cms_maahadtahfizaddin/app/core/widgets/poppins_text.dart';
 import 'package:cms_maahadtahfizaddin/app/modules/common_appbar/controllers/common_appbar_controller.dart';
@@ -104,7 +106,7 @@ class CommonAppbarView extends GetView<CommonAppbarController>
                                 context: context,
                                 builder: (BuildContext context) {
                                   return AlertDialog(
-                                      title: Text('Error'),
+                                      title: const Text('Error'),
                                       content: Text('Could not launch $url'),
                                       actions: [
                                         TextButton(
