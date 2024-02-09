@@ -14,7 +14,10 @@ class NewsDetailPageView extends GetView<NewsDetailPageController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(toolbarHeight: 0, automaticallyImplyLeading: false),
+      appBar: AppBar(
+        toolbarHeight: 0,
+        automaticallyImplyLeading: false,
+      ),
       body: SingleChildScrollView(
         child: Center(
           child: Column(

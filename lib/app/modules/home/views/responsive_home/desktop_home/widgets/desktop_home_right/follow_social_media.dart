@@ -11,9 +11,11 @@ class FollowSocialMedia extends GetView<DesktopHomeController> {
   @override
   Widget build(BuildContext context) {
     final isMobile = Get.width < 600;
-    final borderWidth = isMobile ? Get.width * 0.43 : Get.width * 0.19;
+    final titleWidth = isMobile ? Get.width * 0.4 : Get.width * 0.1;
+    final borderWidth = isMobile ? Get.width * 0.53 : Get.width * 0.19;
     final containerMargin =
         isMobile ? EdgeInsets.only(right: 10) : EdgeInsets.only(right: 0);
+
     return Container(
       margin: containerMargin,
       padding: const EdgeInsets.only(left: 10),
@@ -27,24 +29,22 @@ class FollowSocialMedia extends GetView<DesktopHomeController> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
-                  // social media title
-                  alignment: Alignment.center,
-                  width: _calculateTitleWidth(context),
+                  width: titleWidth,
                   color: Colors.black,
-                  padding: EdgeInsets.symmetric(
-                      horizontal: 8, vertical: _calculateTitlePadding(context)),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                   child: PoppinsText(
                     title: 'Follow Us On',
                     color: Colors.white,
-                    size: _calculateTitleFontSize(context),
+                    spacing: 0.5,
+                    align: TextAlign.center,
                   ),
                 ),
                 Container(
                   width: borderWidth,
                   decoration: const BoxDecoration(
-                    border: Border(
-                      top: BorderSide(width: 1, color: Colors.black),
-                    ),
+                    border:
+                        Border(top: BorderSide(width: 1, color: Colors.black)),
                   ),
                 ),
               ],

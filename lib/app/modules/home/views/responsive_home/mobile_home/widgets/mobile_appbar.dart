@@ -3,7 +3,7 @@ import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/mob
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class MobileAppbar extends StatelessWidget {
+class MobileAppbar extends GetView<MobileHomeController> {
   const MobileAppbar({Key? key}) : super(key: key);
 
   @override

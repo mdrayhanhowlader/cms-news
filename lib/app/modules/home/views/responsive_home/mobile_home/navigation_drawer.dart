@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class NavigationDrawerMenu extends GetView<MobileHomeController> {
-  const NavigationDrawerMenu({Key? key});
+  const NavigationDrawerMenu({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -60,15 +60,59 @@ class NavigationDrawerMenu extends GetView<MobileHomeController> {
                       height: 10,
                     ),
                     // primary menu
-                    _buildNestedDropdownMenu(
-                      hint: 'Top Menu',
-                      menuItems: [
-                        'Primary Option 1',
-                        'Primary Option 2',
-                        'Primary Option 3'
-                      ],
+                    Container(
+                      width: Get.width,
+                      child: DropdownButton<String>(
+                        dropdownColor: Colors.black,
+                        hint: const Text(
+                          'MAIN',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        items: <DropdownMenuItem<String>>[
+                          DropdownMenuItem<String>(
+                            onTap: () async {
+                              await Get.toNamed('/news-detail-page');
+                              await Navigator.of(context)
+                                  .pushNamed('/news-detail-page');
+                            },
+                            value: 'INFO',
+                            child: Text('INFO'),
+                          ),
+                          DropdownMenuItem<String>(
+                            value: 'BRANCH',
+                            child: Text('BRANCH'),
+                          ),
+                          DropdownMenuItem<String>(
+                            value: 'E-ALUMNI',
+                            child: Text('E-ALUMNI'),
+                          ),
+                          DropdownMenuItem<String>(
+                            value: 'LINK',
+                            child: Text('LINK'),
+                          ),
+                          DropdownMenuItem<String>(
+                            value: 'E-CAREER',
+                            child: Text('E-CAREER'),
+                          ),
+                        ],
+                        onChanged: (value) {
+                          // Handle the selected value here
+                          print('Selected value: $value');
+                        },
+                        icon: Icon(
+                          Icons.arrow_drop_down,
+                          size: 30,
+                          color: Colors.white,
+                        ),
+                        iconSize: 24,
+                        elevation: 16,
+                        style: TextStyle(color: Colors.white),
+                        underline: Container(
+                          height: 2,
+                          color: Colors.white,
+                        ),
+                      ),
                     ),
-
                     const SizedBox(
                       height: 20,
                     ),
@@ -91,14 +135,6 @@ class NavigationDrawerMenu extends GetView<MobileHomeController> {
                       height: 10,
                     ),
                     // secondary menu
-                    _buildNestedDropdownMenu(
-                      hint: 'Main Menu',
-                      menuItems: [
-                        'Secondary Option A',
-                        'Secondary Option B',
-                        'Secondary Option C'
-                      ],
-                    ),
                   ],
                 ),
               )
@@ -107,57 +143,5 @@ class NavigationDrawerMenu extends GetView<MobileHomeController> {
         ),
       ),
     );
-  }
-
-  Widget _buildNestedDropdownMenu({
-    required String hint,
-    required List<String> menuItems,
-  }) {
-    return menuItems.isNotEmpty
-        ? DropdownButton<String>(
-            hint: PoppinsText(title: hint),
-            items: menuItems.map((String menuItem) {
-              return DropdownMenuItem<String>(
-                value: menuItem,
-                child: InkWell(
-                  onTap: () {
-                    // Handle navigation based on menuItem
-                    _navigateToPage(menuItem);
-                  },
-                  child: Text(menuItem),
-                ),
-              );
-            }).toList(),
-            onChanged: (String? value) {
-              // Handle dropdown item selection here
-            },
-          )
-        : Container(
-            decoration: BoxDecoration(
-              border: Border.all(color: Colors.white),
-              borderRadius: BorderRadius.circular(5.0),
-            ),
-            padding: const EdgeInsets.symmetric(horizontal: 12.0),
-            child: const Text(
-              'No options available',
-              style: TextStyle(color: Colors.white),
-            ),
-          );
-  }
-
-  void _navigateToPage(String menuItem) {
-    // Implement your navigation logic here
-    switch (menuItem) {
-      case 'Primary Option 1':
-        Get.toNamed('/home');
-        break;
-      case 'Primary Option 2':
-        Get.toNamed('/home');
-        break;
-      case 'Primary Option 3':
-        Get.toNamed('/home');
-        break;
-      // Add more cases for other menu items
-    }
   }
 }

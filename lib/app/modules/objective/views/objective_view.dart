@@ -14,9 +14,9 @@ class ObjectiveView extends GetView<ObjectiveController> {
 
   @override
   Widget build(BuildContext context) {
-    final _htmlContent = """
-<div>Hello world</div>
-""";
+//     final _htmlContent = """
+// <div>Hello world</div>
+// """;
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(

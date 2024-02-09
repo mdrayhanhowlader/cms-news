@@ -10,7 +10,7 @@ class DesktopAllNews extends GetView<DesktopHomeController> {
 
   @override
   Widget build(BuildContext context) {
-    DesktopHomeController controller = Get.put(DesktopHomeController());
+    // DesktopHomeController controller = Get.put(DesktopHomeController());
     return Container(
       width: Get.width * 0.9,
       child: Row(

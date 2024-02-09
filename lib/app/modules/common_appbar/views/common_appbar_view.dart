@@ -16,7 +16,7 @@ class CommonAppbarView extends GetView<CommonAppbarController>
 
   @override
   Widget build(BuildContext context) {
-    final CommonAppbarController controller = Get.put(CommonAppbarController());
+    // final CommonAppbarController controller = Get.put(CommonAppbarController());
 
     return Column(
       mainAxisSize: MainAxisSize.min,
@@ -78,8 +78,9 @@ class CommonAppbarView extends GetView<CommonAppbarController>
                                 context: context,
                                 builder: (BuildContext context) {
                                   return AlertDialog(
-                                      title: Text('Error'),
-                                      content: Text('Could not launch $url'),
+                                      title: const Text('Error'),
+                                      content:
+                                          const Text('Could not launch $url'),
                                       actions: [
                                         TextButton(
                                             onPressed: () {
@@ -107,7 +108,8 @@ class CommonAppbarView extends GetView<CommonAppbarController>
                                 builder: (BuildContext context) {
                                   return AlertDialog(
                                       title: const Text('Error'),
-                                      content: Text('Could not launch $url'),
+                                      content:
+                                          const Text('Could not launch $url'),
                                       actions: [
                                         TextButton(
                                             onPressed: () {

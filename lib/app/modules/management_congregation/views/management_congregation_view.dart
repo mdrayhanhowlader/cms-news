@@ -20,6 +20,8 @@ class ManagementCongregationView
     return Scaffold(
         body: SingleChildScrollView(
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           _buildAppBar(),
           const SizedBox(
@@ -36,6 +38,7 @@ class ManagementCongregationView
             width: Get.width * 0.9,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 InkWell(
                   onTap: () async {
@@ -67,6 +70,7 @@ class ManagementCongregationView
                     color: Colors.blue,
                     size: 16,
                     decoration: TextDecoration.underline,
+                    align: TextAlign.center,
                   ),
                 ),
                 const SizedBox(
@@ -102,6 +106,7 @@ class ManagementCongregationView
                     color: Colors.blue,
                     size: 16,
                     decoration: TextDecoration.underline,
+                    align: TextAlign.center,
                   ),
                 ),
                 const SizedBox(
@@ -137,6 +142,7 @@ class ManagementCongregationView
                     color: Colors.blue,
                     size: 16,
                     decoration: TextDecoration.underline,
+                    align: TextAlign.center,
                   ),
                 ),
                 const SizedBox(
@@ -171,6 +177,7 @@ class ManagementCongregationView
                     color: Colors.blue,
                     size: 16,
                     decoration: TextDecoration.underline,
+                    align: TextAlign.center,
                   ),
                 ),
                 const SizedBox(
@@ -206,6 +213,7 @@ class ManagementCongregationView
                     color: Colors.blue,
                     size: 16,
                     decoration: TextDecoration.underline,
+                    align: TextAlign.center,
                   ),
                 ),
                 const SizedBox(

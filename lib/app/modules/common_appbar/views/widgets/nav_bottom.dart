@@ -80,7 +80,7 @@ class NavBottom extends GetView<CommonAppbarController> {
   @override
   Widget build(BuildContext context) {
     double baseFontSize = 15.0;
-    double fontSize = calculateFontSize(context, baseFontSize);
+    // double fontSize = calculateFontSize(context, baseFontSize);
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [

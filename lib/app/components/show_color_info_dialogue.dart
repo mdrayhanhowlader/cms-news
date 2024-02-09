@@ -55,6 +55,7 @@ Future<void> showColorInfoDialogue({required context, voidCallback}) async {
   VoidCallback;
 }
 
+// ignore: must_be_immutable
 class Indicatior extends StatelessWidget {
   Indicatior({
     Key? key,
