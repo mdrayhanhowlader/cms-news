@@ -55,9 +55,11 @@ class HomeTopNews extends GetView<DesktopHomeController> {
                 return MobileTopNews();
               } else if (constraints.maxWidth < 1200) {
                 // For tablet
+                return WebTopNews();
+              } else if (constraints.maxWidth < 765) {
                 return TabletTopNews();
-              } else {
                 // For desktop
+              } else {
                 return WebTopNews();
               }
             },
@@ -303,7 +305,7 @@ class TabletTopNews extends StatelessWidget {
         Container(
           color: const Color(0XFFE5E5E5),
           padding: const EdgeInsets.only(bottom: 10),
-          width: Get.width * 0.95,
+          width: Get.width * 0.9,
           child: Column(
             children: [
               Image.asset(
@@ -383,8 +385,8 @@ class TabletTopNews extends StatelessWidget {
             ],
           ),
         ),
-        SizedBox(
-          height: 10,
+        const SizedBox(
+          height: 100,
         ),
         _buildTabletNewsCard(
           image: 'assets/images/breaking-news-slider/slide1.png',
@@ -428,6 +430,7 @@ class TabletTopNews extends StatelessWidget {
             children: [
               Expanded(
                 child: Container(
+                  color: Colors.red,
                   width: Get.width *
                       0.5, // Adjust the width based on your preference
                   child: Image.asset(

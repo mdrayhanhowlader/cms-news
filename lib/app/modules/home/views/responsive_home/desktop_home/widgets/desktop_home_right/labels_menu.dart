@@ -11,8 +11,18 @@ class LabelsMenu extends GetView<DesktopHomeController> {
   Widget build(BuildContext context) {
     DesktopHomeController controller = Get.put(DesktopHomeController());
     final isMobile = Get.width < 600;
-    final titleWidth = isMobile ? Get.width * 0.4 : Get.width * 0.1;
-    final borderWidth = isMobile ? Get.width * 0.53 : Get.width * 0.19;
+    final isTablet = Get.width >= 600 && Get.width < 768; // iPad Mini
+    final titleWidth = isMobile
+        ? Get.width * 0.4
+        : isTablet
+            ? Get.width * 0.20
+            : Get.width * 0.1;
+    final borderWidth = isMobile
+        ? Get.width * 0.53
+        : isTablet
+            ? Get.width * 0.30
+            : Get.width * 0.19;
+
     return Container(
       padding: const EdgeInsets.only(left: 10),
       child: Column(

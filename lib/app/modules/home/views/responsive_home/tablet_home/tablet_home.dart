@@ -5,6 +5,7 @@ import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/des
 import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/desktop_home/widgets/desktop_home_main.dart';
 import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/desktop_home/widgets/hightlight_news.dart';
 import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/tablet_home/tablet_home_controller.dart';
+import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/tablet_home/tablet_home_main.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -33,7 +34,8 @@ class TabletHomeView extends GetView<TabletHomeController> {
             const SizedBox(
               height: 30,
             ),
-            const DesktopHomeMain(),
+            // const DesktopHomeMain(),
+            const TabletHomeMain(),
             const SizedBox(
               height: 20,
             ),

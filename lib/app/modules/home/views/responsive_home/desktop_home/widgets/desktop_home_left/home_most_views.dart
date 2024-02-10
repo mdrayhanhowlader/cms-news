@@ -40,7 +40,16 @@ class HomeMostViews extends GetView<DesktopHomeController> {
   @override
   Widget build(BuildContext context) {
     final isMobile = Get.width < 600;
-    final titleWidth = isMobile ? Get.width * 0.9 : Get.width * 0.6;
+    final isTablet = Get.width >= 600 && Get.width < 768;
+    final isiPadMini = Get.width >= 768 && Get.width < 960;
+    final titleWidth = isMobile
+        ? Get.width * 0.9
+        : isTablet
+            ? Get.width * 0.6
+            : isiPadMini
+                ? Get.width * 0.4
+                : Get.width * 0.4;
+
     return Container(
       width: Get.width,
       child: Column(
@@ -83,7 +92,6 @@ class HomeMostViews extends GetView<DesktopHomeController> {
           LayoutBuilder(
             builder: (context, constraints) {
               if (constraints.maxWidth < 600) {
-                // For mobile, use single-column layout
                 return Column(
                   children: [
                     Row(
@@ -100,14 +108,12 @@ class HomeMostViews extends GetView<DesktopHomeController> {
                   ],
                 );
               } else if (constraints.maxWidth < 1200) {
-                // For tablet, use two columns
                 return Column(
                   children: [
                     _buildTabletCarousel(),
                   ],
                 );
               } else {
-                // For desktop, use the original layout
                 return Row(
                   children: [
                     Expanded(child: _buildDesktopCarousel()),

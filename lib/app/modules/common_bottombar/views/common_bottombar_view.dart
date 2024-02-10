@@ -78,12 +78,14 @@ class CommonBottombarView extends GetView<CommonBottombarController> {
                               width: 5,
                             ),
                             Container(
+                              width: Get.width * 0.2,
                               alignment: Alignment.center,
                               child: PoppinsText(
                                 title:
-                                    'No 5,1, Jalan USJ 1/1a Regalia Center\n47600, Selangor, Malaysia',
+                                    'No 5,1, Jalan USJ 1/1a Regalia Center 47600, Selangor, Malaysia',
                                 color: Colors.white,
                                 size: 12,
+                                align: TextAlign.justify,
                               ),
                             )
                           ],
