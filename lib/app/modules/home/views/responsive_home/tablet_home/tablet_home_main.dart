@@ -1,4 +1,6 @@
+import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/desktop_home/widgets/desktop_home_left/home_videos.dart';
 import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/tablet_home/tablet_home_controller.dart';
+import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/tablet_home/tablet_most_viewed.dart';
 import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/tablet_home/tablet_top_news.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -29,10 +31,18 @@ class TabletHomeMain extends GetView<TabletHomeController> {
               child: Column(
                 children: [
                   Container(
-                    width: Get.width,
+                    width: Get.width * 0.6,
                     padding: const EdgeInsets.only(top: 5, bottom: 10),
-                    child: TabletTopNews(),
-                  )
+                    child: const TabletTopNews(),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  TabletMostViewed(),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  const HomeVideos(),
                 ],
               ),
             ),

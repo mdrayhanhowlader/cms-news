@@ -264,6 +264,9 @@ class WebTopNews extends StatelessWidget {
                           FontAwesomeIcons.clock,
                           size: 8,
                         ),
+                        SizedBox(
+                          width: 5,
+                        ),
                         Text(
                           date,
                           style: TextStyle(

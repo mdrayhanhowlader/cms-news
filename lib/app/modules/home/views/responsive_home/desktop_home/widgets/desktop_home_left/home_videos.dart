@@ -66,6 +66,8 @@ class HomeVideos extends GetView<DesktopHomeController> {
             height: 10,
           ),
           Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
                 child: GridView.builder(
