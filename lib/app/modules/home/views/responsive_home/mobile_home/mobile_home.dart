@@ -24,6 +24,7 @@ class MobileHomeView extends GetView<MobileHomeController> {
         child: Column(
           children: [
             Container(
+              color: Colors.white,
               height: 100,
               width: Get.width * 0.95,
               child: InkWell(
@@ -69,6 +70,7 @@ class MobileHomeView extends GetView<MobileHomeController> {
       ),
       body: SingleChildScrollView(
         child: Container(
+          color: Colors.white,
           width: Get.width,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,

@@ -35,8 +35,10 @@ class LabelsMenu extends GetView<DesktopHomeController> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
+                  alignment: Alignment.center,
                   width: titleWidth,
                   color: Colors.black,
+                  height: 32,
                   padding:
                       const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                   child: PoppinsText(
@@ -44,6 +46,7 @@ class LabelsMenu extends GetView<DesktopHomeController> {
                     color: Colors.white,
                     spacing: 0.5,
                     align: TextAlign.center,
+                    size: 14,
                   ),
                 ),
                 Container(

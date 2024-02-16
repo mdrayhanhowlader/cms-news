@@ -13,7 +13,7 @@ class HighlightNews extends GetView<DesktopHomeController> {
     return Container(
       width: Get.width * 0.9,
       height: 40,
-      decoration: const BoxDecoration(color: Colors.black12),
+      decoration: const BoxDecoration(color: Color(0XFFE7E5E5)),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

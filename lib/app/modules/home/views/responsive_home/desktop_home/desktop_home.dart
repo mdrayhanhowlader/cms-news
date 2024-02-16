@@ -25,11 +25,11 @@ class DesktopHomeView extends GetView<HomeController> {
               ),
               const HighlightNews(),
               const SizedBox(
-                height: 50,
+                height: 38,
               ),
               const DesktopAllNews(),
               const SizedBox(
-                height: 50,
+                height: 18,
               ),
               BreakingNews(),
               const SizedBox(

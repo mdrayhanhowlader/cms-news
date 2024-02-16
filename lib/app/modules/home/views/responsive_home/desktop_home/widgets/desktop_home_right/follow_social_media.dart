@@ -29,15 +29,19 @@ class FollowSocialMedia extends GetView<DesktopHomeController> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
+                  alignment: Alignment.center,
+                  height: 32,
                   width: titleWidth,
                   color: Colors.black,
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                  // padding:
+                  //     const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                   child: PoppinsText(
                     title: 'Follow Us On',
                     color: Colors.white,
                     spacing: 0.5,
                     align: TextAlign.center,
+                    size: 14,
+                    weight: FontWeight.w400,
                   ),
                 ),
                 Container(
@@ -132,7 +136,7 @@ class ButtonItem extends GetView<DesktopHomeController> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.all(2),
+      margin: const EdgeInsets.all(4),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(7.0),
         gradient: LinearGradient(

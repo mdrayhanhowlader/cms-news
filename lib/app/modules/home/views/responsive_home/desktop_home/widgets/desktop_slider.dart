@@ -90,12 +90,19 @@ class DesktopSlider extends GetView<DesktopHomeController> {
                               ),
                               Container(
                                 width: Get.width * 0.6,
-                                child: PoppinsText(
-                                  title: controller.slideTitles[index],
-                                  color: Colors.white,
-                                  size: 16,
-                                  weight: FontWeight.w300,
-                                  spacing: 0.2,
+                                // child: PoppinsText(
+                                //   title: controller.slideTitles[index],
+                                //   color: Colors.white,
+                                //   size: 16,
+                                //   weight: FontWeight.w300,
+                                //   spacing: 0.2,
+                                // ),
+                                child: Text(
+                                  controller.slideTitles[index],
+                                  style: const TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w500),
                                 ),
                               ),
                               const SizedBox(

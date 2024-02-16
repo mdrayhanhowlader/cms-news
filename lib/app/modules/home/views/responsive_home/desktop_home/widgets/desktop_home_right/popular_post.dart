@@ -24,14 +24,17 @@ class PopularPost extends GetView<DesktopHomeController> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
+                  alignment: Alignment.center,
                   width: titleWidth,
                   color: Colors.black,
+                  height: 32,
                   padding:
                       const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                   child: PoppinsText(
                     title: 'Popular Post',
                     color: Colors.white,
                     align: TextAlign.center,
+                    size: 14,
                   ),
                 ),
                 Container(

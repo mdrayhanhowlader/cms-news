@@ -57,7 +57,7 @@ class DesktopAllNews extends GetView<DesktopHomeController> {
             width: Get.width * 0.4,
           ),
           Container(
-            padding: EdgeInsets.all(16),
+            padding: const EdgeInsets.all(16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
@@ -66,7 +66,7 @@ class DesktopAllNews extends GetView<DesktopHomeController> {
                   onPressed: () {
                     // Handle button click
                     // print('Read More button clicked for $newsTitle');
-                    Get.to(NewsDetailPageView());
+                    Get.to(const NewsDetailPageView());
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.deepOrange,
@@ -81,12 +81,19 @@ class DesktopAllNews extends GetView<DesktopHomeController> {
                   ),
                 ),
                 const SizedBox(height: 8),
-                PoppinsText(
-                  title: newsTitle,
-                  color: Colors.white,
-                  size: 12,
-                  weight: FontWeight.w400,
-                ),
+                // PoppinsText(
+                //   title: newsTitle,
+                //   color: Colors.white,
+                //   size: 12,
+                //   weight: FontWeight.w400,
+                // ),
+                Text(
+                  newsTitle,
+                  style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 13,
+                      fontWeight: FontWeight.w500),
+                )
               ],
             ),
           ),
