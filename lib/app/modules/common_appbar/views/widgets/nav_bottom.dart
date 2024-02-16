@@ -22,6 +22,7 @@ class NavBottom extends GetView<CommonAppbarController> {
       PlutoMenuItem(
         title: '',
         icon: Icons.house,
+        onTap: () => Get.toNamed('/home'),
       ),
       PlutoMenuItem(
         title: 'FEATURES',
@@ -79,7 +80,7 @@ class NavBottom extends GetView<CommonAppbarController> {
 
   @override
   Widget build(BuildContext context) {
-    double baseFontSize = 15.0;
+    double baseFontSize = 16.0;
     // double fontSize = calculateFontSize(context, baseFontSize);
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,

@@ -15,30 +15,33 @@ class DesktopHomeView extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            const CommonAppbarView(),
-            const SizedBox(
-              height: 20,
-            ),
-            const HighlightNews(),
-            const SizedBox(
-              height: 50,
-            ),
-            const DesktopAllNews(),
-            const SizedBox(
-              height: 50,
-            ),
-            BreakingNews(),
-            const SizedBox(
-              height: 30,
-            ),
-            const DesktopHomeMain(),
-            const SizedBox(
-              height: 20,
-            ),
-            const CommonBottombarView()
-          ],
+        child: Container(
+          color: Colors.white,
+          child: Column(
+            children: [
+              const CommonAppbarView(),
+              const SizedBox(
+                height: 14,
+              ),
+              const HighlightNews(),
+              const SizedBox(
+                height: 50,
+              ),
+              const DesktopAllNews(),
+              const SizedBox(
+                height: 50,
+              ),
+              BreakingNews(),
+              const SizedBox(
+                height: 30,
+              ),
+              const DesktopHomeMain(),
+              const SizedBox(
+                height: 20,
+              ),
+              const CommonBottombarView()
+            ],
+          ),
         ),
       ),
     );

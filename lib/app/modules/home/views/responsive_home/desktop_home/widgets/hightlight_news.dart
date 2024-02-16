@@ -12,6 +12,7 @@ class HighlightNews extends GetView<DesktopHomeController> {
   Widget build(BuildContext context) {
     return Container(
       width: Get.width * 0.9,
+      height: 40,
       decoration: const BoxDecoration(color: Colors.black12),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -24,9 +25,11 @@ class HighlightNews extends GetView<DesktopHomeController> {
                   vertical: 10,
                 ),
                 alignment: Alignment.center,
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                     border: Border(
-                        right: BorderSide(width: 1, color: Colors.black26))),
+                        right: BorderSide(
+                            width: 1,
+                            color: const Color(0XFF292929).withOpacity(0.2)))),
                 child: const FaIcon(
                   FontAwesomeIcons.bolt,
                   size: 16,
@@ -36,7 +39,7 @@ class HighlightNews extends GetView<DesktopHomeController> {
                 margin: const EdgeInsets.symmetric(horizontal: 10),
                 padding:
                     const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                decoration: const BoxDecoration(color: Colors.red),
+                decoration: const BoxDecoration(color: Color(0XFFFF6000)),
                 child: PoppinsText(
                   title: 'NEWS',
                   size: 12,
@@ -59,10 +62,15 @@ class HighlightNews extends GetView<DesktopHomeController> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Container(
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                     border: Border(
-                        right: BorderSide(width: 1, color: Colors.black26),
-                        left: BorderSide(width: 1, color: Colors.black26))),
+                  right: BorderSide(
+                      width: 1,
+                      color: const Color(0XFF292929).withOpacity(0.2)),
+                  left: BorderSide(
+                      width: 1,
+                      color: const Color(0XFF292929).withOpacity(0.2)),
+                )),
                 padding:
                     const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
                 child: const FaIcon(

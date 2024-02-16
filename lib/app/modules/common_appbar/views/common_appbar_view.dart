@@ -131,6 +131,7 @@ class CommonAppbarView extends GetView<CommonAppbarController>
           ),
         ),
         AppBar(
+          backgroundColor: Colors.white,
           toolbarHeight: 148,
           automaticallyImplyLeading: false,
           title: Row(
@@ -174,11 +175,9 @@ class CommonAppbarView extends GetView<CommonAppbarController>
                 Container(
                   height: 60,
                   padding: const EdgeInsets.only(
-                    right: 10,
-                    left: 10,
-                    top: 10,
-                    // Adjust bottom padding
-                  ),
+                      right: 10, left: 10, top: 10, bottom: 10
+                      // Adjust bottom padding
+                      ),
                   alignment: Alignment.centerRight,
                   width: Get.width * 0.2,
                   child: AnimSearchBar(
