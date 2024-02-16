@@ -1,7 +1,5 @@
 // ignore_for_file: use_build_context_synchronously
-
 import 'package:anim_search_bar/anim_search_bar.dart';
-import 'package:cms_maahadtahfizaddin/app/core/widgets/poppins_text.dart';
 import 'package:cms_maahadtahfizaddin/app/modules/common_appbar/controllers/common_appbar_controller.dart';
 import 'package:cms_maahadtahfizaddin/app/modules/common_appbar/views/widgets/nav_bottom.dart';
 import 'package:cms_maahadtahfizaddin/app/modules/common_appbar/views/widgets/nav_top.dart';
@@ -16,7 +14,7 @@ class CommonAppbarView extends GetView<CommonAppbarController>
 
   @override
   Widget build(BuildContext context) {
-    // final CommonAppbarController controller = Get.put(CommonAppbarController());
+    final CommonAppbarController controller = Get.put(CommonAppbarController());
 
     return Column(
       mainAxisSize: MainAxisSize.min,
@@ -27,6 +25,7 @@ class CommonAppbarView extends GetView<CommonAppbarController>
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Container(
+                  height: 45,
                   margin: const EdgeInsets.only(left: 15),
                   width: Get.width * 0.8,
                   child: const NavTop()),
@@ -35,10 +34,9 @@ class CommonAppbarView extends GetView<CommonAppbarController>
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      PoppinsText(
-                        title: 'FAQ',
-                        size: 14,
-                        color: Colors.white,
+                      const Text(
+                        'FAQ',
+                        style: TextStyle(fontSize: 14, color: Colors.white),
                       ),
                       InkWell(
                         onTap: () async {
@@ -50,20 +48,21 @@ class CommonAppbarView extends GetView<CommonAppbarController>
                                 context: context,
                                 builder: (BuildContext context) {
                                   return AlertDialog(
-                                      title: Text('Error'),
-                                      content: Text('Could not launch $url'),
+                                      title: const Text('Error'),
+                                      content:
+                                          const Text('Could not launch $url'),
                                       actions: [
                                         TextButton(
                                             onPressed: () {
                                               Navigator.pop(context);
                                             },
-                                            child: Text('ok'))
+                                            child: const Text('ok'))
                                       ]);
                                 });
                           }
                         },
                         child: Icon(
-                          Icons.facebook_sharp,
+                          Icons.facebook_outlined,
                           color: Colors.grey.shade200,
                           size: 14,
                         ),
@@ -86,13 +85,13 @@ class CommonAppbarView extends GetView<CommonAppbarController>
                                             onPressed: () {
                                               Navigator.pop(context);
                                             },
-                                            child: Text('ok'))
+                                            child: const Text('ok'))
                                       ]);
                                 });
                           }
                         },
                         child: FaIcon(
-                          FontAwesomeIcons.xTwitter,
+                          FontAwesomeIcons.twitter,
                           color: Colors.grey.shade200,
                           size: 14,
                         ),
@@ -115,7 +114,7 @@ class CommonAppbarView extends GetView<CommonAppbarController>
                                             onPressed: () {
                                               Navigator.pop(context);
                                             },
-                                            child: Text('ok'))
+                                            child: const Text('ok'))
                                       ]);
                                 });
                           }
@@ -132,6 +131,7 @@ class CommonAppbarView extends GetView<CommonAppbarController>
           ),
         ),
         AppBar(
+          toolbarHeight: 148,
           automaticallyImplyLeading: false,
           title: Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -163,21 +163,21 @@ class CommonAppbarView extends GetView<CommonAppbarController>
         ),
         Material(
           color: const Color(0XFF292929),
-          borderRadius: BorderRadius.circular(5),
+          // borderRadius: BorderRadius.circular(5),
           child: Container(
             width: Get.width * 0.9,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(width: Get.width * 0.7, child: const NavBottom()),
                 Container(
-                  // color: Colors.red,
-                  height: 45,
+                  height: 60,
                   padding: const EdgeInsets.only(
                     right: 10,
                     left: 10,
-                    top: 0, // Adjust top padding
-                    bottom: 0, // Adjust bottom padding
+                    top: 10,
+                    // Adjust bottom padding
                   ),
                   alignment: Alignment.centerRight,
                   width: Get.width * 0.2,
@@ -185,7 +185,7 @@ class CommonAppbarView extends GetView<CommonAppbarController>
                     autoFocus: true,
                     width: 300,
                     textController: TextEditingController(
-                      text: 'Search Here...',
+                      text: '',
                     ),
                     onSuffixTap: () {},
                     searchIconColor: Colors.white,

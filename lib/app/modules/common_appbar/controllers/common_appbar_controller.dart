@@ -11,8 +11,8 @@ class CommonAppbarController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    whiteHoverMenus.assignAll(_makeBottomMenus());
-    orangeHoverMenus.assignAll(_makeMenus());
+    // whiteHoverMenus.assignAll(_makeBottomMenus());
+    // orangeHoverMenus.assignAll(_makeMenus());
   }
 
   void toggleSearchInput() {
@@ -23,15 +23,15 @@ class CommonAppbarController extends GetxController {
     Get.snackbar('Message', text);
   }
 
-  List<PlutoMenuItem> _makeBottomMenus() {
-    return [
-      // Customize your white hover menus here
-    ];
-  }
+  // List<PlutoMenuItem> _makeBottomMenus() {
+  //   return [
+  //     // Customize your white hover menus here
+  //   ];
+  // }
 
-  List<PlutoMenuItem> _makeMenus() {
-    return [
-      // Customize your orange hover menus here
-    ];
-  }
+  // List<PlutoMenuItem> _makeMenus() {
+  //   return [
+  //     // Customize your orange hover menus here
+  //   ];
+  // }
 }

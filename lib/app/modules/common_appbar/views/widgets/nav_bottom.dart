@@ -28,7 +28,7 @@ class NavBottom extends GetView<CommonAppbarController> {
         children: [
           PlutoMenuItem.divider(
             height: 4,
-            color: Colors.red,
+            color: const Color(0XFFFF6000),
             thickness: 4,
             endIndent: 3,
           ),
@@ -47,7 +47,7 @@ class NavBottom extends GetView<CommonAppbarController> {
         children: [
           PlutoMenuItem.divider(
             height: 4,
-            color: Colors.red,
+            color: const Color(0XFFFF6000),
             thickness: 4,
             endIndent: 3,
           ),
@@ -90,7 +90,7 @@ class NavBottom extends GetView<CommonAppbarController> {
             mode: PlutoMenuBarMode.hover,
             backgroundColor: const Color(0XFF292929),
             itemStyle: PlutoMenuItemStyle(
-              activatedColor: Colors.red,
+              activatedColor: const Color(0XFFFF6000),
               indicatorColor: Colors.deepOrange,
               textStyle: TextStyle(
                 color: Colors.white,

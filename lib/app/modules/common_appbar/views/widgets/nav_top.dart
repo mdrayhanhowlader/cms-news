@@ -17,7 +17,10 @@ class NavTop extends GetView<CommonAppbarController> {
         children: [
           // Add INFO menu items here...
           PlutoMenuItem.divider(
-              height: 4, color: Colors.red, thickness: 4, endIndent: 3),
+              height: 4,
+              color: const Color(0XFFFF6000),
+              thickness: 4,
+              endIndent: 3),
           PlutoMenuItem(
             title: 'Headquarters Organization Chart',
             onTap: () => Get.toNamed('/news-detail-page'),
@@ -57,7 +60,10 @@ class NavTop extends GetView<CommonAppbarController> {
         children: [
           // Add BRANCH menu items here...
           PlutoMenuItem.divider(
-              height: 4, color: Colors.red, thickness: 4, endIndent: 3),
+              height: 4,
+              color: const Color(0XFFFF6000),
+              thickness: 4,
+              endIndent: 3),
           PlutoMenuItem(
             title: 'Primary School',
             onTap: () => Get.toNamed('/primary-school'),
@@ -85,7 +91,10 @@ class NavTop extends GetView<CommonAppbarController> {
         children: [
           // Add E-ALUMNI menu items here...
           PlutoMenuItem.divider(
-              height: 4, color: Colors.red, thickness: 4, endIndent: 3),
+              height: 4,
+              color: const Color(0XFFFF6000),
+              thickness: 4,
+              endIndent: 3),
           PlutoMenuItem(
             title: 'Headquarters Organization Chart',
             onTap: () => Get.toNamed('/news-detail-page'),
@@ -125,7 +134,10 @@ class NavTop extends GetView<CommonAppbarController> {
         children: [
           // Add E-CAREER menu items here...
           PlutoMenuItem.divider(
-              height: 4, color: Colors.red, thickness: 4, endIndent: 3),
+              height: 4,
+              color: const Color(0XFFFF6000),
+              thickness: 4,
+              endIndent: 3),
           PlutoMenuItem(
             title: 'Primary School',
             onTap: () => Get.toNamed('/news-detail-page'),
@@ -158,7 +170,7 @@ class NavTop extends GetView<CommonAppbarController> {
     double screenWidth = MediaQuery.of(context).size.width;
 
     // Set a maximum font size
-    double maxFontSize = 15.0;
+    double maxFontSize = 14.0;
 
     // Check if the screen width is greater than 1280px (for web)
     if (screenWidth > 1280) {
@@ -177,18 +189,19 @@ class NavTop extends GetView<CommonAppbarController> {
           mode: PlutoMenuBarMode.hover,
           backgroundColor: const Color(0XFF292929),
           itemStyle: PlutoMenuItemStyle(
-              activatedColor: Colors.red,
-              indicatorColor: Colors.red,
-              textStyle: TextStyle(
-                  color: Colors.white, fontSize: calculateFontSize(context)),
-              iconColor: Colors.white,
-              moreIconColor: Colors.white,
-              enableSelectedTopMenu: true,
-              selectedTopMenuTextStyle: TextStyle(
-                  color: Color(0XFFFF6000),
-                  background: Paint(),
-                  fontSize: calculateFontSize(context)),
-              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5)),
+            activatedColor: const Color(0XFFFF6000),
+            indicatorColor: const Color(0XFFFF6000),
+            textStyle: TextStyle(
+                color: Colors.white, fontSize: calculateFontSize(context)),
+            iconColor: Colors.white,
+            moreIconColor: Colors.white,
+            enableSelectedTopMenu: true,
+            selectedTopMenuTextStyle: TextStyle(
+                color: const Color(0XFFFF6000),
+                // background: Paint(),
+                fontSize: calculateFontSize(context)),
+            // padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5)
+          ),
           menus: makeMenus(),
         ),
       ],
