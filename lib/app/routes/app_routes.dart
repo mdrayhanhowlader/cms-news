@@ -17,6 +17,7 @@ abstract class Routes {
   static const LOGO_INTERPRETATION = _Paths.LOGO_INTERPRETATION;
   static const PRIMARY_SCHOOL = _Paths.PRIMARY_SCHOOL;
   static const LOW_SCHOOL = _Paths.LOW_SCHOOL;
+  static const MOBILE_LIST_MENU_DRAWER = _Paths.MOBILE_LIST_MENU_DRAWER;
 }
 
 abstract class _Paths {
@@ -35,4 +36,5 @@ abstract class _Paths {
   static const LOGO_INTERPRETATION = '/logo-interpretation';
   static const PRIMARY_SCHOOL = '/primary-school';
   static const LOW_SCHOOL = '/low-school';
+  static const MOBILE_LIST_MENU_DRAWER = '/mobile-list-menu-drawer';
 }

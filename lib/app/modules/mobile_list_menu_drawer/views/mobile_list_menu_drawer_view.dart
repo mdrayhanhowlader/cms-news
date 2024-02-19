@@ -1,17 +1,18 @@
-// File: navigation_drawer_menu.dart
 import 'package:cms_maahadtahfizaddin/app/core/widgets/poppins_text.dart';
-import 'package:cms_maahadtahfizaddin/app/modules/home/views/home_view.dart';
 import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/mobile_home/mobile_home_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 import 'package:get/get.dart';
 
-class NavigationDrawerMenu extends GetView<MobileHomeController> {
-  const NavigationDrawerMenu({Key? key}) : super(key: key);
+import '../controllers/mobile_list_menu_drawer_controller.dart';
 
+class MobileListMenuDrawerView extends GetView<MobileListMenuDrawerController> {
+  const MobileListMenuDrawerView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    final MobileHomeController controller = Get.put(MobileHomeController());
+    final MobileListMenuDrawerController controller =
+        Get.put(MobileListMenuDrawerController());
 
     // List of menu items
     final List<Map<String, dynamic>> menuItems = [
@@ -203,7 +204,8 @@ class CollapsibleMenuItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final MobileHomeController controller = Get.put(MobileHomeController());
+    final MobileListMenuDrawerController controller =
+        Get.put(MobileListMenuDrawerController());
 
     return Obx(() {
       return Column(
@@ -257,7 +259,7 @@ class CollapsibleMenuItem extends StatelessWidget {
                       Get.back();
                     },
                     child: Container(
-                      margin: const EdgeInsets.only(top: 2, left: 20),
+                      margin: const EdgeInsets.only(top: 10, left: 20),
                       width: Get.width * 0.9,
                       padding: const EdgeInsets.symmetric(vertical: 10),
                       child: PoppinsText(

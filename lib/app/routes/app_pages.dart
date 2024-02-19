@@ -20,6 +20,8 @@ import '../modules/low_school/bindings/low_school_binding.dart';
 import '../modules/low_school/views/low_school_view.dart';
 import '../modules/management_congregation/bindings/management_congregation_binding.dart';
 import '../modules/management_congregation/views/management_congregation_view.dart';
+import '../modules/mobile_list_menu_drawer/bindings/mobile_list_menu_drawer_binding.dart';
+import '../modules/mobile_list_menu_drawer/views/mobile_list_menu_drawer_view.dart';
 import '../modules/news-detail-page/bindings/news_detail_page_binding.dart';
 import '../modules/news-detail-page/views/news_detail_page_view.dart';
 import '../modules/objective/bindings/objective_binding.dart';
@@ -106,6 +108,11 @@ class AppPages {
       name: _Paths.LOW_SCHOOL,
       page: () => const LowSchoolView(),
       binding: LowSchoolBinding(),
+    ),
+    GetPage(
+      name: _Paths.MOBILE_LIST_MENU_DRAWER,
+      page: () => const MobileListMenuDrawerView(),
+      binding: MobileListMenuDrawerBinding(),
     ),
   ];
 }

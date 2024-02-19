@@ -9,6 +9,7 @@ import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/mob
 import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/mobile_home/widgets/mobile_bottom_bar.dart';
 import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/mobile_home/widgets/mobile_highlight_news.dart';
 import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/mobile_home/widgets/mobile_slider.dart';
+import 'package:cms_maahadtahfizaddin/app/modules/mobile_list_menu_drawer/views/mobile_list_menu_drawer_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -65,7 +66,7 @@ class MobileHomeView extends GetView<MobileHomeController> {
         width: Get.width,
         child: Container(
           color: Colors.white, // Set your desired drawer background color
-          child: const NavigationDrawerMenu(),
+          child: const MobileListMenuDrawerView(),
         ),
       ),
       body: SingleChildScrollView(
