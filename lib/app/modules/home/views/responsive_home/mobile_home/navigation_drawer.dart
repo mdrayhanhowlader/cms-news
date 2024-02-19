@@ -1,13 +1,10 @@
-import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/mobile_home/mobile_home_controller.dart';
-import 'package:get/get.dart';
+// File: navigation_drawer_menu.dart
 import 'package:cms_maahadtahfizaddin/app/core/widgets/poppins_text.dart';
-import 'package:cms_maahadtahfizaddin/app/core/widgets/theme_text.dart';
-import 'package:cms_maahadtahfizaddin/app/data/constants/extensions/widget_extensions.dart';
-import 'package:cms_maahadtahfizaddin/app/data/constants/size_constant.dart';
 import 'package:cms_maahadtahfizaddin/app/modules/home/views/home_view.dart';
+import 'package:cms_maahadtahfizaddin/app/modules/home/views/responsive_home/mobile_home/mobile_home_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
 
 class NavigationDrawerMenu extends GetView<MobileHomeController> {
   const NavigationDrawerMenu({Key? key}) : super(key: key);
@@ -16,14 +13,43 @@ class NavigationDrawerMenu extends GetView<MobileHomeController> {
   Widget build(BuildContext context) {
     final MobileHomeController controller = Get.put(MobileHomeController());
 
-    // Fake data for demonstration
-    final fakeDivisionList = [
-      YourObjectType(prm: 'Division A'),
-      YourObjectType(prm: 'Division B'),
-      YourObjectType(prm: 'Division C'),
+    // List of menu items
+    final List<Map<String, dynamic>> menuItems = [
+      {
+        'title': 'MAIN',
+        'childTitles': ['']
+      },
+      {
+        'title': 'INFO',
+        'childTitles': [
+          'Headquarters Organization Chart',
+          'Fee Information',
+          'Background',
+          'Education flow chart',
+          'Character',
+          'Objective',
+          'Management Congregation',
+          'logo interpretation'
+        ]
+      },
+      {
+        'title': 'BRANCH',
+        'childTitles': ['']
+      },
+      {
+        'title': 'E-ALUMNI',
+        'childTitles': ['']
+      },
+      {
+        'title': 'LINK',
+        'childTitles': ['']
+      },
+      {
+        'title': 'E-CAREER',
+        'childTitles': ['']
+      },
+      // Add more menu items as needed
     ];
-
-    controller.listStaffThings.value = fakeDivisionList;
 
     return Drawer(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(0)),
@@ -75,81 +101,26 @@ class NavigationDrawerMenu extends GetView<MobileHomeController> {
                       ),
                       child: PoppinsText(
                         title: 'Top Menu',
-                        size: 18,
+                        size: 16,
                         weight: FontWeight.w500,
                         color: Colors.white,
                       ),
                     ),
-                    const SizedBox(height: 30),
+                    const SizedBox(height: 20),
                     Column(
                       children: [
-                        Obx(() {
-                          return Stack(
-                            children: [
-                              InkWell(
-                                onTap: () {
-                                  controller.setHoverState(
-                                    !controller.isHovered.value,
-                                  );
-                                },
-                                child: Container(
-                                  padding:
-                                      const EdgeInsets.symmetric(vertical: 10),
-                                  decoration: BoxDecoration(
-                                    border: Border(
-                                      bottom: BorderSide(
-                                        width: 1,
-                                        color: controller.isHovered.isTrue
-                                            ? Colors.red
-                                            : Colors.black,
-                                      ),
-                                    ),
-                                  ),
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      PoppinsText(
-                                        title: 'MAIN',
-                                        color: Colors.white,
-                                        size: 16,
-                                      ),
-                                      const FaIcon(
-                                        FontAwesomeIcons.angleDown,
-                                        color: Colors.red,
-                                        size: 16,
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              if (controller.isHovered.isFalse)
-                                Positioned(
-                                  top: 60, // Adjust the position as needed
-                                  left: 20, // Adjust the position as needed
-                                  child: Container(
-                                    padding: const EdgeInsets.symmetric(
-                                      vertical: 10,
-                                      horizontal: 20,
-                                    ),
-                                    decoration: BoxDecoration(
-                                      border: Border.all(
-                                        width: 1,
-                                        color: Colors.red,
-                                      ),
-                                    ),
-                                    child: PoppinsText(
-                                      title: 'Dropdown Content',
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                ),
-                            ],
-                          );
-                        }),
+                        // Generate CollapsibleMenuItem dynamically
+                        for (int i = 0; i < menuItems.length; i++)
+                          CollapsibleMenuItem(
+                            title: menuItems[i]['title']!,
+                            childTitles: menuItems[i]['childTitles']!,
+                            index: i,
+                          ),
                       ],
                     ),
-                    const SizedBox(height: 30),
+                    const SizedBox(
+                      height: 20,
+                    ),
                     Container(
                       decoration: const BoxDecoration(
                         border: Border(
@@ -161,12 +132,11 @@ class NavigationDrawerMenu extends GetView<MobileHomeController> {
                       ),
                       child: PoppinsText(
                         title: 'Main Menu',
-                        size: 18,
+                        size: 16,
                         weight: FontWeight.w500,
                         color: Colors.white,
                       ),
                     ),
-                    const SizedBox(height: 10),
                   ],
                 ),
               ),
@@ -175,5 +145,93 @@ class NavigationDrawerMenu extends GetView<MobileHomeController> {
         ),
       ),
     );
+  }
+}
+
+class CollapsibleMenuItem extends StatelessWidget {
+  final String title;
+  final List<String> childTitles;
+  final int index; // Pass the index to identify the dropdown
+
+  CollapsibleMenuItem({
+    Key? key,
+    required this.title,
+    required this.childTitles,
+    required this.index,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final MobileHomeController controller = Get.put(MobileHomeController());
+
+    return Obx(() {
+      return Column(
+        children: [
+          InkWell(
+            onTap: () {
+              controller.toggleDropdown(index); // Toggle dropdown on tap
+            },
+            child: Container(
+              padding: const EdgeInsets.symmetric(vertical: 10),
+              decoration: BoxDecoration(
+                border: Border(
+                  bottom: BorderSide(
+                    width: 1,
+                    color: controller.openDropdownIndex.value == index
+                        ? Colors.white
+                        : Colors.black,
+                  ),
+                ),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  PoppinsText(
+                    title: title,
+                    color: Colors.white,
+                    size: 16,
+                  ),
+                  FaIcon(
+                    controller.openDropdownIndex.value == index
+                        ? FontAwesomeIcons.angleUp
+                        : FontAwesomeIcons.angleDown,
+                    color: controller.openDropdownIndex.value == index
+                        ? Colors.white
+                        : Colors.red,
+                    size: 16,
+                  ),
+                ],
+              ),
+            ),
+          ),
+          if (controller.openDropdownIndex.value == index)
+            Column(
+              children: [
+                for (int i = 0; i < childTitles.length; i++)
+                  InkWell(
+                    onTap: () async {
+                      // Handle navigation to dynamic page based on childTitle
+                      await Get.toNamed('/${childTitles[i]}');
+                      // Close the drawer after navigating
+                      Get.back();
+                    },
+                    child: Container(
+                      margin: const EdgeInsets.only(top: 2, left: 20),
+                      width: Get.width * 0.9,
+                      padding: const EdgeInsets.symmetric(vertical: 10),
+                      child: PoppinsText(
+                        title: childTitles[i],
+                        color: Colors.white,
+                        align: TextAlign.left,
+                        size: 16,
+                        weight: FontWeight.w500,
+                      ),
+                    ),
+                  ),
+              ],
+            ),
+        ],
+      );
+    });
   }
 }
